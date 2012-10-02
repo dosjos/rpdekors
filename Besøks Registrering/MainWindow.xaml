@@ -1,0 +1,13 @@
+﻿<Window x:Class="Besøks_Registrering.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Rectangle Height="262" HorizontalAlignment="Left" Margin="301,49,0,0" Name="rectangle1" Stroke="Black" VerticalAlignment="Top" Width="202" />
+        <Rectangle Height="262" HorizontalAlignment="Left" Margin="95,49,0,0" Name="rectangle2" Stroke="Black" VerticalAlignment="Top" Width="200" />
+        <DataGrid AutoGenerateColumns="False" Height="262" HorizontalAlignment="Left" Margin="0,49,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="89" />
+        <Rectangle Height="43" HorizontalAlignment="Left" Name="rectangle3" Stroke="Black" VerticalAlignment="Top" Width="503" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="95,12,0,0" Name="comboBox1" VerticalAlignment="Top" Width="120" />
+        <Button Content="Registrer" Height="23" HorizontalAlignment="Left" Margin="230,12,0,0" Name="button1" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>

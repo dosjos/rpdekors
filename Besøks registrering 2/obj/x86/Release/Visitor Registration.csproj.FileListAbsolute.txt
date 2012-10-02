@@ -1,0 +1,26 @@
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\Visitor Registration.exe.manifest
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\Visitor Registration.application
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\Visitor Registration.exe
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\Visitor Registration.pdb
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\FluentNHibernate.dll
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\NHibernate.dll
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\Iesi.Collections.dll
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\FluentNHibernate.pdb
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\FluentNHibernate.xml
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\NHibernate.pdb
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\NHibernate.xml
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\Iesi.Collections.pdb
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\Iesi.Collections.xml
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\ResolveAssemblyReference.cache
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor_Registration.Form1.resources
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor_Registration.Properties.Resources.resources
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\GenerateResource.read.1.tlog
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\GenerateResource.write.1.tlog
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor Registration.TrustInfo.xml
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor Registration.exe.manifest
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor Registration.application
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor Registration.exe
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor Registration.pdb
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\DomainObjects.dll
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Release\DomainObjects.pdb
+C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Release\Visitor_Registration.RegisterKidForm.resources

@@ -1,0 +1,13 @@
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\bin\Debug\Besøks Registrering.exe
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\bin\Debug\Besøks Registrering.pdb
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\ResolveAssemblyReference.cache
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\MainWindow.baml
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\MainWindow.g.cs
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\App.g.cs
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\Besøks Registrering_MarkupCompile.cache
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\Besøks Registrering.g.resources
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\Besøks_Registrering.Properties.Resources.resources
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\GenerateResource.read.1.tlog
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\GenerateResource.write.1.tlog
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\Besøks Registrering.exe
+c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks Registrering\obj\x86\Debug\Besøks Registrering.pdb
