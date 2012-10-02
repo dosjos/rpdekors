@@ -56,11 +56,14 @@ namespace Visitor_Registration
             string kidName = (string)comboBox1.Text;
             if (kidProvider.RegisterKid(kidName))//Ligger i DB
             {
+                Console.WriteLine("Kid in db");
                 string fnavn = kidProvider.GetFirstName(kidName);
+                Console.WriteLine("added kid to list");
                 visitors.Add(new StringValue(fnavn));
             }
             else//Må opprette Kid
             {
+                Console.WriteLine("Must make kid");
                 registrerKid = new RegisterKidForm(this);
                 registrerKid.Visible = true;
                 this.Enabled = false;
@@ -107,6 +110,11 @@ namespace Visitor_Registration
                     myConn.Close();
                 }
             }
+        }
+
+        private void ResetDatabaseButton(object sender, EventArgs e)
+        {
+            NHibernateHelper.ResetDatabase();
         }
 
 

@@ -36,11 +36,13 @@ namespace Visitor_Registration.DataAccesLayer
         {
             if (CheckIfKidExist(kidName))
             {
+                Console.WriteLine("Does kid exist?");
                 RegisterVisit(kidName);
                 return true;
             }
             else
             {
+                Console.WriteLine("Kid did not exist, make him");
                 return false;
             }
         }
@@ -51,11 +53,11 @@ namespace Visitor_Registration.DataAccesLayer
             v.VisitTime = DateTime.Now;
             Kid k = GetKid(kidName);
             v.KidId = k;
+            Console.WriteLine("Saving visit");
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.Save(k);
                     session.Save(v);
                     transaction.Commit();
                 }
@@ -98,11 +100,13 @@ namespace Visitor_Registration.DataAccesLayer
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
+                    Console.WriteLine("Loking up name");
                     var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name")
                      .SetParameter("name", kidName)
                         .List<Kid>();
                     if (res.Count > 0)
                     {
+                        Console.WriteLine("Found dat kid");
                         return res[0].FirstName;
                     }
                 }

@@ -23,13 +23,41 @@ namespace Visitor_Registration
             }
         }
 
+        public static void ResetDatabase()
+        {
+            _sessionFactory = Fluently.Configure()
+                .Database(MsSqlConfiguration.MsSql2012
+                              .ConnectionString(
+                              (c => c
+                                .Server("localhost\\SQLExpress")
+                                .TrustedConnection()
+                                .Database("VisitDatabase")
+                                .Username("rodekors")
+                                .Password("rodekors")))
+                //    @"Server=localhost\SQLExpress;Database=VisitDatabase;Trusted_Connection=True;Uid=rodekors;")
+                              .ShowSql()
+                )
+                .Mappings(m =>
+                          m.FluentMappings
+                              .AddFromAssemblyOf<Visit>())
+                .Mappings(m =>
+                          m.FluentMappings
+                              .AddFromAssemblyOf<Kid>())
+
+                .ExposeConfiguration(cfg => new SchemaExport(cfg)
+                                               .Create(true,true))
+                .BuildSessionFactory();
+        }
+
+
         private static void InitializeSessionFactory()
         {
             _sessionFactory = Fluently.Configure()
                 .Database(MsSqlConfiguration.MsSql2012
                               .ConnectionString(
                               (c => c
-                                .Server("localhost")
+                                .Server("localhost\\SQLExpress")
+                                .TrustedConnection()
                                 .Database("VisitDatabase")
                                 .Username("rodekors")
                                 .Password("rodekors")))
@@ -54,3 +82,13 @@ namespace Visitor_Registration
         }
     }
 }
+
+/* QUERY
+SELECT TOP 1000 [Id]
+      ,[VisitTime]
+      ,[KidId]
+  FROM [VisitDatabase].[dbo].[Visit]
+  WHERE [VisitTime] >= DATEADD(DAY, DATEDIFF(DAY, '19000101', GETDATE()), '19000101')
+	AND [VisitTime] < DATEADD(DAY, DATEDIFF(DAY, '18991231', GETDATE()), '19000101')
+
+*/
