@@ -1,9 +1,0 @@
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Debug\Besøks registrering 2.exe
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\bin\Debug\Besøks registrering 2.pdb
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Debug\ResolveAssemblyReference.cache
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Debug\Besøks_registrering_2.Form1.resources
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Debug\Besøks_registrering_2.Properties.Resources.resources
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Debug\GenerateResource.read.1.tlog
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Debug\GenerateResource.write.1.tlog
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Debug\Besøks registrering 2.exe
-c:\users\jan ole\documents\visual studio 2010\Projects\RodeKors\Besøks registrering 2\obj\x86\Debug\Besøks registrering 2.pdb
