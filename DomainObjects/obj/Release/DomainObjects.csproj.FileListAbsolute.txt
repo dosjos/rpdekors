@@ -20,3 +20,22 @@ C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\DomainObjects\bi
 C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\DomainObjects\bin\Release\Castle.DynamicProxy2.xml
 C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\DomainObjects\obj\Release\DomainObjects.dll
 C:\Users\Jan Ole\documents\visual studio 2010\Projects\RodeKors\DomainObjects\obj\Release\DomainObjects.pdb
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\DomainObjects.dll
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\DomainObjects.pdb
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\Iesi.Collections.dll
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\Castle.Core.dll
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\log4net.dll
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\Castle.DynamicProxy2.dll
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\FluentNHibernate.pdb
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\FluentNHibernate.xml
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\NHibernate.pdb
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\NHibernate.xml
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\NHibernate.ByteCode.Castle.xml
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\Iesi.Collections.pdb
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\Iesi.Collections.xml
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\Castle.Core.xml
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\log4net.xml
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\bin\Release\Castle.DynamicProxy2.xml
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\obj\Release\ResolveAssemblyReference.cache
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\obj\Release\DomainObjects.dll
+C:\Users\skottjan\Documents\GitHub\rpdekors\DomainObjects\obj\Release\DomainObjects.pdb
