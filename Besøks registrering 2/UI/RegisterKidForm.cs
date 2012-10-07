@@ -1,20 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Visitor_Registration.Controllers;
 using Visitor_Registration.DomainObjects;
 using Visitor_Registration.DataAccesLayer;
+
 
 namespace Visitor_Registration
 {
     public partial class RegisterKidForm : Form
     {
-        private Form1 form1;
+        MainController mainController;
 
+        #region CloseButton
         private const int CP_NOCLOSE_BUTTON = 0x200;
         protected override CreateParams CreateParams
         {
@@ -25,57 +29,79 @@ namespace Visitor_Registration
                 return myCp;
             }
         }
+        #endregion
         public RegisterKidForm()
         {
             InitializeComponent();
         }
 
-        public RegisterKidForm(Form1 form1)
+        public RegisterKidForm(MainController mainController)
         {
             InitializeComponent();
-            this.form1 = form1;
-            
+            InitializeYearChooser();
+            this.mainController = mainController;
+            this.Visible = true;
         }
+
+        private void InitializeYearChooser()
+        {
+            int min = CustomizationManager.GetLowestYear();
+            int max = CustomizationManager.GetHighestYear();
+            for (int i = min; i <= max; i++)
+            {
+                fAar.Items.Add(i);
+            }
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string fnavn = fNavn.Text;
-            string enavn = eNavn.Text;
+            string fnavn = fNavn.Text.Trim();
+            string enavn = eNavn.Text.Trim();
             string age = fAar.Text;
             Boolean Gender = gender2.Checked;//if true, male
-            string postcode = postCode.Text;
-            string email = eMail.Text;
-            string telephone = tlf.Text;
-            string etnisity = ethn.Text;
+            string postcode = postCode.Text.Trim();
+            string email = eMail.Text.Trim();
+            string telephone = tlf.Text.Trim();
+            string etnisity = ethn.Text.Trim();
             
             Boolean done = true;
 
             if (fnavn.Length <= 1)
             {
-                fNavn.ForeColor = System.Drawing.Color.Red;
+                label1.ForeColor = System.Drawing.Color.Red;
                 done = false;
             }
             else
             {
-                fNavn.ForeColor = System.Drawing.Color.Black;
+                label1.ForeColor = System.Drawing.Color.Black;
             }
             if (enavn.Length <= 1)
             {
-                eNavn.ForeColor = System.Drawing.Color.Red;
+                label2.ForeColor = System.Drawing.Color.Red;
                 done = false;
             }
             else
             {
-                eNavn.ForeColor = System.Drawing.Color.Black;
+                label2.ForeColor = System.Drawing.Color.Black;
             }
             if (postcode.Length != 4)
             {
-                postCode.ForeColor = System.Drawing.Color.Red;
+                label6.ForeColor = System.Drawing.Color.Red;
                 done = false;
             }
             else
             {
-                postCode.ForeColor = System.Drawing.Color.Black;
+                label6.ForeColor = System.Drawing.Color.Black;
+            }
+            if (fAar.Text.Length != 4)
+            {
+                label3.ForeColor = System.Drawing.Color.Red;
+                done = false;
+            }
+            else
+            {
+                label3.ForeColor = System.Drawing.Color.Black;
             }
 
             if (done)
@@ -88,22 +114,17 @@ namespace Visitor_Registration
                 k.Email = email;
                 k.TLF = telephone;
                 k.Postcode = Convert.ToInt32(postcode);
-                KidProvider.Save(k);
-                form1.Enabled = true;
-                form1.AddVisit(fnavn);
-                this.Dispose();
+                mainController.SaveKid(k);
+                //TODO Skjekk om det finnes en med samme navn fra før og evt fiks dette
+
+                //this.Dispose();
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            form1.Enabled = true;
+            mainController.ReEnableMainWindow();
             this.Dispose();
         }
-
-
-
-
-
     }
 }

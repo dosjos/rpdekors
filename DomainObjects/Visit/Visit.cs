@@ -11,7 +11,17 @@ namespace DomainObjects.Visit
         public virtual DateTime VisitTime { get; set; }
         public virtual int Id { get; set; }
         public virtual Kid KidId { get; set; }
+        public virtual String RestrictionDate { get; set; }
 
-
+        public Visit(){
+            if (VisitTime == DateTime.MinValue)
+            {
+                VisitTime = DateTime.Now;
+            }
+            if (RestrictionDate == null)
+            {
+                RestrictionDate = DateTime.Now.Year + " " + DateTime.Now.Month + " " + DateTime.Now.Day;  
+            }
+        }
     }
 }

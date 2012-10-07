@@ -11,13 +11,13 @@ namespace Visitor_Registration.DataAccesLayer
     {
         public KidMap(){
             Id(x => x.Id);
-            Map(x => x.FirstName);//.UniqueKey("FullNAme");
-            Map(x => x.LastName);//.UniqueKey("FullName");
-            Map(x => x.Age);
+            Map(x => x.FirstName).UniqueKey("UniquePerson");
+            Map(x => x.LastName).UniqueKey("UniquePerson");
+            Map(x => x.Age).UniqueKey("UniquePerson");
             Map(x => x.Email);
             Map(x => x.Ethnisity);
             Map(x => x.Gender);
-            Map(x => x.Postcode);
+            Map(x => x.Postcode).UniqueKey("UniquePerson");
             Map(x => x.TLF);
         }
     }

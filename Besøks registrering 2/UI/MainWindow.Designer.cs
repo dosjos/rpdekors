@@ -1,6 +1,6 @@
 ﻿namespace Visitor_Registration
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -36,9 +36,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.avsluttToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leggTilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.anonymToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.jenteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.guttToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ukjentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kontrollpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -104,12 +114,15 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(190, 27);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(365, 47);
+            this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 4;
+            this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyPressed);
             // 
             // button1
             // 
@@ -125,7 +138,9 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.filToolStripMenuItem,
-            this.optionsToolStripMenuItem});
+            this.leggTilToolStripMenuItem,
+            this.optionsToolStripMenuItem,
+            this.hjelpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(844, 24);
@@ -134,14 +149,72 @@
             // 
             // filToolStripMenuItem
             // 
+            this.filToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.avsluttToolStripMenuItem});
             this.filToolStripMenuItem.Name = "filToolStripMenuItem";
             this.filToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.filToolStripMenuItem.Text = "File";
             // 
+            // avsluttToolStripMenuItem
+            // 
+            this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.avsluttToolStripMenuItem.Text = "Avslutt";
+            this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.ExitApplication);
+            // 
+            // leggTilToolStripMenuItem
+            // 
+            this.leggTilToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.anonymToolStripMenuItem,
+            this.jenteToolStripMenuItem,
+            this.guttToolStripMenuItem,
+            this.ukjentToolStripMenuItem});
+            this.leggTilToolStripMenuItem.Name = "leggTilToolStripMenuItem";
+            this.leggTilToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.leggTilToolStripMenuItem.Text = "Legg til";
+            // 
+            // anonymToolStripMenuItem
+            // 
+            this.anonymToolStripMenuItem.Name = "anonymToolStripMenuItem";
+            this.anonymToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.A)));
+            this.anonymToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.anonymToolStripMenuItem.Text = "Anonym";
+            this.anonymToolStripMenuItem.Click += new System.EventHandler(this.AddAnonym);
+            // 
+            // jenteToolStripMenuItem
+            // 
+            this.jenteToolStripMenuItem.Name = "jenteToolStripMenuItem";
+            this.jenteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.J)));
+            this.jenteToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.jenteToolStripMenuItem.Text = "Jente";
+            this.jenteToolStripMenuItem.Click += new System.EventHandler(this.AddGirl);
+            // 
+            // guttToolStripMenuItem
+            // 
+            this.guttToolStripMenuItem.Name = "guttToolStripMenuItem";
+            this.guttToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.G)));
+            this.guttToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.guttToolStripMenuItem.Text = "Gutt";
+            this.guttToolStripMenuItem.Click += new System.EventHandler(this.AddBoy);
+            // 
+            // ukjentToolStripMenuItem
+            // 
+            this.ukjentToolStripMenuItem.Name = "ukjentToolStripMenuItem";
+            this.ukjentToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.U)));
+            this.ukjentToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
+            this.ukjentToolStripMenuItem.Text = "Ukjent";
+            this.ukjentToolStripMenuItem.Click += new System.EventHandler(this.AddUnknown);
+            // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetDatabaseToolStripMenuItem});
+            this.resetDatabaseToolStripMenuItem,
+            this.kontrollpanelToolStripMenuItem,
+            this.statistikToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -153,11 +226,38 @@
             this.resetDatabaseToolStripMenuItem.Text = "Reset Database";
             this.resetDatabaseToolStripMenuItem.Click += new System.EventHandler(this.ResetDatabaseButton);
             // 
+            // kontrollpanelToolStripMenuItem
+            // 
+            this.kontrollpanelToolStripMenuItem.Name = "kontrollpanelToolStripMenuItem";
+            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.kontrollpanelToolStripMenuItem.Text = "Kontrollpanel";
+            // 
+            // statistikToolStripMenuItem
+            // 
+            this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
+            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.statistikToolStripMenuItem.Text = "Statistik";
+            // 
+            // hjelpToolStripMenuItem
+            // 
+            this.hjelpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.omToolStripMenuItem});
+            this.hjelpToolStripMenuItem.Name = "hjelpToolStripMenuItem";
+            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(47, 20);
+            this.hjelpToolStripMenuItem.Text = "Hjelp";
+            // 
             // form1BindingSource
             // 
-            this.form1BindingSource.DataSource = typeof(Visitor_Registration.Form1);
+            this.form1BindingSource.DataSource = typeof(Visitor_Registration.MainWindow);
             // 
-            // Form1
+            // omToolStripMenuItem
+            // 
+            this.omToolStripMenuItem.Name = "omToolStripMenuItem";
+            this.omToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.omToolStripMenuItem.Text = "Om";
+            this.omToolStripMenuItem.Click += new System.EventHandler(this.EnableAboutBox);
+            // 
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -167,10 +267,9 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "Røde Kors besøksregistrering. Café Condio";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -198,6 +297,16 @@
         private System.Windows.Forms.ToolStripMenuItem filToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetDatabaseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem avsluttToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem leggTilToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem anonymToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem jenteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem guttToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ukjentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kontrollpanelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem statistikToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hjelpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem omToolStripMenuItem;
 
     }
 }

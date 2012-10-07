@@ -5,15 +5,14 @@ using System.Text;
 using NHibernate;
 using Visitor_Registration.DomainObjects;
 using DomainObjects.Visit;
+using System.Data.SqlClient;
+using NHibernate.Exceptions;
 
 namespace Visitor_Registration.DataAccesLayer
 {
     public class KidProvider
     {
-        private static ISessionFactory sessionFactory;
-
-
-        internal Boolean CheckIfKidExist(string kidName)
+        internal static Boolean CheckIfKidExist(string kidName)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -32,39 +31,43 @@ namespace Visitor_Registration.DataAccesLayer
         }
 
 
-        internal Boolean RegisterKid(string kidName)
+        public static Boolean RegisterKid(string kidName)
         {
             if (CheckIfKidExist(kidName))
             {
-                Console.WriteLine("Does kid exist?");
-                RegisterVisit(kidName);
                 return true;
             }
             else
             {
-                Console.WriteLine("Kid did not exist, make him");
                 return false;
             }
         }
 
-        private void RegisterVisit(string kidName)
+        private Boolean RegisterVisit(string kidName)
         {
             Visit v = new Visit();
-            v.VisitTime = DateTime.Now;
             Kid k = GetKid(kidName);
             v.KidId = k;
-            Console.WriteLine("Saving visit");
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    session.Save(v);
-                    transaction.Commit();
+                    try
+                    {
+                        session.Save(v);
+                        transaction.Commit();
+                    }
+                    catch (GenericADOException e)
+                    {
+                        Console.WriteLine(e.StackTrace);
+                        return false;
+                    }
                 }
             }
+            return true;
         }
 
-        private Kid GetKid(string kidName)
+        public static Kid GetKid(string kidName)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -100,13 +103,11 @@ namespace Visitor_Registration.DataAccesLayer
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    Console.WriteLine("Loking up name");
                     var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name")
                      .SetParameter("name", kidName)
                         .List<Kid>();
                     if (res.Count > 0)
                     {
-                        Console.WriteLine("Found dat kid");
                         return res[0].FirstName;
                     }
                 }
@@ -114,9 +115,10 @@ namespace Visitor_Registration.DataAccesLayer
             return null;
         }
 
-        internal object getAllKids()
+        public static object getAllKids()
         {
             List<object> list = new List<object>();
+            list.Add("");
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
@@ -126,12 +128,34 @@ namespace Visitor_Registration.DataAccesLayer
                     {
                         list.Add(item.FirstName + " " + item.LastName);
                     }
-//                        IList<Post> posts = session
-//17	                .CreateCriteria(typeof(Post))
-//18	                .List<Post>();
                 }
             }
             return list;
+        }
+
+        internal static List<Kid> GetKidsBasedOnIdInVisit(List<Visit> list)
+        {
+            List<Kid> result = new List<Kid>();
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    if(list != null){
+                        foreach (var item in list)
+                        {
+                            var res = session.CreateQuery("from Kid k where k.Id  = :id")
+                                    .SetParameter("id", item.KidId.Id)
+                                    .List<Kid>();
+                            if (res != null)
+                            {
+                                result.Add(res[0]);
+                            }
+                        }
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }

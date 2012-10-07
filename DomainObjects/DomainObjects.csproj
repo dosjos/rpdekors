@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DomainObjects</RootNamespace>
     <AssemblyName>DomainObjects</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -21,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +31,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.DynamicProxy2">
@@ -57,9 +60,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="Settings\SettingsMap.cs" />
+    <Compile Include="Visit\GenericVisitor.cs" />
+    <Compile Include="Visit\GenericVisitorMap.cs" />
     <Compile Include="Visit\Kid.cs" />
     <Compile Include="Visit\KidMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Visit\StringValue.cs" />
     <Compile Include="Visit\Visit.cs" />
     <Compile Include="Visit\VisitMap.cs" />
   </ItemGroup>

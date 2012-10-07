@@ -5,6 +5,7 @@ using NHibernate.Tool.hbm2ddl;
 using Visitor_Registration.DataAccesLayer;
 using DomainObjects.Visit;
 using Visitor_Registration.DomainObjects;
+using DomainObjects.Settings;
 
 namespace Visitor_Registration
 {
@@ -29,21 +30,18 @@ namespace Visitor_Registration
                 .Database(MsSqlConfiguration.MsSql2012
                               .ConnectionString(
                               (c => c
-                                .Server("localhost\\SQLExpress")
+                                .Server(CustomizationManager.GetServer())
                                 .TrustedConnection()
-                                .Database("VisitDatabase")
+                                .Database(CustomizationManager.GetDatabase())
                                 .Username("rodekors")
                                 .Password("rodekors")))
                 //    @"Server=localhost\SQLExpress;Database=VisitDatabase;Trusted_Connection=True;Uid=rodekors;")
                               .ShowSql()
                 )
-                .Mappings(m =>
-                          m.FluentMappings
-                              .AddFromAssemblyOf<Visit>())
-                .Mappings(m =>
-                          m.FluentMappings
-                              .AddFromAssemblyOf<Kid>())
-
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
+                .Mappings(m =>m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
                 .ExposeConfiguration(cfg => new SchemaExport(cfg)
                                                .Create(true,true))
                 .BuildSessionFactory();
@@ -56,21 +54,18 @@ namespace Visitor_Registration
                 .Database(MsSqlConfiguration.MsSql2012
                               .ConnectionString(
                               (c => c
-                                .Server("localhost\\SQLExpress")
+                                .Server(CustomizationManager.GetServer())
                                 .TrustedConnection()
-                                .Database("VisitDatabase")
+                                .Database(CustomizationManager.GetDatabase())
                                 .Username("rodekors")
                                 .Password("rodekors")))
                               //    @"Server=localhost\SQLExpress;Database=VisitDatabase;Trusted_Connection=True;Uid=rodekors;")
                               .ShowSql()
                 )
-                .Mappings(m =>
-                          m.FluentMappings
-                              .AddFromAssemblyOf<Visit>())
-                .Mappings(m =>
-                          m.FluentMappings
-                              .AddFromAssemblyOf<Kid>())
-
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
                 //.ExposeConfiguration(cfg => new SchemaExport(cfg)
                  //                               .Create(true,true))
                 .BuildSessionFactory();
