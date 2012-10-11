@@ -21,6 +21,7 @@ using NHibernate.Tool.hbm2ddl;
 using NHibernate.Criterion;
 using Visitor_Registration.DataAccesLayer;
 using Visitor_Registration.UI;
+using System.Drawing.Drawing2D;
 
 
 namespace Visitor_Registration
@@ -62,12 +63,21 @@ namespace Visitor_Registration
                 temp = pictureBox2;
                 control = splitContainer2.Panel2;
             }
-            temp.Image = image;
             temp.Width = control.Width;
             temp.Height = control.Height;
-            temp.SizeMode = PictureBoxSizeMode.AutoSize;
-            //temp.Image.Width = temp.Width;
-           // temp.Image.Height = temp.Height;
+
+            Bitmap backgroundBitmap = new Bitmap(control.Width, control.Height);
+            using (Bitmap tempBitmap = new Bitmap(image))
+            {
+                using (Graphics g = Graphics.FromImage(backgroundBitmap))
+                {
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    // Get the set of points that determine our rectangle for resizing.
+                    Point[] corners = { new Point(0, 0), new Point(backgroundBitmap.Width, 0),new Point(0, backgroundBitmap.Height)};
+                    g.DrawImage(tempBitmap, corners);
+                }
+            }
+            temp.Image = backgroundBitmap;
         }
 
 
