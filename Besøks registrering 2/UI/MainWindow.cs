@@ -34,11 +34,40 @@ namespace Visitor_Registration
         {
             InitializeComponent();
             mc = new MainController(this);
-           // NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
+            //NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
             visitors = new BindingList<StringValue>();
             ConfigureDataGrid();
             PopulateDataGrid();
             comboBox1.DataSource = mc.getAllKids();
+            SizeChanged += WindowOnSizeChanged;
+        }
+
+        private void WindowOnSizeChanged(object sender, EventArgs e)
+        {
+            ResizeImage("image1.jpg", true);
+            ResizeImage("image2.jpg", false);
+        }
+
+        private void ResizeImage(string imageName, Boolean side)
+        {
+            Image image = Image.FromFile("Images/" + imageName);
+            PictureBox temp;
+            SplitterPanel control;
+            if (side)
+            {
+                temp = pictureBox1;
+                control = splitContainer2.Panel1;
+            }
+            else {
+                temp = pictureBox2;
+                control = splitContainer2.Panel2;
+            }
+            temp.Image = image;
+            temp.Width = control.Width;
+            temp.Height = control.Height;
+            temp.SizeMode = PictureBoxSizeMode.AutoSize;
+            //temp.Image.Width = temp.Width;
+           // temp.Image.Height = temp.Height;
         }
 
 
