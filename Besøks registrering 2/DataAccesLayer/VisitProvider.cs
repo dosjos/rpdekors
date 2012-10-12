@@ -10,7 +10,7 @@ using Visitor_Registration.DomainObjects;
 
 namespace Visitor_Registration.DataAccesLayer
 {
-    class VisitProvider
+    public class VisitProvider
     {
         internal static System.ComponentModel.BindingList<StringValue> GetTodaysVisits()
         {
@@ -46,6 +46,43 @@ namespace Visitor_Registration.DataAccesLayer
                     transaction.Commit();
                 }
             }
+        }
+
+        public static void Save(Visit v)
+        {
+            
+                using (ISession session = NHibernateHelper.OpenSession())
+                {
+                    using (ITransaction transaction = session.BeginTransaction())
+                    {
+                        session.Save(v);//TODO Feiler her med GenericADOException dersom constrainten ikke oveholdes
+                        transaction.Commit();
+                    }
+                }
+            
+        }
+
+        internal static List<Visit> GetVisitsWithinDates(DateTime start, DateTime end)
+        {
+            List<Visit> list = new List<Visit>(); ;
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery(" FROM Visit WHERE VisitTime >= :start " +
+                        "AND VisitTime <= :end order by VisitTime")
+                        .SetParameter("start", start)
+                        .SetParameter("end", end)
+                        .List<Visit>();
+                    list = (List<Visit>)res;
+
+
+                    //var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name")
+                   //  .SetParameter("name", kidName)
+                }
+            }
+
+            return list;
         }
     }
 }

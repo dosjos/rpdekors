@@ -20,12 +20,12 @@ namespace Visitor_Registration.DataAccesLayer
             return ConfigurationManager.AppSettings["database"];
         }
 
-        internal static int GetLowestYear()
+        public static int GetLowestYear()
         {
             int temp = Convert.ToInt32(ConfigurationManager.AppSettings["lowestyear"]);
             return temp;
         }
-        internal static int GetHighestYear()
+        public static int GetHighestYear()
         {
             int temp = Convert.ToInt32(ConfigurationManager.AppSettings["highestyear"]);
             return temp;

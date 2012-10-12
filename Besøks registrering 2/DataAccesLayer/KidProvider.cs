@@ -85,7 +85,7 @@ namespace Visitor_Registration.DataAccesLayer
             return null;
         }
 
-        internal static void Save(Kid k)
+        public static void Save(Kid k)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {

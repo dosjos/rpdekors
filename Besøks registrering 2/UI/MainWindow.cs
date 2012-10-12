@@ -22,6 +22,7 @@ using NHibernate.Criterion;
 using Visitor_Registration.DataAccesLayer;
 using Visitor_Registration.UI;
 using System.Drawing.Drawing2D;
+using Visitor_Registration.Mocking;
 
 
 namespace Visitor_Registration
@@ -168,6 +169,18 @@ namespace Visitor_Registration
         private void EnableAboutBox(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog(this);
+        }
+
+        private void OpenStatisticsWindow(object sender, EventArgs e)
+        {
+            Statistics stat = new Statistics(mc);
+            stat.Visible = true;
+        }
+
+        private void MockVisitData(object sender, EventArgs e)
+        {
+            visitMocker vm = new visitMocker();
+            vm.MockVisits();
         }
     }
 }

@@ -95,5 +95,12 @@ namespace Visitor_Registration.Controllers
         {
             GenericVisitorProvider.AddVisit(s);
         }
+
+        internal List<Visit> GetSortedVisitList(DateTime start, DateTime end)
+        {
+            List<Visit> list = VisitProvider.GetVisitsWithinDates(start, end);
+
+            return list;
+        }
     }
 }

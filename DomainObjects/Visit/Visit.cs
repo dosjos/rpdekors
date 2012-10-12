@@ -17,11 +17,21 @@ namespace DomainObjects.Visit
             if (VisitTime == DateTime.MinValue)
             {
                 VisitTime = DateTime.Now;
+                if (RestrictionDate == null)
+                {
+                    RestrictionDate = DateTime.Now.Year + " " + DateTime.Now.Month + " " + DateTime.Now.Day;
+                }
             }
-            if (RestrictionDate == null)
+            else
             {
-                RestrictionDate = DateTime.Now.Year + " " + DateTime.Now.Month + " " + DateTime.Now.Day;  
+                SetRestrictionDate();
             }
+
+        }
+
+        public virtual void SetRestrictionDate()
+        {
+            RestrictionDate = VisitTime.Year + " " + VisitTime.Month + " " + VisitTime.Day;
         }
     }
 }

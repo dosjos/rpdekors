@@ -32,6 +32,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,8 +51,7 @@
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.mockBesøksDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -60,10 +61,10 @@
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -119,6 +120,22 @@
             this.splitContainer2.Size = new System.Drawing.Size(643, 326);
             this.splitContainer2.SplitterDistance = 326;
             this.splitContainer2.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(324, 326);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(313, 326);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
             // 
             // comboBox1
             // 
@@ -222,7 +239,8 @@
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetDatabaseToolStripMenuItem,
             this.kontrollpanelToolStripMenuItem,
-            this.statistikToolStripMenuItem});
+            this.statistikToolStripMenuItem,
+            this.mockBesøksDataToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -230,21 +248,22 @@
             // resetDatabaseToolStripMenuItem
             // 
             this.resetDatabaseToolStripMenuItem.Name = "resetDatabaseToolStripMenuItem";
-            this.resetDatabaseToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.resetDatabaseToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.resetDatabaseToolStripMenuItem.Text = "Reset Database";
             this.resetDatabaseToolStripMenuItem.Click += new System.EventHandler(this.ResetDatabaseButton);
             // 
             // kontrollpanelToolStripMenuItem
             // 
             this.kontrollpanelToolStripMenuItem.Name = "kontrollpanelToolStripMenuItem";
-            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.kontrollpanelToolStripMenuItem.Text = "Kontrollpanel";
             // 
             // statistikToolStripMenuItem
             // 
             this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
-            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
             this.statistikToolStripMenuItem.Text = "Statistik";
+            this.statistikToolStripMenuItem.Click += new System.EventHandler(this.OpenStatisticsWindow);
             // 
             // hjelpToolStripMenuItem
             // 
@@ -261,21 +280,12 @@
             this.omToolStripMenuItem.Text = "Om";
             this.omToolStripMenuItem.Click += new System.EventHandler(this.EnableAboutBox);
             // 
-            // pictureBox1
+            // mockBesøksDataToolStripMenuItem
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(324, 326);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(313, 326);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
+            this.mockBesøksDataToolStripMenuItem.Name = "mockBesøksDataToolStripMenuItem";
+            this.mockBesøksDataToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.mockBesøksDataToolStripMenuItem.Text = "Mock besøks data";
+            this.mockBesøksDataToolStripMenuItem.Click += new System.EventHandler(this.MockVisitData);
             // 
             // MainWindow
             // 
@@ -299,11 +309,11 @@
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.form1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +343,7 @@
         private System.Windows.Forms.ToolStripMenuItem omToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.ToolStripMenuItem mockBesøksDataToolStripMenuItem;
 
     }
 }
