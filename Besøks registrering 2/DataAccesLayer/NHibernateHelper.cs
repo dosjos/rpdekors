@@ -6,6 +6,7 @@ using Visitor_Registration.DataAccesLayer;
 using DomainObjects.Visit;
 using Visitor_Registration.DomainObjects;
 using DomainObjects.Settings;
+using System;
 
 namespace Visitor_Registration
 {
@@ -50,30 +51,45 @@ namespace Visitor_Registration
 
         private static void InitializeSessionFactory()
         {
-            _sessionFactory = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2012
-                              .ConnectionString(
-                              (c => c
-                                .Server(CustomizationManager.GetServer())
-                                .TrustedConnection()
-                                .Database(CustomizationManager.GetDatabase())
-                                .Username("rodekors")
-                                .Password("rodekors")))
-                              //    @"Server=localhost\SQLExpress;Database=VisitDatabase;Trusted_Connection=True;Uid=rodekors;")
-                              .ShowSql()
-                )
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
-                //.ExposeConfiguration(cfg => new SchemaExport(cfg)
-                 //                               .Create(true,true))
-                .BuildSessionFactory();
+            try
+            {
+                _sessionFactory = Fluently.Configure()
+                    .Database(MsSqlConfiguration.MsSql2012
+                                  .ConnectionString(
+                                  (c => c
+                                    .Server(CustomizationManager.GetServer())
+                                    .TrustedConnection()
+                                    .Database(CustomizationManager.GetDatabase())
+                                    .Username("rodekors")
+                                    .Password("rodekors")))
+                    //    @"Server=localhost\SQLExpress;Database=VisitDatabase;Trusted_Connection=True;Uid=rodekors;")
+                                  .ShowSql()
+                    )
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
+                    //.ExposeConfiguration(cfg => new SchemaExport(cfg)
+                    //                               .Create(true,true))
+                    .BuildSessionFactory();
+            }
+            catch (Exception e)
+            {
+                System.Console.WriteLine(e.StackTrace);
+            }
         }
 
         public static ISession OpenSession()
         {
-            return SessionFactory.OpenSession();
+            try
+            {
+                return SessionFactory.OpenSession();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+            return null;
         }
     }
 }

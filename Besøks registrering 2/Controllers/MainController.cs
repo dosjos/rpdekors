@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,6 +19,7 @@ namespace Visitor_Registration.Controllers
 
         public MainController(MainWindow m)
         {
+
             mw = m;
         }
         internal object getAllKids()
@@ -101,6 +103,26 @@ namespace Visitor_Registration.Controllers
             List<Visit> list = VisitProvider.GetVisitsWithinDates(start, end);
 
             return list;
+        }
+
+        internal List<Kid> GetTodaysVisitKids()
+        {
+            return VisitProvider.GetTodaysVisitKids();
+        }
+
+        internal List<GenericVisitor> GetTodaysGenericVisits()
+        {
+            return GenericVisitorProvider.GetTodaysVisits();
+        }
+
+        internal IEnumerable GetAllVisitsThisYear()
+        {
+            return VisitProvider.GetAllVisitsThisYear();
+        }
+
+        internal List<GenericVisitor> GetAllGenericVisitsThisYear()
+        {
+            throw new NotImplementedException();
         }
     }
 }

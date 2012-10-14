@@ -10,7 +10,7 @@ namespace Visitor_Registration.DataAccesLayer
 {
     public class GenericVisitorProvider
     {
-        internal static void AddVisit(string s)
+        public static void AddVisit(string s)
         {
             GenericVisitor gv = new GenericVisitor();
             gv.Type = s;
@@ -22,6 +22,22 @@ namespace Visitor_Registration.DataAccesLayer
                     transaction.Commit();
                 }
             }
+        }
+
+        internal static List<GenericVisitor> GetTodaysVisits()
+        {
+            List<GenericVisitor> kids;
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery(" FROM GenericVisitor WHERE VisitTime >= DATEADD(DAY, DATEDIFF(DAY, '19000101', GETDATE()), '19000101')" +
+                        "AND VisitTime < DATEADD(DAY, DATEDIFF(DAY, '18991231', GETDATE()), '19000101')")
+                        .List<GenericVisitor>();
+                    kids = (List<GenericVisitor>)res;
+                }
+            }
+            return kids;
         }
     }
 }

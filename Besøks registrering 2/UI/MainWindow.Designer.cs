@@ -45,13 +45,14 @@
             this.guttToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ukjentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontrollpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mockBesøksDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utviklingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mockBesøksDataToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.resetDatabaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -237,31 +238,23 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resetDatabaseToolStripMenuItem,
             this.kontrollpanelToolStripMenuItem,
             this.statistikToolStripMenuItem,
-            this.mockBesøksDataToolStripMenuItem});
+            this.utviklingToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
             // 
-            // resetDatabaseToolStripMenuItem
-            // 
-            this.resetDatabaseToolStripMenuItem.Name = "resetDatabaseToolStripMenuItem";
-            this.resetDatabaseToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.resetDatabaseToolStripMenuItem.Text = "Reset Database";
-            this.resetDatabaseToolStripMenuItem.Click += new System.EventHandler(this.ResetDatabaseButton);
-            // 
             // kontrollpanelToolStripMenuItem
             // 
             this.kontrollpanelToolStripMenuItem.Name = "kontrollpanelToolStripMenuItem";
-            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.kontrollpanelToolStripMenuItem.Text = "Kontrollpanel";
             // 
             // statistikToolStripMenuItem
             // 
             this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
-            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
+            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.statistikToolStripMenuItem.Text = "Statistik";
             this.statistikToolStripMenuItem.Click += new System.EventHandler(this.OpenStatisticsWindow);
             // 
@@ -280,12 +273,28 @@
             this.omToolStripMenuItem.Text = "Om";
             this.omToolStripMenuItem.Click += new System.EventHandler(this.EnableAboutBox);
             // 
-            // mockBesøksDataToolStripMenuItem
+            // utviklingToolStripMenuItem
             // 
-            this.mockBesøksDataToolStripMenuItem.Name = "mockBesøksDataToolStripMenuItem";
-            this.mockBesøksDataToolStripMenuItem.Size = new System.Drawing.Size(169, 22);
-            this.mockBesøksDataToolStripMenuItem.Text = "Mock besøks data";
-            this.mockBesøksDataToolStripMenuItem.Click += new System.EventHandler(this.MockVisitData);
+            this.utviklingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mockBesøksDataToolStripMenuItem1,
+            this.resetDatabaseToolStripMenuItem1});
+            this.utviklingToolStripMenuItem.Name = "utviklingToolStripMenuItem";
+            this.utviklingToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.utviklingToolStripMenuItem.Text = "Utvikling";
+            // 
+            // mockBesøksDataToolStripMenuItem1
+            // 
+            this.mockBesøksDataToolStripMenuItem1.Name = "mockBesøksDataToolStripMenuItem1";
+            this.mockBesøksDataToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.mockBesøksDataToolStripMenuItem1.Text = "Mock besøks data";
+            this.mockBesøksDataToolStripMenuItem1.Click += new System.EventHandler(this.MockVisitData);
+            // 
+            // resetDatabaseToolStripMenuItem1
+            // 
+            this.resetDatabaseToolStripMenuItem1.Name = "resetDatabaseToolStripMenuItem1";
+            this.resetDatabaseToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
+            this.resetDatabaseToolStripMenuItem1.Text = "Reset Database";
+            this.resetDatabaseToolStripMenuItem1.Click += new System.EventHandler(this.ResetDatabaseButton);
             // 
             // MainWindow
             // 
@@ -330,7 +339,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem filToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem resetDatabaseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem avsluttToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem leggTilToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem anonymToolStripMenuItem;
@@ -343,7 +351,9 @@
         private System.Windows.Forms.ToolStripMenuItem omToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ToolStripMenuItem mockBesøksDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utviklingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mockBesøksDataToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem resetDatabaseToolStripMenuItem1;
 
     }
 }

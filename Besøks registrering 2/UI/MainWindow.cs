@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -24,7 +25,6 @@ using Visitor_Registration.UI;
 using System.Drawing.Drawing2D;
 using Visitor_Registration.Mocking;
 
-
 namespace Visitor_Registration
 {
     public partial class MainWindow : Form
@@ -32,22 +32,37 @@ namespace Visitor_Registration
         private BindingList<StringValue> visitors;
         private MainController mc;
 
+
         public MainWindow()
         {
             InitializeComponent();
             mc = new MainController(this);
+            // TODO: Complete member initialization
+
             //NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
+#if !DEBUG
+            utviklingToolStripMenuItem.Enabled = false;
+#endif
             visitors = new BindingList<StringValue>();
-            ConfigureDataGrid();
-            PopulateDataGrid();
+            try
+            {
+                ConfigureDataGrid();
+                PopulateDataGrid();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
             comboBox1.DataSource = mc.getAllKids();
             SizeChanged += WindowOnSizeChanged;
         }
 
+        #region images
         private void WindowOnSizeChanged(object sender, EventArgs e)
         {
             ResizeImage("image1.jpg", true);
             ResizeImage("image2.jpg", false);
+            //TODO Hente disse fra database
         }
 
         private void ResizeImage(string imageName, Boolean side)
@@ -82,15 +97,7 @@ namespace Visitor_Registration
         }
 
 
-        public void AddVisit(string name)
-        {
-            visitors.Add(new StringValue(name));
-        }
-
-        private void ResetDatabaseButton(object sender, EventArgs e)
-        {
-            NHibernateHelper.ResetDatabase();
-        }
+        #endregion
 
         #region DATAGRID
 
@@ -115,6 +122,7 @@ namespace Visitor_Registration
         }
         #endregion
 
+        #region registerkids
         private void button1_Click(object sender, EventArgs e)
         {
             RegisterKidFromComboBox();
@@ -133,10 +141,11 @@ namespace Visitor_Registration
             mc.RegisterKid((string)comboBox1.Text);
         }
 
-        private void ExitApplication(object sender, EventArgs e)
+        public void AddVisit(string name)
         {
-            Application.Exit();
+            visitors.Add(new StringValue(name));
         }
+        #endregion
 
         #region GenericKids
         private void AddAnonym(object sender, EventArgs e)
@@ -166,6 +175,7 @@ namespace Visitor_Registration
         }
         #endregion
 
+        #region Windows
         private void EnableAboutBox(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog(this);
@@ -176,127 +186,26 @@ namespace Visitor_Registration
             Statistics stat = new Statistics(mc);
             stat.Visible = true;
         }
+        #endregion
 
+        #region development
         private void MockVisitData(object sender, EventArgs e)
         {
             visitMocker vm = new visitMocker();
             vm.MockVisits();
         }
+        private void ResetDatabaseButton(object sender, EventArgs e)
+        {
+            NHibernateHelper.ResetDatabase();
+        }
+        #endregion
+
+        #region exit
+        private void ExitApplication(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        #endregion
     }
 }
-
-
-////Musejeger er selve programmet, i programmets verden finnes det både katter og mus
-////en katt kan fange mus
-////en mus kan være redd for katter, men ikke nødvendigvis
-
-
-////Denne går i Katt.Java
-
-//public class Katt
-//{
-//    public String navn;
-//    public int antallFangedeMus = 0;
-
-//    //Denne konstruktøren kjører når katten blir opprettet og tar imot navned skrevet i Katt("navnher");
-//    public Katt(String s)
-//    {
-//        navn = s;
-//    }
-
-//    //Denne metoden skjekker om katten kan fange og spise musen
-//    public void fangMus(Mus m)
-//    {
-//        if (m.reddForKatt && !m.erSpist)
-//        {
-//            antallFangedeMus++;
-//            m.erSpist = true;
-//        }
-
-//    }
-//}
-
-////denne i Mus.java
-//public class Mus
-//{
-//    public Boolean reddForKatt;
-//    public Boolean erSpist = false;
-
-//    public Mus(Boolean b)
-//    {
-//        reddForKatt = b;
-//    }
-//}
-
-////Denne går i Musejeger.java
-//public class MuseJeger
-//{
-//    public static void main(String[] args)
-//    {
-//        //Jeg oppretter to katter
-//        Katt k1 = new Katt("Jostein");
-//        Katt k2 = new Katt("Kjell");
-
-
-//        //MULIGHET 1
-//        //Oppretter seks mus
-//        Mus m1 = new Mus(true);
-//        Mus m2 = new Mus(false);
-//        Mus m3 = new Mus(true);
-//        Mus m4 = new Mus(false);
-//        Mus m5 = new Mus(true);
-//        Mus m6 = new Mus(true);
-//        //Nå har jeg 2 katter og seks mus rom alle sammen løper rundt og noen ganger klarer en katt å få tak i en mus 
-//        //men katten klarer bare å fange den dersom han er redd for katten
-
-//        k1.fangMus(m1);
-
-//        k2.fangMus(m5);
-
-//        k1.fangMus(m2);
-
-//        System.out.println("Hittil har katt " + k1.navn + " spist " + k1.antallFangedeMus +" uheldige mus\n\n ");
-
-//        k2.fangMus(m3);
-//        k2.fangMus(m4);
-//        k2.fangMus(m5);
-//        System.out.println("Hittil har katt " + k1.navn + " spist " + k1.antallFangedeMus +" uheldige mus ");
-//        System.out.println("Hittil har katt " + k2.navn + " spist " + k1.antallFangedeMus +" uheldige mus ");
-
-//        //MULIGHET 1 SLUTT
-
-//        //MULIGHET 2 med arrayer 
-//        Mus[] museArray = new Mus[6];
-//        museArray[0] = new Mus(true);
-//        museArray[1] = new Mus(true);
-//        museArray[2] = new Mus(false);
-//        museArray[3] = new Mus(true);
-//        museArray[4] = new Mus(false);
-//        museArray[5] = new Mus(true);
-
-
-//        k1.fangMus(museArray[0]);
-
-//        k2.fangMus(museArray[4]);
-
-//        k1.fangMus(museArray[1]);
-
-//        System.out.println("Hittil har katt " + k1.navn + " spist " + k1.antallFangedeMus +" uheldige mus\n\n ");
-
-//        k2.fangMus(museArray[2]);
-//        k2.fangMus(museArray[3]);
-//        k2.fangMus(museArray[5]);
-//        System.out.println("Hittil har katt " + k1.navn + " spist " + k1.antallFangedeMus +" uheldige mus ");
-//        System.out.println("Hittil har katt " + k2.navn + " spist " + k1.antallFangedeMus +" uheldige mus \n\n");
-        
-//        for(int i = 0; i < museArray.length; i++){
-//            if(museArray[i].erSpist){
-//                System.out.println("Mus " + (i+1) + " es spist, snufs");
-//            }else{
-//                System.out.println("Mus " + (i+1) + " lever, JIPPI");
-//            }
-//        }
-//        //MULIGHET 2 SLUTT
-//    }
-//}
 

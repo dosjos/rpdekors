@@ -121,12 +121,15 @@ namespace Visitor_Registration.DataAccesLayer
             list.Add("");
             using (ISession session = NHibernateHelper.OpenSession())
             {
-                using (ITransaction transaction = session.BeginTransaction())
+                if (session != null)
                 {
-                    var res = session.CreateCriteria(typeof(Kid)).List<Kid>();
-                    foreach (var item in res)
+                    using (ITransaction transaction = session.BeginTransaction())
                     {
-                        list.Add(item.FirstName + " " + item.LastName);
+                        var res = session.CreateCriteria(typeof(Kid)).List<Kid>();
+                        foreach (var item in res)
+                        {
+                            list.Add(item.FirstName + " " + item.LastName);
+                        }
                     }
                 }
             }
