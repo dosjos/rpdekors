@@ -106,7 +106,7 @@ namespace Visitor_Registration.DataAccesLayer
             return kids;
         }
 
-        internal static IEnumerable GetAllVisitsThisYear()
+        internal static List<int> GetAllVisitsThisYear()
         {
             List<int> list = new List<int>();
             using (ISession session = NHibernateHelper.OpenSession())
@@ -114,8 +114,8 @@ namespace Visitor_Registration.DataAccesLayer
                 using (ITransaction transaction = session.BeginTransaction())
                 {
                     DateTime d = DateTime.Now;
-                    
-                    var res = session.CreateSQLQuery("select count(*) as c, DATEPART(WEEKDAY, VisitTime) as v" +
+
+                    var res = session.CreateSQLQuery("select  count(*), DATEPART(WEEKDAY, VisitTime)" +
                                                   " from Visit  " +
                                                   " where YEAR(VisitTime) = :year "+
                                                   " group by DATEPART(WEEKDAY, VisitTime) " +
@@ -125,14 +125,12 @@ namespace Visitor_Registration.DataAccesLayer
                                                   .Select(x => new {Count = (int)x[0], Count2 = (int)x[1] })
                                                   ;
                     //http://stackoverflow.com/questions/6029631/nhibernate-3-1-linq-group-by-then-order-by-count-issue
+                    
                     foreach (var item in res)
                     {
-                        Console.WriteLine("{0}-{1}", item.Count, item.Count2);
+                        list.Add(item.Count);
                     }
-                    return res;
-
-    
-
+                    return list;
                 }
             }
             return null;

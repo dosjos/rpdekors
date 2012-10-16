@@ -18,6 +18,20 @@ namespace Visitor_Registration.UI
     {
         private Controllers.MainController mc;
 
+        #region dictionary
+        Dictionary<int, string> WeekDays = new Dictionary<int, string>()
+{
+    { 0, "Mandag"},
+    { 1, "Tirsdag"},
+    { 2, "Onsdag"}, 
+    { 3, "Torsdag"},
+    { 4, "Fredag"},
+    { 5, "Lørdag"},
+    { 6,  "Søndag"}
+};
+        #endregion
+
+        #region constructors
         public Statistics()
         {
             InitializeComponent();
@@ -27,10 +41,17 @@ namespace Visitor_Registration.UI
         {
             InitializeComponent();
             this.mc = mc;
+            radioButton3.CheckedChanged += WeeklyRadioButtons;
         }
+        #endregion
 
         #region showVisitGraph
         private void ShowVisitGraph(object sender, EventArgs e)
+        {
+            DisplayVisitGraph();
+        }
+
+        public void DisplayVisitGraph()
         {
             DateTime start = dateTimePicker1.Value.Date;
             DateTime end = dateTimePicker2.Value.Date;
@@ -57,7 +78,7 @@ namespace Visitor_Registration.UI
                                                    where item.VisitTime.Date.Equals(temp.Date)
                                                    select item);
 
-                series1.Points.Add(res2.Count).AxisLabel = temp.Date.ToString().Substring(0, 10) ;
+                series1.Points.Add(res2.Count).AxisLabel = temp.Date.ToString().Substring(0, 10);
 
                 temp = temp.AddDays(1);
                 //
@@ -65,9 +86,10 @@ namespace Visitor_Registration.UI
             chart1.Series.Clear();
             chart1.Series.Add(series1);
         }
+
         #endregion
 
-
+        #region tabchanged
         private void changedTab(object sender, EventArgs e)
         {
             if (tabControl1.SelectedIndex == 1) 
@@ -88,7 +110,9 @@ namespace Visitor_Registration.UI
             }
             Console.WriteLine(tabControl1.SelectedIndex  );
         }
+        #endregion
 
+        #region weeklytrends
         private void UpdateWeekStats()
         {
             //hent ut registrerte og generiske, sorter på ukedager og vis mandag til fredag med to søyler på hver
@@ -101,13 +125,28 @@ namespace Visitor_Registration.UI
 
             //var res = v.Select(i => i.VisitTime.DayOfWeek).Distinct().Count(); 
             //items.Select(i => i.Value).Distinct().Count()
-            foreach (var item in v)
+            ChartArea chartArea1 = new ChartArea();
+            ukestrendChart.ChartAreas.Clear();
+            ukestrendChart.ChartAreas.Add(chartArea1);
+            Series series1 = new Series();
+            series1.IsValueShownAsLabel = true;
+            series1.ChartType = radioButton3.Checked ?  SeriesChartType.Pie : SeriesChartType.Column;
+            for(int i = 0; i < v.Count; i++)
             {
-                Console.WriteLine(v);
+                series1.Points.Add(v[i]).AxisLabel = WeekDays[i] ;
             }
-            //Console.WriteLine(res);
-            
+
+            ukestrendChart.Series.Clear();
+            ukestrendChart.Series.Add(series1);
+            ukestrendChart.Titles.Clear();
+            ukestrendChart.Titles.Add(new Title("Ukestrend", new Docking(), new Font("", 9, FontStyle.Bold), Color.Black));
         }
+
+        private void WeeklyRadioButtons(object sender, EventArgs e)
+        {
+            UpdateWeekStats();
+        }
+        #endregion
 
         #region UpdateTodayTab
         private void UpdateTodayTab()
@@ -175,7 +214,7 @@ namespace Visitor_Registration.UI
             series2.Points.Add(anonyme).AxisLabel = "anonyme";
             idagUkjenteChart.Series.Clear();
             idagUkjenteChart.Series.Add(series2);
-            idagRegUkjentChart.Titles.Clear();
+            idagUkjenteChart.Titles.Clear();
             idagUkjenteChart.Titles.Add(new Title("Uregistrerte besøkende", new Docking(), new Font("", 9, FontStyle.Bold), Color.Black));
 
 
@@ -196,6 +235,37 @@ namespace Visitor_Registration.UI
         }
         #endregion
 
+        #region navigatePeriod
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DateTime start = dateTimePicker1.Value;
+            DateTime end = dateTimePicker2.Value;
+
+            double diff = (end - start).TotalDays + 1;
+
+            start = start.AddDays((-1 * diff));
+            end = end.AddDays((-1 * diff));
+
+            dateTimePicker1.Value = start;
+            dateTimePicker2.Value = end;
+            DisplayVisitGraph();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            DateTime start = dateTimePicker1.Value;
+            DateTime end = dateTimePicker2.Value;
+
+            double diff = (end - start).TotalDays + 1;
+
+            start = start.AddDays(diff);
+            end = end.AddDays(diff);
+
+            dateTimePicker1.Value = start;
+            dateTimePicker2.Value = end;
+            DisplayVisitGraph();
+        }
+        #endregion
     }
 }
 //http://archive.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591

@@ -126,6 +126,7 @@ namespace Visitor_Registration
         private void button1_Click(object sender, EventArgs e)
         {
             RegisterKidFromComboBox();
+            comboBox1.Text = "";
         }
 
         private void keyPressed(object sender, KeyEventArgs e)
@@ -133,6 +134,7 @@ namespace Visitor_Registration
             if (e.KeyCode == Keys.Enter)
             {
                 RegisterKidFromComboBox();
+                comboBox1.Text = "";
             }
         }
 

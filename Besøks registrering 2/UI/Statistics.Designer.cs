@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend22 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend23 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend25 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.antallLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.antallLabel = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
@@ -74,25 +73,35 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.label15 = new System.Windows.Forms.Label();
             this.ukestrendChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listView3 = new System.Windows.Forms.ListView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.idagRegUkjentChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.idagUkjenteChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.idagRegistrerteChart)).BeginInit();
             this.tabPage5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -115,10 +124,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.antallLabel);
-            this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.radioButton2);
-            this.tabPage1.Controls.Add(this.radioButton1);
             this.tabPage1.Controls.Add(this.chart1);
             this.tabPage1.Controls.Add(this.button1);
             this.tabPage1.Controls.Add(this.dateTimePicker2);
@@ -134,6 +143,58 @@
             this.tabPage1.Text = "Besøksoversikt";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(624, 45);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(102, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Neste Periode";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(624, 22);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(102, 23);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Forrige Periode";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radioButton1);
+            this.groupBox2.Controls.Add(this.radioButton2);
+            this.groupBox2.Location = new System.Drawing.Point(425, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(70, 53);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 13);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(51, 17);
+            this.radioButton1.TabIndex = 7;
+            this.radioButton1.Text = "Søyle";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Location = new System.Drawing.Point(6, 31);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(47, 17);
+            this.radioButton2.TabIndex = 8;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Linje";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // antallLabel
             // 
             this.antallLabel.AutoSize = true;
@@ -142,56 +203,25 @@
             this.antallLabel.Size = new System.Drawing.Size(0, 13);
             this.antallLabel.TabIndex = 10;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 86);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(170, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Totalt antall besøkende i perioden:";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(485, 53);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(47, 17);
-            this.radioButton2.TabIndex = 8;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Linje";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(485, 34);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(51, 17);
-            this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Søyle";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
             // chart1
             // 
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 105);
+            legend21.Name = "Legend1";
+            this.chart1.Legends.Add(legend21);
+            this.chart1.Location = new System.Drawing.Point(6, 74);
             this.chart1.Name = "chart1";
-            this.chart1.Size = new System.Drawing.Size(854, 288);
+            this.chart1.Size = new System.Drawing.Size(971, 390);
             this.chart1.TabIndex = 6;
             this.chart1.Text = "chart1";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(538, 47);
+            this.button1.Location = new System.Drawing.Point(501, 21);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.Size = new System.Drawing.Size(117, 47);
             this.button1.TabIndex = 5;
             this.button1.Text = "Vis statistikk";
             this.button1.UseVisualStyleBackColor = true;
@@ -199,7 +229,7 @@
             // 
             // dateTimePicker2
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(279, 50);
+            this.dateTimePicker2.Location = new System.Drawing.Point(219, 48);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker2.TabIndex = 4;
@@ -208,7 +238,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(257, 50);
+            this.label3.Location = new System.Drawing.Point(186, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 17);
             this.label3.TabIndex = 3;
@@ -218,7 +248,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 50);
+            this.label2.Location = new System.Drawing.Point(186, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 17);
             this.label2.TabIndex = 2;
@@ -237,13 +267,15 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.CustomFormat = "";
-            this.dateTimePicker1.Location = new System.Drawing.Point(51, 50);
+            this.dateTimePicker1.Location = new System.Drawing.Point(219, 24);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 0;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.groupBox3);
+            this.tabPage2.Controls.Add(this.listView1);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -265,6 +297,9 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.listView3);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Controls.Add(this.listView2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
@@ -308,8 +343,8 @@
             this.idagRegUkjentChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend2.Name = "Legend1";
-            this.idagRegUkjentChart.Legends.Add(legend2);
+            legend22.Name = "Legend1";
+            this.idagRegUkjentChart.Legends.Add(legend22);
             this.idagRegUkjentChart.Location = new System.Drawing.Point(323, 252);
             this.idagRegUkjentChart.Name = "idagRegUkjentChart";
             this.idagRegUkjentChart.Size = new System.Drawing.Size(543, 209);
@@ -320,8 +355,8 @@
             // 
             this.idagUkjenteChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend3.Name = "Legend1";
-            this.idagUkjenteChart.Legends.Add(legend3);
+            legend23.Name = "Legend1";
+            this.idagUkjenteChart.Legends.Add(legend23);
             this.idagUkjenteChart.Location = new System.Drawing.Point(638, 19);
             this.idagUkjenteChart.Name = "idagUkjenteChart";
             this.idagUkjenteChart.Size = new System.Drawing.Size(336, 219);
@@ -330,8 +365,8 @@
             // 
             // idagRegistrerteChart
             // 
-            legend4.Name = "Legend1";
-            this.idagRegistrerteChart.Legends.Add(legend4);
+            legend24.Name = "Legend1";
+            this.idagRegistrerteChart.Legends.Add(legend24);
             this.idagRegistrerteChart.Location = new System.Drawing.Point(248, 12);
             this.idagRegistrerteChart.Name = "idagRegistrerteChart";
             this.idagRegistrerteChart.Size = new System.Drawing.Size(345, 226);
@@ -478,7 +513,8 @@
             // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.chart2);
+            this.tabPage5.Controls.Add(this.groupBox1);
+            this.tabPage5.Controls.Add(this.label15);
             this.tabPage5.Controls.Add(this.ukestrendChart);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
@@ -488,13 +524,59 @@
             this.tabPage5.Text = "Ukestrend";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.radioButton4);
+            this.groupBox1.Controls.Add(this.radioButton3);
+            this.groupBox1.Location = new System.Drawing.Point(145, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(193, 34);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(99, 11);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(88, 17);
+            this.radioButton4.TabIndex = 2;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Søylediagram";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(6, 11);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(87, 17);
+            this.radioButton3.TabIndex = 1;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Kakediagram";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(7, 7);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(120, 26);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Ukestrend";
+            // 
             // ukestrendChart
             // 
-            legend6.Name = "Legend1";
-            this.ukestrendChart.Legends.Add(legend6);
-            this.ukestrendChart.Location = new System.Drawing.Point(4, 7);
+            this.ukestrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            legend25.Name = "Legend1";
+            this.ukestrendChart.Legends.Add(legend25);
+            this.ukestrendChart.Location = new System.Drawing.Point(4, 43);
             this.ukestrendChart.Name = "ukestrendChart";
-            this.ukestrendChart.Size = new System.Drawing.Size(856, 386);
+            this.ukestrendChart.Size = new System.Drawing.Size(970, 409);
             this.ukestrendChart.TabIndex = 0;
             this.ukestrendChart.Text = "chart2";
             // 
@@ -539,21 +621,47 @@
             this.toolStripStatusLabel2.Size = new System.Drawing.Size(398, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
-            // chart2
+            // listView1
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea1);
-            legend5.Name = "Legend1";
-            this.chart2.Legends.Add(legend5);
-            this.chart2.Location = new System.Drawing.Point(7, 7);
-            this.chart2.Name = "chart2";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart2.Series.Add(series1);
-            this.chart2.Size = new System.Drawing.Size(967, 454);
-            this.chart2.TabIndex = 1;
-            this.chart2.Text = "chart2";
+            this.listView1.Location = new System.Drawing.Point(12, 37);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(146, 424);
+            this.listView1.TabIndex = 1;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Location = new System.Drawing.Point(165, 30);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 431);
+            this.groupBox3.TabIndex = 2;
+            this.groupBox3.TabStop = false;
+            // 
+            // listView2
+            // 
+            this.listView2.Location = new System.Drawing.Point(3, 32);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(98, 429);
+            this.listView2.TabIndex = 0;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 3);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(198, 26);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Månedlig oversikt";
+            // 
+            // listView3
+            // 
+            this.listView3.Location = new System.Drawing.Point(108, 32);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(127, 429);
+            this.listView3.TabIndex = 2;
+            this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // Statistics
             // 
@@ -567,19 +675,25 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.idagRegUkjentChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.idagUkjenteChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.idagRegistrerteChart)).EndInit();
             this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -606,7 +720,6 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.Label antallLabel;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage6;
@@ -631,7 +744,18 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart idagUkjenteChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart idagRegistrerteChart;
         private System.Windows.Forms.DataVisualization.Charting.Chart idagRegUkjentChart;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listView3;
 
     }
 }

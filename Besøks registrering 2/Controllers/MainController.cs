@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -115,7 +114,7 @@ namespace Visitor_Registration.Controllers
             return GenericVisitorProvider.GetTodaysVisits();
         }
 
-        internal IEnumerable GetAllVisitsThisYear()
+        internal List<int> GetAllVisitsThisYear()
         {
             return VisitProvider.GetAllVisitsThisYear();
         }
