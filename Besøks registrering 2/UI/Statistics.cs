@@ -68,24 +68,46 @@ namespace Visitor_Registration.UI
             chart1.ChartAreas.Clear();
             chart1.ChartAreas.Add(chartArea1);
             Series series1 = new Series();
+           // Series series2 = new Series();
+           // Series series3 = new Series();
             series1.LegendText = "Besøkende";
+           // series2.LegendText = "Gutter";
+           // series3.LegendText = "Jenter";
 
             series1.ChartType = radioButton1.Checked ? SeriesChartType.Column : SeriesChartType.FastLine;
+          //  series2.ChartType = radioButton1.Checked ? SeriesChartType.StackedColumn : SeriesChartType.FastLine;
+          //  series3.ChartType = radioButton1.Checked ? SeriesChartType.StackedColumn : SeriesChartType.FastLine;
             DateTime temp = start;
             do
             {
                 List<Visit> res2 = new List<Visit>(from item in res
                                                    where item.VisitTime.Date.Equals(temp.Date)
                                                    select item);
+              //  int gutt = mc.GetGutterThisDay(temp.Date);
+
 
                 series1.Points.Add(res2.Count).AxisLabel = temp.Date.ToString().Substring(0, 10);
-
+              //  series2.Points.Add(gutt);
+              //  series3.Points.Add(res2.Count - gutt);
                 temp = temp.AddDays(1);
                 //
             } while (!temp.Date.Equals(end.Date));
             chart1.Series.Clear();
             chart1.Series.Add(series1);
+           // chart1.Series.Add(series2);
+           // chart1.Series.Add(series3);
+            //chart1.Series[0]["StackedGroupName"] = "Group1";
+            //chart1.Series[1]["StackedGroupName"] = "Group1";
+           // chart1.Series[2]["StackedGroupName"] = "Group1";
+
         }
+
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            new InformationBox("På denne siden kan du selv velge perioden du vil se besøksstatistikk fra. Denne grafen viser kun statistikk fra registerte brukere. Dersom man velger en periode fra feks. Mandag til Søndag vil det være enkelt å bruke neste og forrige periode knappene for å bla mellom ukene");
+        }
+
 
         #endregion
 
@@ -145,6 +167,11 @@ namespace Visitor_Registration.UI
         private void WeeklyRadioButtons(object sender, EventArgs e)
         {
             UpdateWeekStats();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            new InformationBox("Denne grafen viser hvilken ukedager som er mest besøkte i løpet av inneværende år. Denne informasjonen kan brukes til å styre aktivitetstilbudene.");
         }
         #endregion
 
@@ -233,6 +260,11 @@ namespace Visitor_Registration.UI
             idagRegUkjentChart.Titles.Clear();
             idagRegUkjentChart.Titles.Add(new Title("Registrerte og uregistrerte", new Docking(), new Font("", 9, FontStyle.Bold), Color.Black));
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            new InformationBox("Her kan du se besøksinformasjonen for dagen i dag. Den er delt opp i to bolker, en for registrerte og en for uregistrerte besøkende. De registrerte er også delt opp etter kjønn.");
+        }
         #endregion
 
         #region navigatePeriod
@@ -266,6 +298,12 @@ namespace Visitor_Registration.UI
             DisplayVisitGraph();
         }
         #endregion
+
     }
 }
 //http://archive.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
+
+
+//Utflytting finner ikke beboer på navn
+//Utskriftene i oversikten er feil
+//Utkasting

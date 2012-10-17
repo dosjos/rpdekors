@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend22 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend23 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend25 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
@@ -88,6 +88,9 @@
             this.listView2 = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
             this.listView3 = new System.Windows.Forms.ListView();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -124,6 +127,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.button3);
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -208,8 +212,8 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend21.Name = "Legend1";
-            this.chart1.Legends.Add(legend21);
+            legend19.Name = "Legend1";
+            this.chart1.Legends.Add(legend19);
             this.chart1.Location = new System.Drawing.Point(6, 74);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(971, 390);
@@ -310,6 +314,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.idagRegUkjentChart);
             this.tabPage4.Controls.Add(this.idagUkjenteChart);
             this.tabPage4.Controls.Add(this.idagRegistrerteChart);
@@ -343,8 +348,8 @@
             this.idagRegUkjentChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend22.Name = "Legend1";
-            this.idagRegUkjentChart.Legends.Add(legend22);
+            legend16.Name = "Legend1";
+            this.idagRegUkjentChart.Legends.Add(legend16);
             this.idagRegUkjentChart.Location = new System.Drawing.Point(323, 252);
             this.idagRegUkjentChart.Name = "idagRegUkjentChart";
             this.idagRegUkjentChart.Size = new System.Drawing.Size(543, 209);
@@ -355,8 +360,8 @@
             // 
             this.idagUkjenteChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend23.Name = "Legend1";
-            this.idagUkjenteChart.Legends.Add(legend23);
+            legend17.Name = "Legend1";
+            this.idagUkjenteChart.Legends.Add(legend17);
             this.idagUkjenteChart.Location = new System.Drawing.Point(638, 19);
             this.idagUkjenteChart.Name = "idagUkjenteChart";
             this.idagUkjenteChart.Size = new System.Drawing.Size(336, 219);
@@ -365,8 +370,8 @@
             // 
             // idagRegistrerteChart
             // 
-            legend24.Name = "Legend1";
-            this.idagRegistrerteChart.Legends.Add(legend24);
+            legend18.Name = "Legend1";
+            this.idagRegistrerteChart.Legends.Add(legend18);
             this.idagRegistrerteChart.Location = new System.Drawing.Point(248, 12);
             this.idagRegistrerteChart.Name = "idagRegistrerteChart";
             this.idagRegistrerteChart.Size = new System.Drawing.Size(345, 226);
@@ -513,6 +518,7 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.button4);
             this.tabPage5.Controls.Add(this.groupBox1);
             this.tabPage5.Controls.Add(this.label15);
             this.tabPage5.Controls.Add(this.ukestrendChart);
@@ -572,8 +578,8 @@
             this.ukestrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend25.Name = "Legend1";
-            this.ukestrendChart.Legends.Add(legend25);
+            legend20.Name = "Legend1";
+            this.ukestrendChart.Legends.Add(legend20);
             this.ukestrendChart.Location = new System.Drawing.Point(4, 43);
             this.ukestrendChart.Name = "ukestrendChart";
             this.ukestrendChart.Size = new System.Drawing.Size(970, 409);
@@ -605,7 +611,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(398, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(382, 17);
             this.toolStripStatusLabel1.Spring = true;
             // 
             // toolStripProgressBar1
@@ -618,7 +624,7 @@
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(398, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(382, 17);
             this.toolStripStatusLabel2.Spring = true;
             // 
             // listView1
@@ -662,6 +668,36 @@
             this.listView3.Size = new System.Drawing.Size(127, 429);
             this.listView3.TabIndex = 2;
             this.listView3.UseCompatibleStateImageBehavior = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(951, 6);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(23, 23);
+            this.button4.TabIndex = 5;
+            this.button4.Text = "?";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(952, 7);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(22, 23);
+            this.button5.TabIndex = 14;
+            this.button5.Text = "?";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(954, 4);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(20, 23);
+            this.button6.TabIndex = 37;
+            this.button6.Text = "?";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // Statistics
             // 
@@ -756,6 +792,9 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.ListView listView3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
 
     }
 }

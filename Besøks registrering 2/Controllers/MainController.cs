@@ -123,5 +123,10 @@ namespace Visitor_Registration.Controllers
         {
             throw new NotImplementedException();
         }
+
+        internal int GetGutterThisDay(DateTime dateTime)
+        {
+            return VisitProvider.GetGutterThisDay(dateTime);
+        }
     }
 }

@@ -103,7 +103,9 @@
     <Compile Include="DataAccesLayer\GenericVisitorProvider.cs" />
     <Compile Include="DataAccesLayer\KidProvider.cs" />
     <Compile Include="DataAccesLayer\VisitProvider.cs" />
+    <Compile Include="UI\InformationBox.cs" />
     <Compile Include="Mocking\visitMocker.cs" />
+    <Compile Include="Reporting\ExcelManager.cs" />
     <Compile Include="UI\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>

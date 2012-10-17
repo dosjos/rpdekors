@@ -76,7 +76,7 @@ namespace Visitor_Registration.DataAccesLayer
                         .SetParameter("end", end)
                         .List<Visit>();
                     list = (List<Visit>)res;
-
+                    
 
                     //var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name")
                    //  .SetParameter("name", kidName)
@@ -134,6 +134,25 @@ namespace Visitor_Registration.DataAccesLayer
                 }
             }
             return null;
+        }
+
+        internal static int GetGutterThisDay(DateTime dateTime)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery(" FROM Visit WHERE DATEPART(DAY, VisitTime) like DATEPART(DAY, :date) " +
+                    " AND DATEPART(MONTH, VisitTime) like DATEPART(MONTH, :date2) AND DATEPART(YEAR, VisitTime) like DATEPART(YEAR, :date3) "
+                        ).SetParameter("date", dateTime.Date).SetParameter("date2", dateTime.Date).SetParameter("date3", dateTime.Date)
+                        .List<Visit>();
+
+                    int i = (from item in res
+                             where item.KidId.Gender.Equals("Mann")
+                             select item).Count<Visit>();
+                    return i;
+                }
+            }
         }
     }
 }
