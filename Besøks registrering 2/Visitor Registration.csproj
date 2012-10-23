@@ -14,6 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -26,7 +27,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -63,6 +63,9 @@
   <ItemGroup>
     <Reference Include="Castle.DynamicProxy2">
       <HintPath>..\dlls\Castle.DynamicProxy2.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\dlls\EPPlus.dll</HintPath>
     </Reference>
     <Reference Include="FluentNHibernate, Version=1.3.0.0, Culture=neutral, PublicKeyToken=8aa435e3cb308880, processorArchitecture=MSIL">
       <HintPath>..\dlls\FluentNHibernate.dll</HintPath>
@@ -102,7 +105,14 @@
     <Compile Include="DataAccesLayer\CustomizationManager.cs" />
     <Compile Include="DataAccesLayer\GenericVisitorProvider.cs" />
     <Compile Include="DataAccesLayer\KidProvider.cs" />
+    <Compile Include="DataAccesLayer\SettingsProvider.cs" />
     <Compile Include="DataAccesLayer\VisitProvider.cs" />
+    <Compile Include="UI\ControlPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ControlPanel.Designer.cs">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\InformationBox.cs" />
     <Compile Include="Mocking\visitMocker.cs" />
     <Compile Include="Reporting\ExcelManager.cs" />
@@ -111,12 +121,6 @@
     </Compile>
     <Compile Include="UI\AboutBox.Designer.cs">
       <DependentUpon>AboutBox.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\ControllPanel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ControllPanel.Designer.cs">
-      <DependentUpon>ControllPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ErrorMessage.cs" />
     <Compile Include="UI\MainWindow.cs">
@@ -143,8 +147,8 @@
     <EmbeddedResource Include="UI\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ControllPanel.resx">
-      <DependentUpon>ControllPanel.cs</DependentUpon>
+    <EmbeddedResource Include="UI\ControlPanel.resx">
+      <DependentUpon>ControlPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -211,6 +215,17 @@
     <Content Include="Images\image2.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="ExcelClientPkgLib">
+      <Guid>{9572340B-3E23-4B49-A5CE-878FD165E62A}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

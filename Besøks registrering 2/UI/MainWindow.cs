@@ -33,6 +33,14 @@ namespace Visitor_Registration
         private MainController mc;
 
 
+        public MainWindow(MainController mc)
+        {
+            this.mc = mc;
+            InitializeComponent();
+
+            initializeStuff();
+        }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -40,6 +48,15 @@ namespace Visitor_Registration
             // TODO: Complete member initialization
 
             //NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
+
+            initializeStuff();
+        }
+
+        #region startup
+        private void initializeStuff()
+        {
+
+            mc.Settingscheck();
 #if !DEBUG
             utviklingToolStripMenuItem.Enabled = false;
 #endif
@@ -56,6 +73,7 @@ namespace Visitor_Registration
             comboBox1.DataSource = mc.getAllKids();
             SizeChanged += WindowOnSizeChanged;
         }
+#endregion
 
         #region images
         private void WindowOnSizeChanged(object sender, EventArgs e)
@@ -75,7 +93,8 @@ namespace Visitor_Registration
                 temp = pictureBox1;
                 control = splitContainer2.Panel1;
             }
-            else {
+            else
+            {
                 temp = pictureBox2;
                 control = splitContainer2.Panel2;
             }
@@ -89,7 +108,7 @@ namespace Visitor_Registration
                 {
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     // Get the set of points that determine our rectangle for resizing.
-                    Point[] corners = { new Point(0, 0), new Point(backgroundBitmap.Width, 0),new Point(0, backgroundBitmap.Height)};
+                    Point[] corners = { new Point(0, 0), new Point(backgroundBitmap.Width, 0), new Point(0, backgroundBitmap.Height) };
                     g.DrawImage(tempBitmap, corners);
                 }
             }
@@ -103,11 +122,11 @@ namespace Visitor_Registration
 
         private void PopulateDataGrid()
         {
-               var items = mc.GetTodaysVisits();
-               foreach (var item in items)
-               {
-                   visitors.Add(item);
-               }
+            var items = mc.GetTodaysVisits();
+            foreach (var item in items)
+            {
+                visitors.Add(item);
+            }
         }
 
         private void ConfigureDataGrid()
@@ -170,7 +189,7 @@ namespace Visitor_Registration
             AddGenericType("Ukjent");
         }
 
-        
+
         private void AddGenericType(string s)
         {
             MainController.AdddGenericVisit(s);
@@ -188,6 +207,12 @@ namespace Visitor_Registration
             Statistics stat = new Statistics(mc);
             stat.Visible = true;
         }
+
+        private void nyDagToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mc.restart();
+        }
+
         #endregion
 
         #region development
@@ -208,6 +233,13 @@ namespace Visitor_Registration
             Application.Exit();
         }
         #endregion
+
+        private void kontrollpanelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mc.NewControllpanel();
+        }
+
+
     }
 }
 

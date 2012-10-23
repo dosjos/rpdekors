@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend16 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend22 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend23 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend25 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
@@ -91,6 +91,7 @@
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -212,8 +213,8 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend19.Name = "Legend1";
-            this.chart1.Legends.Add(legend19);
+            legend24.Name = "Legend1";
+            this.chart1.Legends.Add(legend24);
             this.chart1.Location = new System.Drawing.Point(6, 74);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(971, 390);
@@ -314,6 +315,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.button7);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.idagRegUkjentChart);
             this.tabPage4.Controls.Add(this.idagUkjenteChart);
@@ -348,8 +350,8 @@
             this.idagRegUkjentChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend16.Name = "Legend1";
-            this.idagRegUkjentChart.Legends.Add(legend16);
+            legend21.Name = "Legend1";
+            this.idagRegUkjentChart.Legends.Add(legend21);
             this.idagRegUkjentChart.Location = new System.Drawing.Point(323, 252);
             this.idagRegUkjentChart.Name = "idagRegUkjentChart";
             this.idagRegUkjentChart.Size = new System.Drawing.Size(543, 209);
@@ -360,8 +362,8 @@
             // 
             this.idagUkjenteChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend17.Name = "Legend1";
-            this.idagUkjenteChart.Legends.Add(legend17);
+            legend22.Name = "Legend1";
+            this.idagUkjenteChart.Legends.Add(legend22);
             this.idagUkjenteChart.Location = new System.Drawing.Point(638, 19);
             this.idagUkjenteChart.Name = "idagUkjenteChart";
             this.idagUkjenteChart.Size = new System.Drawing.Size(336, 219);
@@ -370,8 +372,8 @@
             // 
             // idagRegistrerteChart
             // 
-            legend18.Name = "Legend1";
-            this.idagRegistrerteChart.Legends.Add(legend18);
+            legend23.Name = "Legend1";
+            this.idagRegistrerteChart.Legends.Add(legend23);
             this.idagRegistrerteChart.Location = new System.Drawing.Point(248, 12);
             this.idagRegistrerteChart.Name = "idagRegistrerteChart";
             this.idagRegistrerteChart.Size = new System.Drawing.Size(345, 226);
@@ -578,8 +580,8 @@
             this.ukestrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend20.Name = "Legend1";
-            this.ukestrendChart.Legends.Add(legend20);
+            legend25.Name = "Legend1";
+            this.ukestrendChart.Legends.Add(legend25);
             this.ukestrendChart.Location = new System.Drawing.Point(4, 43);
             this.ukestrendChart.Name = "ukestrendChart";
             this.ukestrendChart.Size = new System.Drawing.Size(970, 409);
@@ -699,6 +701,16 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(7, 366);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(142, 94);
+            this.button7.TabIndex = 38;
+            this.button7.Text = "Lag rapport";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
             // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -795,6 +807,7 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button7;
 
     }
 }

@@ -35,6 +35,7 @@ namespace Visitor_Registration.UI
         public Statistics()
         {
             InitializeComponent();
+
         }
 
         public Statistics(Controllers.MainController mc)
@@ -42,6 +43,8 @@ namespace Visitor_Registration.UI
             InitializeComponent();
             this.mc = mc;
             radioButton3.CheckedChanged += WeeklyRadioButtons;
+            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-7); 
+
         }
         #endregion
 
@@ -298,6 +301,11 @@ namespace Visitor_Registration.UI
             DisplayVisitGraph();
         }
         #endregion
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
+        }
 
     }
 }

@@ -45,11 +45,23 @@ namespace Visitor_Registration
 
         private void InitializeYearChooser()
         {
-            int min = CustomizationManager.GetLowestYear();
-            int max = CustomizationManager.GetHighestYear();
-            for (int i = min; i <= max; i++)
+            if (Visitor_Registration.DataAccesLayer.SettingsProvider.HaveAgeSettings())
             {
-                fAar.Items.Add(i);
+                int min = (int)Visitor_Registration.DataAccesLayer.SettingsProvider.GetLowestYear();
+                int max = (int)Visitor_Registration.DataAccesLayer.SettingsProvider.GetHighestYear();
+                for (int i = min; i <= max; i++)
+                {
+                    fAar.Items.Add(i);
+                }
+            }
+            else
+            {
+                int min = CustomizationManager.GetLowestYear();
+                int max = CustomizationManager.GetHighestYear();
+                for (int i = min; i <= max; i++)
+                {
+                    fAar.Items.Add(i);
+                }
             }
         }
 

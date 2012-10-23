@@ -26,6 +26,8 @@ namespace Visitor_Registration.Controllers
             return KidProvider.getAllKids();
         }
 
+
+        #region registerkids
         internal void RegisterKid(string kidName)
         {
             if (KidProvider.RegisterKid(kidName))
@@ -86,12 +88,14 @@ namespace Visitor_Registration.Controllers
                 kidForm.Dispose();
             }
         }
+        #endregion
 
         internal void ReEnableMainWindow()
         {
             mw.Enabled = true;
         }
 
+        #region VisitDBcalls
         internal static void AdddGenericVisit(string s)
         {
             GenericVisitorProvider.AddVisit(s);
@@ -127,6 +131,37 @@ namespace Visitor_Registration.Controllers
         internal int GetGutterThisDay(DateTime dateTime)
         {
             return VisitProvider.GetGutterThisDay(dateTime);
+        }
+        #endregion
+
+        internal void restart()
+        {
+            mw.Visible = false;
+            mw = new MainWindow(this);
+            mw.Visible = true;
+        }
+
+        internal void Settingscheck()
+        {
+            if (SettingsProvider.HaveAgeSettings())
+            {
+                Console.WriteLine("Have setting");
+            }
+            else
+            {
+                InsertAgeSettings();
+            }
+        }
+
+        private void InsertAgeSettings()
+        {
+            new InformationBox("Velkommen til Besøksregistrering for Røde Kors Cafe Condio. Før programmet tas i bruk bør du gå inn på options og kontrollpanel for å konfigurere programmet");
+        }
+
+        internal void NewControllpanel()
+        {
+            new ControlPanel(this);
+            mw.Enabled = false;
         }
     }
 }
