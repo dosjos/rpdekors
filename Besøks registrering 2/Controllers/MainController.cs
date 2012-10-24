@@ -93,6 +93,7 @@ namespace Visitor_Registration.Controllers
         internal void ReEnableMainWindow()
         {
             mw.Enabled = true;
+            mw.InitializeImages();
         }
 
         #region VisitDBcalls
@@ -141,13 +142,10 @@ namespace Visitor_Registration.Controllers
             mw.Visible = true;
         }
 
+        #region agesettings
         internal void Settingscheck()
         {
-            if (SettingsProvider.HaveAgeSettings())
-            {
-                Console.WriteLine("Have setting");
-            }
-            else
+            if (!SettingsProvider.HaveAgeSettings())
             {
                 InsertAgeSettings();
             }
@@ -157,11 +155,44 @@ namespace Visitor_Registration.Controllers
         {
             new InformationBox("Velkommen til Besøksregistrering for Røde Kors Cafe Condio. Før programmet tas i bruk bør du gå inn på options og kontrollpanel for å konfigurere programmet");
         }
+        #endregion
 
         internal void NewControllpanel()
         {
             new ControlPanel(this);
             mw.Enabled = false;
         }
+
+        #region images
+        internal string GetRightImage()
+        {
+            return SettingsProvider.GetRightImage();
+        }
+
+        internal string GetLeftImage()
+        {
+            return SettingsProvider.GetLeftImage();
+        }
+
+        internal bool HaveLeftImage()
+        {
+            return SettingsProvider.HaveLeftImage();
+        }
+
+        internal bool HaveRightImage()
+        {
+            return SettingsProvider.HaveRightImage();
+        }
+
+        internal void InsertLeftImage(string p)
+        {
+            SettingsProvider.InsertLeftImage(p);
+        }
+
+        internal void InsertRightImage(string p)
+        {
+            SettingsProvider.InsertRightImage(p);
+        }
+        #endregion
     }
 }

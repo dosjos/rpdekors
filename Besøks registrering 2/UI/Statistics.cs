@@ -43,7 +43,8 @@ namespace Visitor_Registration.UI
             InitializeComponent();
             this.mc = mc;
             radioButton3.CheckedChanged += WeeklyRadioButtons;
-            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-7); 
+            dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-7);
+            groupBox3.MaximumSize = new System.Drawing.Size(200,10000);
 
         }
         #endregion
@@ -310,8 +311,3 @@ namespace Visitor_Registration.UI
     }
 }
 //http://archive.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
-
-
-//Utflytting finner ikke beboer på navn
-//Utskriftene i oversikten er feil
-//Utkasting

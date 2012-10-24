@@ -32,7 +32,8 @@ namespace Visitor_Registration
         private BindingList<StringValue> visitors;
         private MainController mc;
 
-
+        string imageleft = null;
+        string imageright = null;
         public MainWindow(MainController mc)
         {
             this.mc = mc;
@@ -72,20 +73,54 @@ namespace Visitor_Registration
             }
             comboBox1.DataSource = mc.getAllKids();
             SizeChanged += WindowOnSizeChanged;
+
+            InitializeImages();
         }
-#endregion
+
+
+        #endregion
 
         #region images
         private void WindowOnSizeChanged(object sender, EventArgs e)
         {
-            ResizeImage("image1.jpg", true);
-            ResizeImage("image2.jpg", false);
-            //TODO Hente disse fra database
+            if (imageleft != null)
+            {
+                ResizeImage(imageleft, true);
+            }
+            if (imageright != null)
+            {
+                ResizeImage(imageright, false);
+            }
+        }
+
+        public void InitializeImages()
+        {
+            if (mc.HaveLeftImage())
+            {
+                imageleft = mc.GetLeftImage();   
+                ResizeImage(imageleft, true);
+            }
+            else
+            {
+                imageleft = null;
+                pictureBox1.Image = null;
+            }
+
+            if (mc.HaveRightImage())
+            {
+                imageright = mc.GetRightImage();
+                ResizeImage(imageright, false);
+            }
+            else
+            {
+                imageright = null;
+                pictureBox2.Image = null;
+            }
         }
 
         private void ResizeImage(string imageName, Boolean side)
         {
-            Image image = Image.FromFile("Images/" + imageName);
+            Image image = Image.FromFile(imageName);
             PictureBox temp;
             SplitterPanel control;
             if (side)

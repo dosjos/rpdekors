@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nyDagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avsluttToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.leggTilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anonymToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -53,7 +54,6 @@
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nyDagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -117,7 +117,6 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.BackColor = System.Drawing.Color.Yellow;
             this.splitContainer2.Panel2.Controls.Add(this.pictureBox2);
             this.splitContainer2.Size = new System.Drawing.Size(643, 326);
             this.splitContainer2.SplitterDistance = 326;
@@ -125,6 +124,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(324, 326);
@@ -133,6 +133,7 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox2.Location = new System.Drawing.Point(0, 0);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(313, 326);
@@ -143,10 +144,10 @@
             // 
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.Location = new System.Drawing.Point(190, 27);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(365, 47);
+            this.comboBox1.Size = new System.Drawing.Size(365, 37);
             this.comboBox1.Sorted = true;
             this.comboBox1.TabIndex = 4;
             this.comboBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.keyPressed);
@@ -183,10 +184,17 @@
             this.filToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.filToolStripMenuItem.Text = "File";
             // 
+            // nyDagToolStripMenuItem
+            // 
+            this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
+            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.nyDagToolStripMenuItem.Text = "Ny dag";
+            this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
+            // 
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.ExitApplication);
             // 
@@ -250,7 +258,7 @@
             // kontrollpanelToolStripMenuItem
             // 
             this.kontrollpanelToolStripMenuItem.Name = "kontrollpanelToolStripMenuItem";
-            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.kontrollpanelToolStripMenuItem.Text = "Kontrollpanel";
             this.kontrollpanelToolStripMenuItem.Click += new System.EventHandler(this.kontrollpanelToolStripMenuItem_Click);
             // 
@@ -295,16 +303,9 @@
             // omToolStripMenuItem
             // 
             this.omToolStripMenuItem.Name = "omToolStripMenuItem";
-            this.omToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.omToolStripMenuItem.Size = new System.Drawing.Size(94, 22);
             this.omToolStripMenuItem.Text = "Om";
             this.omToolStripMenuItem.Click += new System.EventHandler(this.EnableAboutBox);
-            // 
-            // nyDagToolStripMenuItem
-            // 
-            this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
-            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nyDagToolStripMenuItem.Text = "Ny dag";
-            this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

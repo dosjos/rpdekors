@@ -132,9 +132,142 @@ namespace Visitor_Registration.DataAccesLayer
                     };
                     session.Save(s);
                     transaction.Commit();
-
                 }
             }
+        }
+
+        internal static void InsertLeftImage(string s)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Settings").List<Settings>();
+                    foreach (var item in res)
+                    {
+                        if (item.Type.Equals("leftimage"))
+                        {
+                            item.Value = s;
+                            session.Update(item);
+                            transaction.Commit();
+
+                            return;
+                        }
+                    }
+                    Settings ss = new Settings()
+                    {
+                        Type = "leftimage",
+                        Value = s
+                    };
+                    session.Save(ss);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        internal static void InsertRightImage(string s)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Settings").List<Settings>();
+                    foreach (var item in res)
+                    {
+                        if (item.Type.Equals("rightimage"))
+                        {
+                            item.Value = s;
+                            session.Update(item);
+                            transaction.Commit();
+
+                            return;
+                        }
+                    }
+                    Settings ss = new Settings()
+                    {
+                        Type = "rightimage",
+                        Value = s
+                    };
+                    session.Save(ss);
+                    transaction.Commit();
+                }
+            }
+        }
+
+        internal static bool HaveLeftImage()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Settings").List<Settings>();
+                    foreach (var item in res)
+                    {
+                        if (item.Type.Equals("leftimage") && item.Value.Length > 4)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        internal static bool HaveRightImage()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Settings").List<Settings>();
+                    foreach (var item in res)
+                    {
+                        if (item.Type.Equals("rightimage") && item.Value.Length > 4)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        internal static string GetRightImage()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Settings").List<Settings>();
+                    foreach (var item in res)
+                    {
+                        if (item.Type.Equals("rightimage"))
+                        {
+                            return item.Value;
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        internal static string GetLeftImage()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Settings").List<Settings>();
+                    foreach (var item in res)
+                    {
+                        if (item.Type.Equals("leftimage") )
+                        {
+                            return item.Value;
+                        }
+                    }
+                }
+            }
+            return null;
         }
     }
 }

@@ -38,6 +38,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.vbilde = new System.Windows.Forms.TextBox();
+            this.hbilde = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.Innstillinger.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -54,11 +59,15 @@
             this.tabControl1.Location = new System.Drawing.Point(13, 13);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(353, 330);
+            this.tabControl1.Size = new System.Drawing.Size(407, 323);
             this.tabControl1.TabIndex = 0;
             // 
             // Innstillinger
             // 
+            this.Innstillinger.Controls.Add(this.button2);
+            this.Innstillinger.Controls.Add(this.button1);
+            this.Innstillinger.Controls.Add(this.hbilde);
+            this.Innstillinger.Controls.Add(this.vbilde);
             this.Innstillinger.Controls.Add(this.SaveButton);
             this.Innstillinger.Controls.Add(this.label3);
             this.Innstillinger.Controls.Add(this.numericUpDown2);
@@ -68,7 +77,7 @@
             this.Innstillinger.Location = new System.Drawing.Point(4, 22);
             this.Innstillinger.Name = "Innstillinger";
             this.Innstillinger.Padding = new System.Windows.Forms.Padding(3);
-            this.Innstillinger.Size = new System.Drawing.Size(345, 304);
+            this.Innstillinger.Size = new System.Drawing.Size(399, 297);
             this.Innstillinger.TabIndex = 0;
             this.Innstillinger.Text = "Innstillinger";
             this.Innstillinger.UseVisualStyleBackColor = true;
@@ -137,7 +146,8 @@
             // 
             // CloseButton
             // 
-            this.CloseButton.Location = new System.Drawing.Point(291, 348);
+            this.CloseButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseButton.Location = new System.Drawing.Point(345, 341);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(75, 23);
             this.CloseButton.TabIndex = 1;
@@ -147,7 +157,8 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(7, 275);
+            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.SaveButton.Location = new System.Drawing.Point(7, 268);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 5;
@@ -155,13 +166,53 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // vbilde
+            // 
+            this.vbilde.Location = new System.Drawing.Point(10, 154);
+            this.vbilde.Name = "vbilde";
+            this.vbilde.Size = new System.Drawing.Size(273, 20);
+            this.vbilde.TabIndex = 6;
+            // 
+            // hbilde
+            // 
+            this.hbilde.Location = new System.Drawing.Point(10, 197);
+            this.hbilde.Name = "hbilde";
+            this.hbilde.Size = new System.Drawing.Size(273, 20);
+            this.hbilde.TabIndex = 7;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(289, 152);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(107, 23);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Venstre bilde";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(289, 195);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(107, 23);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Høyre bilde";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
             // ControlPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(378, 383);
+            this.ClientSize = new System.Drawing.Size(432, 376);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.tabControl1);
+            this.MinimumSize = new System.Drawing.Size(448, 414);
             this.Name = "ControlPanel";
             this.Text = "ControlPanel";
             this.tabControl1.ResumeLayout(false);
@@ -185,5 +236,10 @@
         private System.Windows.Forms.TabPage EditPerson;
         private System.Windows.Forms.Button CloseButton;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox hbilde;
+        private System.Windows.Forms.TextBox vbilde;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
