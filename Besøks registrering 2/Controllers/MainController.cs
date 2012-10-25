@@ -194,5 +194,10 @@ namespace Visitor_Registration.Controllers
             SettingsProvider.InsertRightImage(p);
         }
         #endregion
+
+        internal List<int> GetAllYearsWithVisits()
+        {
+            return VisitProvider.GetAllYearsWithVisits();
+        }
     }
 }

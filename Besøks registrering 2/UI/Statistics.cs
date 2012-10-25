@@ -16,6 +16,7 @@ namespace Visitor_Registration.UI
 {
     public partial class Statistics : Form
     {
+        private BindingList<IntObj> years = new BindingList<IntObj>();
         private Controllers.MainController mc;
 
         #region dictionary
@@ -120,11 +121,11 @@ namespace Visitor_Registration.UI
         {
             if (tabControl1.SelectedIndex == 1) 
             {
-
+                UpdateYearPage();
             }
             else if(tabControl1.SelectedIndex == 2) 
             {
-
+                
             }
             else if (tabControl1.SelectedIndex == 3) //i dag
             {
@@ -136,6 +137,29 @@ namespace Visitor_Registration.UI
             }
             Console.WriteLine(tabControl1.SelectedIndex  );
         }
+        #endregion
+
+        #region updateyear
+        private void UpdateYearPage()
+        {
+            //yearList.DataSource = mc.GetAllYearsWithVisits();
+
+            yearList.AutoGenerateColumns = false;
+            DataGridViewTextBoxColumn modelColumn = new DataGridViewTextBoxColumn();
+            yearList.DataSource = years;
+            modelColumn.HeaderText = "År";
+            modelColumn.DataPropertyName = "Value";
+            modelColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            yearList.Columns.Add(modelColumn);
+
+            foreach (var item in mc.GetAllYearsWithVisits())
+            {
+                years.Add(new IntObj{ Value = "" + item });
+                Console.WriteLine(item);
+            }
+        }
+
+
         #endregion
 
         #region weeklytrends
@@ -311,3 +335,10 @@ namespace Visitor_Registration.UI
     }
 }
 //http://archive.msdn.microsoft.com/mschart/Release/ProjectReleases.aspx?ReleaseId=1591
+
+
+class IntObj
+{
+    public string Value;    
+
+}

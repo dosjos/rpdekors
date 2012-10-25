@@ -154,5 +154,23 @@ namespace Visitor_Registration.DataAccesLayer
                 }
             }
         }
+
+        internal static List<int> GetAllYearsWithVisits()
+        {
+            List<int> list = new List<int>();
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    IQuery res = session.CreateSQLQuery("select distinct(DATEPART(YEAR, VisitTime)) from Visit");
+                    var list2 = res.List();
+                    foreach (var item in list2)
+                    {
+                        list.Add((int)item);
+                    }
+                }
+            }
+            return list;
+        }
     }
 }

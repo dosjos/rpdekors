@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Legend legend41 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend42 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend43 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend44 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend45 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
@@ -51,7 +51,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView3 = new System.Windows.Forms.ListView();
@@ -93,6 +92,7 @@
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.yearList = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,6 +107,7 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearList)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -225,8 +226,8 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend41.Name = "Legend1";
-            this.chart1.Legends.Add(legend41);
+            legend11.Name = "Legend1";
+            this.chart1.Legends.Add(legend11);
             this.chart1.Location = new System.Drawing.Point(6, 74);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(971, 390);
@@ -291,9 +292,9 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.yearList);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.groupBox3);
-            this.tabPage2.Controls.Add(this.listView1);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -314,17 +315,6 @@
             this.groupBox3.Size = new System.Drawing.Size(200, 431);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
-            // 
-            // listView1
-            // 
-            this.listView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.listView1.Location = new System.Drawing.Point(12, 37);
-            this.listView1.MinimumSize = new System.Drawing.Size(146, 424);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(146, 424);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // label5
             // 
@@ -433,8 +423,8 @@
             this.idagRegUkjentChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend42.Name = "Legend1";
-            this.idagRegUkjentChart.Legends.Add(legend42);
+            legend12.Name = "Legend1";
+            this.idagRegUkjentChart.Legends.Add(legend12);
             this.idagRegUkjentChart.Location = new System.Drawing.Point(323, 252);
             this.idagRegUkjentChart.Name = "idagRegUkjentChart";
             this.idagRegUkjentChart.Size = new System.Drawing.Size(543, 209);
@@ -445,8 +435,8 @@
             // 
             this.idagUkjenteChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend43.Name = "Legend1";
-            this.idagUkjenteChart.Legends.Add(legend43);
+            legend13.Name = "Legend1";
+            this.idagUkjenteChart.Legends.Add(legend13);
             this.idagUkjenteChart.Location = new System.Drawing.Point(638, 19);
             this.idagUkjenteChart.Name = "idagUkjenteChart";
             this.idagUkjenteChart.Size = new System.Drawing.Size(336, 219);
@@ -455,8 +445,8 @@
             // 
             // idagRegistrerteChart
             // 
-            legend44.Name = "Legend1";
-            this.idagRegistrerteChart.Legends.Add(legend44);
+            legend14.Name = "Legend1";
+            this.idagRegistrerteChart.Legends.Add(legend14);
             this.idagRegistrerteChart.Location = new System.Drawing.Point(248, 12);
             this.idagRegistrerteChart.Name = "idagRegistrerteChart";
             this.idagRegistrerteChart.Size = new System.Drawing.Size(345, 226);
@@ -674,8 +664,8 @@
             this.ukestrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend45.Name = "Legend1";
-            this.ukestrendChart.Legends.Add(legend45);
+            legend15.Name = "Legend1";
+            this.ukestrendChart.Legends.Add(legend15);
             this.ukestrendChart.Location = new System.Drawing.Point(4, 43);
             this.ukestrendChart.Name = "ukestrendChart";
             this.ukestrendChart.Size = new System.Drawing.Size(970, 409);
@@ -734,6 +724,17 @@
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             // 
+            // yearList
+            // 
+            this.yearList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.yearList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.yearList.Location = new System.Drawing.Point(7, 37);
+            this.yearList.Name = "yearList";
+            this.yearList.ReadOnly = true;
+            this.yearList.Size = new System.Drawing.Size(151, 424);
+            this.yearList.TabIndex = 4;
+            // 
             // Statistics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -765,6 +766,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -822,7 +824,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListView listView2;
@@ -832,6 +833,7 @@
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.DataGridView yearList;
 
     }
 }
