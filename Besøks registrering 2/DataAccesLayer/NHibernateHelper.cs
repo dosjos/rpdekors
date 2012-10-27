@@ -36,7 +36,6 @@ namespace Visitor_Registration
                                 .Database(CustomizationManager.GetDatabase())
                                 .Username("rodekors")
                                 .Password("rodekors")))
-                //    @"Server=localhost\SQLExpress;Database=VisitDatabase;Trusted_Connection=True;Uid=rodekors;")
                               .ShowSql()
                 )
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
@@ -62,15 +61,12 @@ namespace Visitor_Registration
                                     .Database(CustomizationManager.GetDatabase())
                                     .Username("rodekors")
                                     .Password("rodekors")))
-                    //    @"Server=localhost\SQLExpress;Database=VisitDatabase;Trusted_Connection=True;Uid=rodekors;")
-                                  .ShowSql()
+                                //  .ShowSql()//Uncomment denne for å få output
                     )
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
-                    //.ExposeConfiguration(cfg => new SchemaExport(cfg)
-                    //                               .Create(true,true))
                     .BuildSessionFactory();
             }
             catch (Exception e)
@@ -93,13 +89,3 @@ namespace Visitor_Registration
         }
     }
 }
-
-/* QUERY
-SELECT TOP 1000 [Id]
-      ,[VisitTime]
-      ,[KidId]
-  FROM [VisitDatabase].[dbo].[Visit]
-  WHERE [VisitTime] >= DATEADD(DAY, DATEDIFF(DAY, '19000101', GETDATE()), '19000101')
-	AND [VisitTime] < DATEADD(DAY, DATEDIFF(DAY, '18991231', GETDATE()), '19000101')
-
-*/

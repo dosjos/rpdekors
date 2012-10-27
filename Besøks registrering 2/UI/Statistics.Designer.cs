@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend12 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend13 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend14 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend15 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
@@ -50,7 +50,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.yearList = new System.Windows.Forms.DataGridView();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.YearLabel = new System.Windows.Forms.Label();
+            this.yearAnonym = new System.Windows.Forms.TextBox();
+            this.yearUkjent = new System.Windows.Forms.TextBox();
+            this.yearJente = new System.Windows.Forms.TextBox();
+            this.yearGutt = new System.Windows.Forms.TextBox();
+            this.yearGirls = new System.Windows.Forms.TextBox();
+            this.yearBoys = new System.Windows.Forms.TextBox();
+            this.yearRegistred = new System.Windows.Forms.TextBox();
+            this.yearTotal = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.listView3 = new System.Windows.Forms.ListView();
@@ -91,13 +111,14 @@
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.yearList = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearList)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.idagRegUkjentChart)).BeginInit();
@@ -107,7 +128,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yearList)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -226,8 +246,8 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend11.Name = "Legend1";
-            this.chart1.Legends.Add(legend11);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(6, 74);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(971, 390);
@@ -304,17 +324,202 @@
             this.tabPage2.Text = "Årlig";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // yearList
+            // 
+            this.yearList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.yearList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.yearList.Location = new System.Drawing.Point(7, 37);
+            this.yearList.Name = "yearList";
+            this.yearList.ReadOnly = true;
+            this.yearList.Size = new System.Drawing.Size(151, 424);
+            this.yearList.TabIndex = 4;
+            this.yearList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.YearChoosen);
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Location = new System.Drawing.Point(413, 30);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(561, 431);
+            this.groupBox4.TabIndex = 3;
+            this.groupBox4.TabStop = false;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.Controls.Add(this.pictureBox1);
+            this.groupBox3.Controls.Add(this.YearLabel);
+            this.groupBox3.Controls.Add(this.yearAnonym);
+            this.groupBox3.Controls.Add(this.yearUkjent);
+            this.groupBox3.Controls.Add(this.yearJente);
+            this.groupBox3.Controls.Add(this.yearGutt);
+            this.groupBox3.Controls.Add(this.yearGirls);
+            this.groupBox3.Controls.Add(this.yearBoys);
+            this.groupBox3.Controls.Add(this.yearRegistred);
+            this.groupBox3.Controls.Add(this.yearTotal);
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Location = new System.Drawing.Point(165, 30);
             this.groupBox3.MinimumSize = new System.Drawing.Size(200, 431);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(200, 431);
+            this.groupBox3.Size = new System.Drawing.Size(242, 431);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(9, 267);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(222, 158);
+            this.pictureBox1.TabIndex = 50;
+            this.pictureBox1.TabStop = false;
+            // 
+            // YearLabel
+            // 
+            this.YearLabel.AutoSize = true;
+            this.YearLabel.Location = new System.Drawing.Point(9, 20);
+            this.YearLabel.Name = "YearLabel";
+            this.YearLabel.Size = new System.Drawing.Size(0, 13);
+            this.YearLabel.TabIndex = 49;
+            // 
+            // yearAnonym
+            // 
+            this.yearAnonym.Location = new System.Drawing.Point(131, 237);
+            this.yearAnonym.Name = "yearAnonym";
+            this.yearAnonym.Size = new System.Drawing.Size(100, 20);
+            this.yearAnonym.TabIndex = 48;
+            // 
+            // yearUkjent
+            // 
+            this.yearUkjent.Location = new System.Drawing.Point(131, 210);
+            this.yearUkjent.Name = "yearUkjent";
+            this.yearUkjent.Size = new System.Drawing.Size(100, 20);
+            this.yearUkjent.TabIndex = 47;
+            // 
+            // yearJente
+            // 
+            this.yearJente.Location = new System.Drawing.Point(131, 183);
+            this.yearJente.Name = "yearJente";
+            this.yearJente.Size = new System.Drawing.Size(100, 20);
+            this.yearJente.TabIndex = 46;
+            // 
+            // yearGutt
+            // 
+            this.yearGutt.Location = new System.Drawing.Point(131, 156);
+            this.yearGutt.Name = "yearGutt";
+            this.yearGutt.Size = new System.Drawing.Size(100, 20);
+            this.yearGutt.TabIndex = 45;
+            // 
+            // yearGirls
+            // 
+            this.yearGirls.Location = new System.Drawing.Point(146, 130);
+            this.yearGirls.Name = "yearGirls";
+            this.yearGirls.Size = new System.Drawing.Size(85, 20);
+            this.yearGirls.TabIndex = 44;
+            // 
+            // yearBoys
+            // 
+            this.yearBoys.Location = new System.Drawing.Point(146, 104);
+            this.yearBoys.Name = "yearBoys";
+            this.yearBoys.Size = new System.Drawing.Size(85, 20);
+            this.yearBoys.TabIndex = 43;
+            // 
+            // yearRegistred
+            // 
+            this.yearRegistred.Location = new System.Drawing.Point(131, 78);
+            this.yearRegistred.Name = "yearRegistred";
+            this.yearRegistred.Size = new System.Drawing.Size(100, 20);
+            this.yearRegistred.TabIndex = 42;
+            // 
+            // yearTotal
+            // 
+            this.yearTotal.Location = new System.Drawing.Point(131, 51);
+            this.yearTotal.Name = "yearTotal";
+            this.yearTotal.Size = new System.Drawing.Size(100, 20);
+            this.yearTotal.TabIndex = 41;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(88, 130);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(36, 13);
+            this.label16.TabIndex = 40;
+            this.label16.Text = "Jenter";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(88, 104);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(36, 13);
+            this.label17.TabIndex = 39;
+            this.label17.Text = "Gutter";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(42, 237);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(80, 13);
+            this.label18.TabIndex = 38;
+            this.label18.Text = "Antall Anonyme";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(51, 210);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(73, 13);
+            this.label19.TabIndex = 37;
+            this.label19.Text = "Antall Ukjente";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(59, 183);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(65, 13);
+            this.label20.TabIndex = 36;
+            this.label20.Text = "Antall Jenter";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(59, 156);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(65, 13);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "Antall Gutter";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(42, 78);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(82, 13);
+            this.label22.TabIndex = 34;
+            this.label22.Text = "Antall registrerte";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(6, 51);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(118, 13);
+            this.label23.TabIndex = 33;
+            this.label23.Text = "Totalt antall besøkende";
             // 
             // label5
             // 
@@ -423,8 +628,8 @@
             this.idagRegUkjentChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend12.Name = "Legend1";
-            this.idagRegUkjentChart.Legends.Add(legend12);
+            legend2.Name = "Legend1";
+            this.idagRegUkjentChart.Legends.Add(legend2);
             this.idagRegUkjentChart.Location = new System.Drawing.Point(323, 252);
             this.idagRegUkjentChart.Name = "idagRegUkjentChart";
             this.idagRegUkjentChart.Size = new System.Drawing.Size(543, 209);
@@ -435,8 +640,8 @@
             // 
             this.idagUkjenteChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend13.Name = "Legend1";
-            this.idagUkjenteChart.Legends.Add(legend13);
+            legend3.Name = "Legend1";
+            this.idagUkjenteChart.Legends.Add(legend3);
             this.idagUkjenteChart.Location = new System.Drawing.Point(638, 19);
             this.idagUkjenteChart.Name = "idagUkjenteChart";
             this.idagUkjenteChart.Size = new System.Drawing.Size(336, 219);
@@ -445,8 +650,8 @@
             // 
             // idagRegistrerteChart
             // 
-            legend14.Name = "Legend1";
-            this.idagRegistrerteChart.Legends.Add(legend14);
+            legend4.Name = "Legend1";
+            this.idagRegistrerteChart.Legends.Add(legend4);
             this.idagRegistrerteChart.Location = new System.Drawing.Point(248, 12);
             this.idagRegistrerteChart.Name = "idagRegistrerteChart";
             this.idagRegistrerteChart.Size = new System.Drawing.Size(345, 226);
@@ -664,8 +869,8 @@
             this.ukestrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend15.Name = "Legend1";
-            this.ukestrendChart.Legends.Add(legend15);
+            legend5.Name = "Legend1";
+            this.ukestrendChart.Legends.Add(legend5);
             this.ukestrendChart.Location = new System.Drawing.Point(4, 43);
             this.ukestrendChart.Name = "ukestrendChart";
             this.ukestrendChart.Size = new System.Drawing.Size(970, 409);
@@ -697,7 +902,7 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(398, 17);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(382, 17);
             this.toolStripStatusLabel1.Spring = true;
             // 
             // toolStripProgressBar1
@@ -705,35 +910,13 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.toolStripProgressBar1.Size = new System.Drawing.Size(200, 16);
-            this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
             // 
             // toolStripStatusLabel2
             // 
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(398, 17);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(382, 17);
             this.toolStripStatusLabel2.Spring = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Location = new System.Drawing.Point(372, 30);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(602, 431);
-            this.groupBox4.TabIndex = 3;
-            this.groupBox4.TabStop = false;
-            // 
-            // yearList
-            // 
-            this.yearList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.yearList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.yearList.Location = new System.Drawing.Point(7, 37);
-            this.yearList.Name = "yearList";
-            this.yearList.ReadOnly = true;
-            this.yearList.Size = new System.Drawing.Size(151, 424);
-            this.yearList.TabIndex = 4;
             // 
             // Statistics
             // 
@@ -752,6 +935,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.yearList)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -766,7 +953,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.yearList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -834,6 +1020,24 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView yearList;
+        private System.Windows.Forms.TextBox yearAnonym;
+        private System.Windows.Forms.TextBox yearUkjent;
+        private System.Windows.Forms.TextBox yearJente;
+        private System.Windows.Forms.TextBox yearGutt;
+        private System.Windows.Forms.TextBox yearGirls;
+        private System.Windows.Forms.TextBox yearBoys;
+        private System.Windows.Forms.TextBox yearRegistred;
+        private System.Windows.Forms.TextBox yearTotal;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label YearLabel;
 
     }
 }

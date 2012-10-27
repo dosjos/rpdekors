@@ -172,5 +172,24 @@ namespace Visitor_Registration.DataAccesLayer
             }
             return list;
         }
+
+        internal static List<Kid> GetVisitByYear(string p)
+        {
+            List<Visit> list = null;
+            List<Kid> kids;
+            BindingList<StringValue> result = new BindingList<StringValue>();
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery(" FROM Visit WHERE DATEPART(YEAR, VisitTime) like :year").SetParameter("year", p)
+                        .List<Visit>();
+                    list = (List<Visit>)res;
+                }
+                kids = KidProvider.GetKidsBasedOnIdInVisit(list);
+
+            }
+            return kids;
+        }
     }
 }

@@ -11,12 +11,13 @@ using System.Collections;
 using DomainObjects.Visit;
 using System.Windows.Forms.DataVisualization.Charting;
 using Visitor_Registration.DomainObjects;
+using Visitor_Registration.DataAccesLayer;
 
 namespace Visitor_Registration.UI
 {
     public partial class Statistics : Form
     {
-        private BindingList<IntObj> years = new BindingList<IntObj>();
+        private BindingList<StringValue> years = new BindingList<StringValue>();
         private Controllers.MainController mc;
 
         #region dictionary
@@ -45,7 +46,9 @@ namespace Visitor_Registration.UI
             this.mc = mc;
             radioButton3.CheckedChanged += WeeklyRadioButtons;
             dateTimePicker1.Value = dateTimePicker1.Value.AddDays(-7);
-            groupBox3.MaximumSize = new System.Drawing.Size(200,10000);
+            groupBox3.MaximumSize = new System.Drawing.Size(242,10000);
+
+            UpdateYearPage();
 
         }
         #endregion
@@ -121,7 +124,7 @@ namespace Visitor_Registration.UI
         {
             if (tabControl1.SelectedIndex == 1) 
             {
-                UpdateYearPage();
+               
             }
             else if(tabControl1.SelectedIndex == 2) 
             {
@@ -154,11 +157,57 @@ namespace Visitor_Registration.UI
 
             foreach (var item in mc.GetAllYearsWithVisits())
             {
-                years.Add(new IntObj{ Value = "" + item });
+                years.Add(new StringValue("" + item ));
                 Console.WriteLine(item);
             }
         }
+        private void YearChoosen(object sender, DataGridViewCellEventArgs e)
+        {
+           // Image image = Image.FromFile(@"Images\loading.gif");
+           // pictureBox1.Image = image;
+           // pictureBox1.Visible = true;
+            toolStripStatusLabel1.Text = "Laster statistikk";
+            toolStripProgressBar1.Value = 100;
+            if (e.ColumnIndex >= 0)
+            {
+                DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)yearList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (cell.Value != null)
+                {
+                    //cell.Value;
 
+                    List<Kid> kids = mc.GetVisitByYear("" + cell.Value);
+                    List<GenericVisitor> generic = mc.GetGenericVisitByYear("" + cell.Value); //TODO Finnish implementation
+
+                    int total = kids.Count;
+                    int jenterReg = new List<Kid>(from kid in kids
+                                                  where kid.Gender.Equals("Kvinne")
+                                                  select kid).Count;
+                    int gutterReg = new List<Kid>(from kid in kids
+                                                  where kid.Gender.Equals("Mann")
+                                                  select kid).Count;
+
+                    //int anonyme = new List<GenericVisitor>(from v in generic
+                    //                                       where v.Type.Equals("Anonym")
+                    //                                       select v).Count;
+                    //int ukjent = new List<GenericVisitor>(from v in generic
+                    //                                      where v.Type.Equals("Ukjent")
+                    //                                      select v).Count;
+                    //int jente = new List<GenericVisitor>(from v in generic
+                    //                                     where v.Type.Equals("Jente")
+                    //                                     select v).Count;
+                    //int gutt = new List<GenericVisitor>(from v in generic
+                    //                                    where v.Type.Equals("Gutt")
+                    //                                    select v).Count;
+
+                    yearRegistred.Text = "" + total;
+                    yearBoys.Text = "" + gutterReg;
+                    yearGirls.Text = "" + jenterReg;
+                }
+                toolStripProgressBar1.Value = 0;
+                toolStripStatusLabel1.Text = "";
+             //   pictureBox1.Visible = false;
+            }
+        }
 
         #endregion
 
@@ -331,6 +380,8 @@ namespace Visitor_Registration.UI
         {
 
         }
+
+
 
     }
 }

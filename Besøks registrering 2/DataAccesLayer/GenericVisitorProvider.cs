@@ -39,5 +39,10 @@ namespace Visitor_Registration.DataAccesLayer
             }
             return kids;
         }
+
+        internal static List<GenericVisitor> GetVisitByYear(string p)
+        {
+            return null;
+        }
     }
 }

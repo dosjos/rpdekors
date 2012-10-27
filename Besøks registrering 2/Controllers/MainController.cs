@@ -199,5 +199,15 @@ namespace Visitor_Registration.Controllers
         {
             return VisitProvider.GetAllYearsWithVisits();
         }
+
+        internal List<Kid> GetVisitByYear(string p)
+        {
+            return VisitProvider.GetVisitByYear(p);
+        }
+
+        internal List<GenericVisitor> GetGenericVisitByYear(string p)
+        {
+            return GenericVisitorProvider.GetVisitByYear(p);
+        }
     }
 }
