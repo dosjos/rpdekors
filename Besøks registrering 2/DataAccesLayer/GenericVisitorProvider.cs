@@ -42,7 +42,17 @@ namespace Visitor_Registration.DataAccesLayer
 
         internal static List<GenericVisitor> GetVisitByYear(string p)
         {
-            return null;
+            List<GenericVisitor> kids;
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery(" FROM GenericVisitor WHERE DATEPART(YEAR, VisitTime) like :year ").SetParameter("year", p)
+                        .List<GenericVisitor>();
+                    kids = (List<GenericVisitor>)res;
+                }
+            }
+            return kids;
         }
     }
 }

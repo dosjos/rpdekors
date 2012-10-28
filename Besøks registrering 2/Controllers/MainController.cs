@@ -209,5 +209,10 @@ namespace Visitor_Registration.Controllers
         {
             return GenericVisitorProvider.GetVisitByYear(p);
         }
+
+        internal object GetMonthsWithVisits(string p)
+        {
+            return VisitProvider.GetMonthsWithVisits(p);
+        }
     }
 }

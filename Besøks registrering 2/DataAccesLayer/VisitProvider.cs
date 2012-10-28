@@ -191,5 +191,10 @@ namespace Visitor_Registration.DataAccesLayer
             }
             return kids;
         }
+
+        internal static object GetMonthsWithVisits(string p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
