@@ -4,16 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CafeTerminal.Controllers;
 
 namespace CafeTerminal.UI
 {
     public class ErrorMessage
     {
-        MainController mainController;
-        public ErrorMessage(MainController mainController, string p)
+        public ErrorMessage(string p)
         {
-            this.mainController = mainController;
             var i = MessageBox.Show(p,
                 "Advarsel",
                 MessageBoxButtons.OK,
@@ -22,7 +19,6 @@ namespace CafeTerminal.UI
 
             if (i == DialogResult.OK)
             {
-                mainController.ReEnableMainWindow();
             }
         }
     }

@@ -5,11 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainObjects.Visit;
-using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.DomainObjects;
-using Visitor_Registration.UI;
+using CafeTerminal.DataAccesLayer;
+using CafeTerminal.DomainObjects;
+using CafeTerminal.UI;
 
-namespace Visitor_Registration.Controllers
+namespace CafeTerminal.Controllers
 {
     public class MainController
     {
@@ -59,9 +59,12 @@ namespace Visitor_Registration.Controllers
         internal BindingList<StringValue> GetTodaysVisits()
         {
             BindingList<StringValue> list = new BindingList<StringValue>();
-            try{
-                list = VisitProvider.GetTodaysVisits();    
-            }catch(Exception e){
+            try
+            {
+                list = VisitProvider.GetTodaysVisits();
+            }
+            catch (Exception e)
+            {
                 new ErrorMessage(this, "Noe gikk feil under henting av dagens besøkende");
                 Console.WriteLine(e.StackTrace);
             }
@@ -79,7 +82,7 @@ namespace Visitor_Registration.Controllers
             catch (Exception e)
             {
                 test = false;
-                new ErrorMessage(this,"Det er allerede registrert en person med samme fornavn, etternavn, fødselsår og postnummer. Dersom du aldri har registeret deg før, legg til en ekstra bokstav i fornavnet ditt: For eksempel hvis du heter \"Jan\", skriv \"Jan J.\"");
+                new ErrorMessage(this, "Det er allerede registrert en person med samme fornavn, etternavn, fødselsår og postnummer. Dersom du aldri har registeret deg før, legg til en ekstra bokstav i fornavnet ditt: For eksempel hvis du heter \"Jan\", skriv \"Jan J.\"");
             }
             if (test)
             {
@@ -145,9 +148,26 @@ namespace Visitor_Registration.Controllers
         #region agesettings
         internal void Settingscheck()
         {
-            if (!SettingsProvider.HaveAgeSettings())
+            try
             {
-                InsertAgeSettings();
+                if (!SettingsProvider.HaveAgeSettings())
+                {
+                    InsertAgeSettings();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.StackTrace);
+                try
+                {
+                    NHibernateHelper.ResetDatabase();
+
+                }
+                catch (Exception ee)
+                {
+                    new ErrorMessage(this, "Programmet finner ikke databasen, vennligst skjekk at databasen er installert og riktig satt opp med databasen \"VisitDatabase\" og at brukeren \"rodekors\" har dbcreator og adminrettigheter på den");
+                    mw.ExitApplication(this, null);
+                }
             }
         }
 

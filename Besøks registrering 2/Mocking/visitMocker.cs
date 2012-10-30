@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DomainObjects.Visit;
-using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.DomainObjects;
+using CafeTerminal.DataAccesLayer;
+using CafeTerminal.DomainObjects;
 
-namespace Visitor_Registration.Mocking
+namespace CafeTerminal.Mocking
 {
     class visitMocker
     {

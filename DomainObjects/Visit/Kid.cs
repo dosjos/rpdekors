@@ -5,7 +5,7 @@ using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.Text;
 
-namespace Visitor_Registration.DomainObjects
+namespace CafeTerminal.DomainObjects
 {
     public class Kid
     {

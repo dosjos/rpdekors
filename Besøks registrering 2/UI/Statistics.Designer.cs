@@ -1,4 +1,4 @@
-﻿namespace Visitor_Registration.UI
+﻿namespace CafeTerminal.UI
 {
     partial class Statistics
     {
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Legend legend17 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend18 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend19 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend21 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend22 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend23 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend25 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend26 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend27 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend28 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend29 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend30 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend31 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend32 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
@@ -284,8 +284,8 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend17.Name = "Legend1";
-            this.chart1.Legends.Add(legend17);
+            legend25.Name = "Legend1";
+            this.chart1.Legends.Add(legend25);
             this.chart1.Location = new System.Drawing.Point(6, 74);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(971, 390);
@@ -572,7 +572,7 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(980, 467);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Månedlig";
+            this.tabPage3.Text = "Månedlig - UFERDIG";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -643,8 +643,8 @@
             this.idagRegUkjentChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend18.Name = "Legend1";
-            this.idagRegUkjentChart.Legends.Add(legend18);
+            legend26.Name = "Legend1";
+            this.idagRegUkjentChart.Legends.Add(legend26);
             this.idagRegUkjentChart.Location = new System.Drawing.Point(323, 252);
             this.idagRegUkjentChart.Name = "idagRegUkjentChart";
             this.idagRegUkjentChart.Size = new System.Drawing.Size(543, 209);
@@ -655,8 +655,8 @@
             // 
             this.idagUkjenteChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend19.Name = "Legend1";
-            this.idagUkjenteChart.Legends.Add(legend19);
+            legend27.Name = "Legend1";
+            this.idagUkjenteChart.Legends.Add(legend27);
             this.idagUkjenteChart.Location = new System.Drawing.Point(638, 19);
             this.idagUkjenteChart.Name = "idagUkjenteChart";
             this.idagUkjenteChart.Size = new System.Drawing.Size(336, 219);
@@ -665,8 +665,8 @@
             // 
             // idagRegistrerteChart
             // 
-            legend20.Name = "Legend1";
-            this.idagRegistrerteChart.Legends.Add(legend20);
+            legend28.Name = "Legend1";
+            this.idagRegistrerteChart.Legends.Add(legend28);
             this.idagRegistrerteChart.Location = new System.Drawing.Point(248, 12);
             this.idagRegistrerteChart.Name = "idagRegistrerteChart";
             this.idagRegistrerteChart.Size = new System.Drawing.Size(345, 226);
@@ -884,8 +884,8 @@
             this.ukestrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend21.Name = "Legend1";
-            this.ukestrendChart.Legends.Add(legend21);
+            legend29.Name = "Legend1";
+            this.ukestrendChart.Legends.Add(legend29);
             this.ukestrendChart.Location = new System.Drawing.Point(4, 43);
             this.ukestrendChart.Name = "ukestrendChart";
             this.ukestrendChart.Size = new System.Drawing.Size(970, 409);
@@ -899,7 +899,7 @@
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage6.Size = new System.Drawing.Size(980, 467);
             this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Områder";
+            this.tabPage6.Text = "Områder - UFERDIG";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
             // statusStrip1
@@ -975,8 +975,8 @@
             // yearChart1
             // 
             this.yearChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend22.Name = "Legend1";
-            this.yearChart1.Legends.Add(legend22);
+            legend30.Name = "Legend1";
+            this.yearChart1.Legends.Add(legend30);
             this.yearChart1.Location = new System.Drawing.Point(0, 0);
             this.yearChart1.Name = "yearChart1";
             this.yearChart1.Size = new System.Drawing.Size(297, 219);
@@ -986,8 +986,8 @@
             // yearChart2
             // 
             this.yearChart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend23.Name = "Legend1";
-            this.yearChart2.Legends.Add(legend23);
+            legend31.Name = "Legend1";
+            this.yearChart2.Legends.Add(legend31);
             this.yearChart2.Location = new System.Drawing.Point(0, 0);
             this.yearChart2.Name = "yearChart2";
             this.yearChart2.Size = new System.Drawing.Size(279, 219);
@@ -997,8 +997,8 @@
             // yearChart3
             // 
             this.yearChart3.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend24.Name = "Legend1";
-            this.yearChart3.Legends.Add(legend24);
+            legend32.Name = "Legend1";
+            this.yearChart3.Legends.Add(legend32);
             this.yearChart3.Location = new System.Drawing.Point(0, 0);
             this.yearChart3.Name = "yearChart3";
             this.yearChart3.Size = new System.Drawing.Size(580, 189);

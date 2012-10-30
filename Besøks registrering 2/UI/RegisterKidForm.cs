@@ -7,12 +7,12 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Visitor_Registration.Controllers;
-using Visitor_Registration.DomainObjects;
-using Visitor_Registration.DataAccesLayer;
+using CafeTerminal.Controllers;
+using CafeTerminal.DomainObjects;
+using CafeTerminal.DataAccesLayer;
 
 
-namespace Visitor_Registration
+namespace CafeTerminal
 {
     public partial class RegisterKidForm : Form
     {
@@ -45,10 +45,10 @@ namespace Visitor_Registration
 
         private void InitializeYearChooser()
         {
-            if (Visitor_Registration.DataAccesLayer.SettingsProvider.HaveAgeSettings())
+            if (CafeTerminal.DataAccesLayer.SettingsProvider.HaveAgeSettings())
             {
-                int min = (int)Visitor_Registration.DataAccesLayer.SettingsProvider.GetLowestYear();
-                int max = (int)Visitor_Registration.DataAccesLayer.SettingsProvider.GetHighestYear();
+                int min = (int)CafeTerminal.DataAccesLayer.SettingsProvider.GetLowestYear();
+                int max = (int)CafeTerminal.DataAccesLayer.SettingsProvider.GetHighestYear();
                 for (int i = min; i <= max; i++)
                 {
                     fAar.Items.Add(i);

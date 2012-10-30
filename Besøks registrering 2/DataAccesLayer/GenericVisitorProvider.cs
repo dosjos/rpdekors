@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DomainObjects.Visit;
 using NHibernate;
 
-namespace Visitor_Registration.DataAccesLayer
+namespace CafeTerminal.DataAccesLayer
 {
     public class GenericVisitorProvider
     {

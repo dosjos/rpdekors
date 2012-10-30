@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using DomainObjects.Settings;
+using NHibernate;
+
+namespace CafeTerminal.DataAccesLayer
+{
+    public class SettingsProvider
+    {
+        
+    }
+}

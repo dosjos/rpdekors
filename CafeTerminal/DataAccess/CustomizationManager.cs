@@ -19,16 +19,5 @@ namespace CafeTerminal.DataAccesLayer
         {
             return ConfigurationManager.AppSettings["database"];
         }
-
-        public static int GetLowestYear()
-        {
-            int temp = Convert.ToInt32(ConfigurationManager.AppSettings["lowestyear"]);
-            return temp;
-        }
-        public static int GetHighestYear()
-        {
-            int temp = Convert.ToInt32(ConfigurationManager.AppSettings["highestyear"]);
-            return temp;
-        }
     }
 }

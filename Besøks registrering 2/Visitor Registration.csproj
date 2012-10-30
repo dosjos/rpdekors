@@ -8,9 +8,9 @@
     <ProjectGuid>{47F682DE-FB88-430C-A2E2-1BDE5CC0FA3C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Visitor_Registration</RootNamespace>
+    <RootNamespace>CafeTerminal</RootNamespace>
     <AssemblyName>Visitor Registration</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -28,7 +28,7 @@
     <InstallUrl>http://pacelg.com/deploy/condio/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>2.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -119,6 +119,7 @@
     <Compile Include="DataAccesLayer\CustomizationManager.cs" />
     <Compile Include="DataAccesLayer\GenericVisitorProvider.cs" />
     <Compile Include="DataAccesLayer\KidProvider.cs" />
+    <Compile Include="DataAccesLayer\NHibernateHelper.cs" />
     <Compile Include="DataAccesLayer\SettingsProvider.cs" />
     <Compile Include="DataAccesLayer\VisitProvider.cs" />
     <Compile Include="UI\ControlPanel.cs">
@@ -143,7 +144,6 @@
     <Compile Include="UI\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataAccesLayer\NHibernateHelper.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\RegisterKidForm.cs">

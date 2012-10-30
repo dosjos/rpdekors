@@ -8,7 +8,7 @@ using CafeTerminal.DomainObjects;
 using DomainObjects.Settings;
 using System;
 
-namespace CafeTerminal
+namespace CafeTerminal.DataAccesLayer
 {
     public class NHibernateHelper
     {

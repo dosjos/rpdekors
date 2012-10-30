@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using System.Collections;
 using DomainObjects.Visit;
 using System.Windows.Forms.DataVisualization.Charting;
-using Visitor_Registration.DomainObjects;
-using Visitor_Registration.DataAccesLayer;
+using CafeTerminal.DomainObjects;
+using CafeTerminal.DataAccesLayer;
 
-namespace Visitor_Registration.UI
+namespace CafeTerminal.UI
 {
     public partial class Statistics : Form
     {

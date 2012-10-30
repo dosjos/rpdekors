@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Visitor_Registration.DataAccesLayer;
+using CafeTerminal.DataAccesLayer;
 
-namespace Visitor_Registration.UI
+namespace CafeTerminal.UI
 {
     public partial class ControlPanel : Form
     {

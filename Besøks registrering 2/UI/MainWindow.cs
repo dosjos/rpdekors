@@ -9,8 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-using Visitor_Registration.DomainObjects;
-using Visitor_Registration.Controllers;
+using CafeTerminal.DomainObjects;
+using CafeTerminal.Controllers;
 
 using FluentNHibernate;
 using NHibernate;
@@ -20,12 +20,12 @@ using FluentNHibernate.Automapping;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate.Criterion;
-using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.UI;
+using CafeTerminal.DataAccesLayer;
+using CafeTerminal.UI;
 using System.Drawing.Drawing2D;
-using Visitor_Registration.Mocking;
+using CafeTerminal.Mocking;
 
-namespace Visitor_Registration
+namespace CafeTerminal
 {
     public partial class MainWindow : Form
     {
@@ -263,7 +263,7 @@ namespace Visitor_Registration
         #endregion
 
         #region exit
-        private void ExitApplication(object sender, EventArgs e)
+        public void ExitApplication(object sender, EventArgs e)
         {
             Application.Exit();
         }

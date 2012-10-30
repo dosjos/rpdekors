@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DomainObjects.Settings;
 using NHibernate;
 
-namespace Visitor_Registration.DataAccesLayer
+namespace CafeTerminal.DataAccesLayer
 {
     public class SettingsProvider
     {

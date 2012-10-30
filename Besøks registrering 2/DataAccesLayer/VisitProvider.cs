@@ -6,10 +6,10 @@ using System.Collections;
 using System.ComponentModel;
 using NHibernate;
 using DomainObjects.Visit;
-using Visitor_Registration.DomainObjects;
+using CafeTerminal.DomainObjects;
 using NHibernate.Criterion;
 
-namespace Visitor_Registration.DataAccesLayer
+namespace CafeTerminal.DataAccesLayer
 {
     public class VisitProvider
     {
@@ -194,7 +194,8 @@ namespace Visitor_Registration.DataAccesLayer
 
         internal static object GetMonthsWithVisits(string p)
         {
-            throw new NotImplementedException();
+            //TODO work here
+            return null;
         }
     }
 }

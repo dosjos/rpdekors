@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Visitor Registration", "Bes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainObjects", "DomainObjects\DomainObjects.csproj", "{5D4FA5D0-E3EB-4316-97D1-8CD829B30437}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeTerminal", "CafeTerminal\CafeTerminal.csproj", "{9EED114E-83F0-40F8-882D-E9F14F1598B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,16 @@ Global
 		{5D4FA5D0-E3EB-4316-97D1-8CD829B30437}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5D4FA5D0-E3EB-4316-97D1-8CD829B30437}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5D4FA5D0-E3EB-4316-97D1-8CD829B30437}.Release|x86.ActiveCfg = Release|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{9EED114E-83F0-40F8-882D-E9F14F1598B7}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
