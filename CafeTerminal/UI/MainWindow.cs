@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CafeTerminal.UI;
 
 namespace CafeTerminal
 {
@@ -25,6 +26,11 @@ namespace CafeTerminal
         private void omToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog(this);
+        }
+
+        private void instillingerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Settings();
         }
 
         //create buttons code

@@ -91,7 +91,7 @@
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.avsluttToolStripMenuItem_Click);
             // 
@@ -107,13 +107,14 @@
             // instillingerToolStripMenuItem
             // 
             this.instillingerToolStripMenuItem.Name = "instillingerToolStripMenuItem";
-            this.instillingerToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.instillingerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.instillingerToolStripMenuItem.Text = "Instillinger";
+            this.instillingerToolStripMenuItem.Click += new System.EventHandler(this.instillingerToolStripMenuItem_Click);
             // 
             // salgsoppsettToolStripMenuItem
             // 
             this.salgsoppsettToolStripMenuItem.Name = "salgsoppsettToolStripMenuItem";
-            this.salgsoppsettToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.salgsoppsettToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.salgsoppsettToolStripMenuItem.Text = "Salgsoppsett";
             // 
             // omToolStripMenuItem
@@ -306,7 +307,7 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -314,7 +315,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "Kassaapparat";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
