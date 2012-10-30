@@ -30,7 +30,7 @@ namespace CafeTerminal
 
         private void instillingerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new Settings();
+            new SettingsWindow();
         }
 
         //create buttons code

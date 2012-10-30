@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CafeTerminal.UI
 {
-    public partial class Settings : Form
+    public partial class SettingsWindow : Form
     {
-        public Settings()
+        public SettingsWindow()
         {
             InitializeComponent();
         }

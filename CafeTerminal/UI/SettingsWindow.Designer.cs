@@ -1,6 +1,6 @@
 ﻿namespace CafeTerminal.UI
 {
-    partial class Settings
+    partial class SettingsWindow
     {
         /// <summary>
         /// Required designer variable.
