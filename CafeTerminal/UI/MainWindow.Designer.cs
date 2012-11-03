@@ -34,6 +34,7 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salgsoppsettToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.initialiserDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,7 +92,7 @@
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.avsluttToolStripMenuItem_Click);
             // 
@@ -99,7 +100,8 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.instillingerToolStripMenuItem,
-            this.salgsoppsettToolStripMenuItem});
+            this.salgsoppsettToolStripMenuItem,
+            this.initialiserDatabaseToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -107,15 +109,22 @@
             // instillingerToolStripMenuItem
             // 
             this.instillingerToolStripMenuItem.Name = "instillingerToolStripMenuItem";
-            this.instillingerToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.instillingerToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.instillingerToolStripMenuItem.Text = "Instillinger";
             this.instillingerToolStripMenuItem.Click += new System.EventHandler(this.instillingerToolStripMenuItem_Click);
             // 
             // salgsoppsettToolStripMenuItem
             // 
             this.salgsoppsettToolStripMenuItem.Name = "salgsoppsettToolStripMenuItem";
-            this.salgsoppsettToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salgsoppsettToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.salgsoppsettToolStripMenuItem.Text = "Salgsoppsett";
+            // 
+            // initialiserDatabaseToolStripMenuItem
+            // 
+            this.initialiserDatabaseToolStripMenuItem.Name = "initialiserDatabaseToolStripMenuItem";
+            this.initialiserDatabaseToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.initialiserDatabaseToolStripMenuItem.Text = "Initialiser database";
+            this.initialiserDatabaseToolStripMenuItem.Click += new System.EventHandler(this.initialiserDatabaseToolStripMenuItem_Click);
             // 
             // omToolStripMenuItem
             // 
@@ -129,14 +138,14 @@
             // omToolStripMenuItem1
             // 
             this.omToolStripMenuItem1.Name = "omToolStripMenuItem1";
-            this.omToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.omToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
             this.omToolStripMenuItem1.Text = "Om";
             this.omToolStripMenuItem1.Click += new System.EventHandler(this.omToolStripMenuItem1_Click);
             // 
             // hjelpToolStripMenuItem
             // 
             this.hjelpToolStripMenuItem.Name = "hjelpToolStripMenuItem";
-            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.hjelpToolStripMenuItem.Text = "Hjelp";
             // 
             // splitContainer1
@@ -366,6 +375,7 @@
         private System.Windows.Forms.Label salglabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ToolStripMenuItem initialiserDatabaseToolStripMenuItem;
     }
 }
 

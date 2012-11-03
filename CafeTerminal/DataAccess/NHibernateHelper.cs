@@ -2,11 +2,9 @@
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
-using CafeTerminal.DataAccesLayer;
-using DomainObjects.Visit;
-using CafeTerminal.DomainObjects;
-using DomainObjects.Settings;
 using System;
+using DomainObjecsSalg.Sales;
+
 
 namespace CafeTerminal.DataAccesLayer
 {
@@ -36,12 +34,10 @@ namespace CafeTerminal.DataAccesLayer
                                 .Database(CustomizationManager.GetDatabase())
                                 .Username("rodekors")
                                 .Password("rodekors")))
-                              //.ShowSql()
+                              .ShowSql()
                 )
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
-                .Mappings(m =>m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Vare>())
+
                 .ExposeConfiguration(cfg => new SchemaExport(cfg)
                                                .Create(true,true))
                 .BuildSessionFactory();
@@ -63,10 +59,8 @@ namespace CafeTerminal.DataAccesLayer
                                     .Password("rodekors")))
                                 //  .ShowSql()//Uncomment denne for å få output
                     )
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
-                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Vare>())
+  
                     .BuildSessionFactory();
             }
             catch (Exception e)

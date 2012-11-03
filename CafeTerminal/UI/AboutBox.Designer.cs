@@ -1,4 +1,4 @@
-﻿namespace CafeTerminal
+﻿namespace CafeTerminal.UI
 {
     partial class AboutBox
     {
