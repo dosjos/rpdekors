@@ -5,7 +5,10 @@ using System.Text;
 
 namespace DomainObjecsSalg.Sales
 {
-    class Logg
+    public class Logg
     {
+        virtual public int Id { get; set; }
+        virtual public DateTime LoggTid { get; set; }
+        virtual public string Text { get; set; }
     }
 }

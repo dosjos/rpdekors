@@ -12,6 +12,7 @@ namespace CafeTerminal.UI
     public partial class SettingsWindow : Form
     {
         private Controller.MainController mc;
+        public MainWindow mainWindow;
 
         public SettingsWindow()
         {
@@ -19,9 +20,10 @@ namespace CafeTerminal.UI
             Show();
         }
 
-        public SettingsWindow(Controller.MainController mc)
+        public SettingsWindow(Controller.MainController mc, MainWindow mainWindow)
         {
             this.mc = mc;
+            this.mainWindow = mainWindow;
             InitializeComponent();
             Show();
         }

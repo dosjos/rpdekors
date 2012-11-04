@@ -8,5 +8,12 @@ namespace DomainObjecsSalg.Sales
 {
     public class SalgMap : ClassMap<Salg>
     {
+        SalgMap()
+        {
+            Id(z => z.Id);
+            Map(x => x.Pris);
+            Map(x => x.SlagsTid);
+            Map(x => x.VareId);
+        }
     }
 }

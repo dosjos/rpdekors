@@ -90,6 +90,7 @@ namespace CafeTerminal.UI
                 mc.SaveVare(vare);
                 settingsWindow.ReactivateSettingsWindow();
                 Dispose();
+                settingsWindow.mainWindow.GetButtons();
 
             }
             catch (Exception ee)

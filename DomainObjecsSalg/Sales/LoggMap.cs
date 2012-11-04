@@ -8,5 +8,11 @@ namespace DomainObjecsSalg.Sales
 {
     public class LoggMap : ClassMap<Logg>
     {
+        LoggMap()
+        {
+            Id(x => x.Id);
+            Map(x => x.LoggTid);
+            Map(x => x.Text);
+        }
     }
 }

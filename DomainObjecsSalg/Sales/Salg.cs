@@ -10,6 +10,6 @@ namespace DomainObjecsSalg.Sales
         virtual public int Id { get; set; }
         virtual public int VareId { get; set; }
         virtual public DateTime SlagsTid { get; set; }
-
+        virtual public int Pris { get; set; }
     }
 }

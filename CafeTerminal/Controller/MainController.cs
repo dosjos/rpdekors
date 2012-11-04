@@ -30,5 +30,11 @@ namespace CafeTerminal.Controller
         {
             return VareProvider.GetVarerCurrentlyInUse();
         }
+
+        internal void LagreSalg(string p, int s)
+        {
+            var vare = VareProvider.GetVarer(p, s);
+            SalgsProvider.LagreSalg(vare);
+        }
     }
 }
