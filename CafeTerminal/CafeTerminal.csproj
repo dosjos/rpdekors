@@ -45,6 +45,9 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\dlls\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="LaMarvin.Windows.Forms.ColorPicker">
+      <HintPath>..\dlls\LaMarvin.Windows.Forms.ColorPicker.dll</HintPath>
+    </Reference>
     <Reference Include="log4net">
       <HintPath>..\dlls\log4net.dll</HintPath>
     </Reference>
@@ -70,6 +73,8 @@
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="DataAccess\SalgsProvider.cs" />
     <Compile Include="DataAccess\VareProvider.cs" />
+    <Compile Include="MetInst.cs" />
+    <Compile Include="Stasjon.cs" />
     <Compile Include="UI\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +84,9 @@
     <Compile Include="DataAccess\CustomizationManager.cs" />
     <Compile Include="DataAccess\NHibernateHelper.cs" />
     <Compile Include="DataAccess\SettingsProvider.cs" />
+    <Compile Include="UI\ColorPickerColumn.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\ErrorMessage.cs" />
     <Compile Include="UI\MainWindow.cs">
       <SubType>Form</SubType>

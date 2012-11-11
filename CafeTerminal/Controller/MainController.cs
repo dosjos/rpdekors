@@ -21,10 +21,6 @@ namespace CafeTerminal.Controller
             VareProvider.Save(vare);
         }
 
-        internal void ReactivateSettingsWindow()
-        {
-            
-        }
 
         internal List<Vare> GetVarerCurrentlyForSale()
         {
@@ -35,6 +31,41 @@ namespace CafeTerminal.Controller
         {
             var vare = VareProvider.GetVarer(p, s);
             SalgsProvider.LagreSalg(vare);
+        }
+
+        internal List<Vare> GetAlleVarer()
+        {
+            return VareProvider.GetAlleVarer();
+        }
+
+        internal Vare GetVare(string p1, int p2)
+        {
+            return VareProvider.GetVarer(p1, p2);
+        }
+
+        internal void UpdateVare(Vare v)
+        {
+            VareProvider.UpdateVare(v);
+        }
+
+        internal void UpdateMainButtons()
+        {
+            mainWindow.GetButtons();
+        }
+
+        internal Vare GetVare(int t)
+        {
+            return VareProvider.GetVare(t);
+        }
+
+        internal void PushVareUp(Vare v)
+        {
+            VareProvider.PushVareUp(v);
+        }
+
+        internal void PushVareDown(Vare v)
+        {
+            VareProvider.PushVareDown(v);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace DomainObjecsSalg.Sales
             Map(x => x.Pris);
             Map(x => x.CurrentlyInUse);
             Map(x => x.Rank);
+            Map(x => x.Farge);
         }
     }
 }

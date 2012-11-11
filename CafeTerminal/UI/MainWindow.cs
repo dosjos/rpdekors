@@ -26,6 +26,7 @@ namespace CafeTerminal
         public MainWindow()
         {
             InitializeComponent();
+            //NHibernateHelper.ResetDatabase();
             mc = new MainController(this);
            // this.Size = Screen.PrimaryScreen.WorkingArea.Size;
            // this.Location = Screen.PrimaryScreen.WorkingArea.Location;
@@ -49,13 +50,14 @@ namespace CafeTerminal
 
         public void GetButtons()
         {
+            splitContainer3.Panel1.Controls.Clear();
            var buttons =  mc.GetVarerCurrentlyForSale();
            if (buttons.Count == 0)
            {
+
                return;
             }
 
-           splitContainer3.Panel1.Controls.Clear();
             //create buttons code
            int lastX = 0;
            int lastY = 0;
@@ -73,7 +75,7 @@ namespace CafeTerminal
                    Button b = new Button();
                    b.Width = w;
                    b.Height = h;
-                   b.BackColor = GetButtonColor();  
+                   b.BackColor = GetButtonColor(buttons[total]);  
                    b.Font = new System.Drawing.Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                    b.Location = new Point(lastX, lastY);
                    b.Text = buttons[total].Navn + "\n" + buttons[total].Pris + " kr" ;
@@ -89,6 +91,16 @@ namespace CafeTerminal
                lastY += h;
                lastX = 0;
            }
+        }
+
+        private Color GetButtonColor(DomainObjecsSalg.Sales.Vare vare)
+        {
+            if(vare.Farge != null){
+                return vare.Farge;
+            }
+            else{
+                return System.Drawing.Color.Yellow;
+            }
         }
 
         private void menuItem_Click(object sender, EventArgs e)
@@ -111,24 +123,7 @@ namespace CafeTerminal
             totalsumlabel.Text = totalsum + " nok";
         }
 
-        private Color GetButtonColor()
-        {
-            
-            Color[] farger = new Color[11];
-            farger[0] = System.Drawing.Color.YellowGreen;
-            farger[1] = System.Drawing.Color.Azure;
-            farger[2] = System.Drawing.Color.BurlyWood;
-            farger[3] = System.Drawing.Color.DarkOliveGreen;
-            farger[4] = System.Drawing.Color.YellowGreen;
-            farger[5] = System.Drawing.Color.MidnightBlue;
-            farger[6] = System.Drawing.Color.Violet;
-            farger[7] = System.Drawing.Color.WhiteSmoke;
-            farger[8] = System.Drawing.Color.Tomato;
-            farger[9] = System.Drawing.Color.Wheat;
-            farger[10] = System.Drawing.Color.SaddleBrown;
-
-            return farger[r.Next(farger.Length)];
-        }
+        
 
         private void avsluttToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -176,3 +171,5 @@ namespace CafeTerminal
         }
     }
 }
+
+

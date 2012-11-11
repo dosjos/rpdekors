@@ -12,6 +12,7 @@ namespace DomainObjecsSalg.Sales
         virtual public string Navn { get; set; }
         virtual public Boolean CurrentlyInUse { get; set; }
         virtual public int Rank { get; set; }
+        virtual public System.Drawing.Color Farge { get; set; }
 
     }
 }

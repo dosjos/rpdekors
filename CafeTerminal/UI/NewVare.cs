@@ -85,13 +85,23 @@ namespace CafeTerminal.UI
                     Navn = navn.Text,
                     Pris = int.Parse(pris.Text)
                 };
-
-
+                Console.WriteLine("HEEER");
                 mc.SaveVare(vare);
+                try
+                {
+                    
+                    
+                    mc.UpdateMainButtons();
+                    
+                }
+                catch (Exception ew)
+                {
+                    
+                }
+                
                 settingsWindow.ReactivateSettingsWindow();
+                settingsWindow.InitializeList();
                 Dispose();
-                settingsWindow.mainWindow.GetButtons();
-
             }
             catch (Exception ee)
             {
