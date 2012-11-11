@@ -8,30 +8,28 @@ using NHibernate;
 
 namespace CafeTerminal.DataAccess
 {
-    public class SalgsProvider
+    public class LoggProvider
     {
-        internal static void LagreSalg(Vare v)
+        internal static void LagreLogg(Logg v)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    Salg s = new Salg() { Pris = v.Pris, SlagsTid = DateTime.Now, VareId = v.Id};
-                    session.Save(s);
+                    session.Save(v);
                     transaction.Commit();
                 }
             }
         }
 
-        internal static List<Salg> GetTodaysSales()
+        internal static Logg GetLastLogg()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                       var res = session.CreateQuery("from Salg where DatePart(YEAR, SlagsTid) = :year and DatePart(MONTH, SlagsTid) = :month AND DatePart(DAY, SlagsTid) = :day")
-                           .SetParameter("year", DateTime.Now.Year).SetParameter("month", DateTime.Now.Month).SetParameter("day", DateTime.Now.Day).List<Salg>();
-                       return res.ToList<Salg>();
+                    var res = session.CreateQuery("from Logg where Id = (select max(Id) from Logg)").UniqueResult();
+                    return (Logg) res;
                 }
             }
         }

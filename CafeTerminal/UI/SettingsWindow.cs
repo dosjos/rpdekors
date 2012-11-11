@@ -40,7 +40,7 @@ namespace CafeTerminal.UI
                 DataGridViewRow row = new DataGridViewRow();
                 dataGridView1.Rows.Add(new object[] { vare.CurrentlyInUse, vare.Navn, vare.Pris, "opp", "ned", vare.Farge, vare.Id });
             }
-            
+
             BringToFront();
         }
 
@@ -55,11 +55,11 @@ namespace CafeTerminal.UI
 
             dataGridView1.Columns.Insert(0, doWork);
 
-   
+
             DataGridViewButtonColumn button = new DataGridViewButtonColumn();
             button.HeaderText = "Opp";
             button.Width = 80;
-            
+
             dataGridView1.Columns.Insert(3, button);
             DataGridViewButtonColumn button2 = new DataGridViewButtonColumn();
             button2.HeaderText = "Ned";
@@ -70,7 +70,7 @@ namespace CafeTerminal.UI
             cpc.HeaderText = "Farge";
             cpc.Width = 100;
             dataGridView1.Columns.Insert(5, cpc);
-            
+
 
             dataGridView1.Columns[1].Name = "Vare";
             dataGridView1.Columns[1].Width = 120;
@@ -82,7 +82,7 @@ namespace CafeTerminal.UI
             dataGridView1.Columns[6].Name = "ID";
             dataGridView1.Columns[6].Width = 0;
 
-            
+
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -117,19 +117,6 @@ namespace CafeTerminal.UI
                 //ned
 
             }
-
-            if (e.ColumnIndex == 5)
-            {
-                Console.WriteLine("Farge");
-                ColorPickerControl a = (ColorPickerControl) dataGridView1.Rows[e.RowIndex].Cells[6].Value;
-               //s Console.WriteLine(a.Color.Name);
-              //
-                Color TemoColor = (Color)dataGridView1.Rows[e.RowIndex].Cells[6].Value;
-               // Console.WriteLine(TemoColor);
-                //ned
-
-            }
-            Console.WriteLine(e.ColumnIndex);
             BringToFront();
         }
 
@@ -149,20 +136,17 @@ namespace CafeTerminal.UI
         private void button2_Click(object sender, EventArgs e)
         {
             Console.WriteLine("Antall rader " + dataGridView1.RowCount);
-                for (int j = 0; j < dataGridView1.RowCount; j++)
-                {
-                    //if (dataGridView1.Rows[5].Cells[j].GetType() == typeof(ColorPickerCell))
-                 //   {
-                        ColorPickerCell ColorCell = (ColorPickerCell)dataGridView1.Rows[j].Cells[5];
-                        Color TemoColor = (Color)dataGridView1.Rows[j].Cells[5].Value;
-                        Console.WriteLine(TemoColor);
-                        Vare v = mc.GetVare(Convert.ToInt32(dataGridView1.Rows[j].Cells[6].Value));
-                        v.Farge = TemoColor;
-                        mc.UpdateVare(v);
-                 //   }
-                }
-
-                mc.UpdateMainButtons();
+            for (int j = 0; j < dataGridView1.RowCount; j++)
+            {
+                ColorPickerCell ColorCell = (ColorPickerCell)dataGridView1.Rows[j].Cells[5];
+                Color TemoColor = (Color)dataGridView1.Rows[j].Cells[5].Value;
+                Console.WriteLine(TemoColor);
+                Vare v = mc.GetVare(Convert.ToInt32(dataGridView1.Rows[j].Cells[6].Value));
+                v.Farge = TemoColor;
+                mc.UpdateVare(v);
+            }
+            mc.UpdateMainButtons();
+            BringToFront();
         }
     }
 }

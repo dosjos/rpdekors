@@ -67,7 +67,11 @@ namespace CafeTerminal.DataAccess
                     var vare = session.CreateQuery("from Vare where Pris = :pris and Navn like :name")
                         .SetParameter("pris", s)
                         .SetParameter("name", p).List<Vare>();
-                    return vare[0];
+                    if (vare[0] != null)
+                    {
+                        return vare[0];
+                    }
+                    return null;
                 }
             }
         }

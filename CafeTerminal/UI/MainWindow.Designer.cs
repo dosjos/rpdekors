@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nyDagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.avsluttToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salgsoppsettToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initialiserDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,9 +50,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.LogText = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.nyDagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -93,10 +92,17 @@
             this.filToolStripMenuItem.Size = new System.Drawing.Size(31, 20);
             this.filToolStripMenuItem.Text = "Fil";
             // 
+            // nyDagToolStripMenuItem
+            // 
+            this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
+            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nyDagToolStripMenuItem.Text = "Ny dag";
+            this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
+            // 
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(111, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.avsluttToolStripMenuItem_Click);
             // 
@@ -104,7 +110,6 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.instillingerToolStripMenuItem,
-            this.salgsoppsettToolStripMenuItem,
             this.initialiserDatabaseToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
@@ -116,13 +121,6 @@
             this.instillingerToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
             this.instillingerToolStripMenuItem.Text = "Instillinger";
             this.instillingerToolStripMenuItem.Click += new System.EventHandler(this.instillingerToolStripMenuItem_Click);
-            // 
-            // salgsoppsettToolStripMenuItem
-            // 
-            this.salgsoppsettToolStripMenuItem.Name = "salgsoppsettToolStripMenuItem";
-            this.salgsoppsettToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.salgsoppsettToolStripMenuItem.Text = "Salgsoppsett";
-            this.salgsoppsettToolStripMenuItem.Click += new System.EventHandler(this.salgsoppsettToolStripMenuItem_Click);
             // 
             // initialiserDatabaseToolStripMenuItem
             // 
@@ -143,14 +141,14 @@
             // omToolStripMenuItem1
             // 
             this.omToolStripMenuItem1.Name = "omToolStripMenuItem1";
-            this.omToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
+            this.omToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.omToolStripMenuItem1.Text = "Om";
             this.omToolStripMenuItem1.Click += new System.EventHandler(this.omToolStripMenuItem1_Click);
             // 
             // hjelpToolStripMenuItem
             // 
             this.hjelpToolStripMenuItem.Name = "hjelpToolStripMenuItem";
-            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hjelpToolStripMenuItem.Text = "Hjelp";
             // 
             // splitContainer1
@@ -167,7 +165,7 @@
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Cornsilk;
             this.splitContainer1.Panel2.Controls.Add(this.button2);
-            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.LogText);
             this.splitContainer1.Size = new System.Drawing.Size(1221, 548);
             this.splitContainer1.SplitterDistance = 947;
             this.splitContainer1.TabIndex = 1;
@@ -205,7 +203,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.BackColor = System.Drawing.Color.LightCoral;
+            this.splitContainer3.Panel1.BackColor = System.Drawing.SystemColors.Control;
             // 
             // splitContainer3.Panel2
             // 
@@ -311,29 +309,24 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Lagre";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // richTextBox1
+            // LogText
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.LogText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.Location = new System.Drawing.Point(4, 263);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(263, 169);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.LogText.Location = new System.Drawing.Point(4, 263);
+            this.LogText.Name = "LogText";
+            this.LogText.Size = new System.Drawing.Size(263, 169);
+            this.LogText.TabIndex = 0;
+            this.LogText.Text = "";
+            this.LogText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loggTextSkrevet);
             // 
             // imageList1
             // 
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // nyDagToolStripMenuItem
-            // 
-            this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
-            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nyDagToolStripMenuItem.Text = "Ny dag";
-            this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -386,9 +379,8 @@
         private System.Windows.Forms.ToolStripMenuItem instillingerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem omToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem hjelpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salgsoppsettToolStripMenuItem;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox LogText;
         private System.Windows.Forms.SplitContainer splitContainer3;
         private System.Windows.Forms.SplitContainer splitContainer4;
         private System.Windows.Forms.Label salglabel;

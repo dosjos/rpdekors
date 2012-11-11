@@ -67,5 +67,28 @@ namespace CafeTerminal.Controller
         {
             VareProvider.PushVareDown(v);
         }
+
+        internal void LagreLogg(Logg l)
+        {
+            LoggProvider.LagreLogg(l);
+        }
+
+        internal Logg GetLastLog()
+        {
+            return LoggProvider.GetLastLogg();
+        }
+
+        internal int GetDagensSalg()
+        {
+            var list = SalgsProvider.GetTodaysSales();
+            int sum = 0;
+            foreach (var item in list)
+            {
+                sum += item.Pris;
+            }
+
+
+            return sum;
+        }
     }
 }
