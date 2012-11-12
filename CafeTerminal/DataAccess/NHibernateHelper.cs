@@ -41,6 +41,8 @@ namespace CafeTerminal.DataAccesLayer
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Salg>())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Logg>())
                 .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Users>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserLogg>())
                 .ExposeConfiguration(cfg => new SchemaExport(cfg)
                                                .Create(true, true))
                 .BuildSessionFactory();
@@ -66,6 +68,8 @@ namespace CafeTerminal.DataAccesLayer
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Salg>())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Logg>())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
+                    .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Users>())
+                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<UserLogg>())
 
                     .BuildSessionFactory();
             }

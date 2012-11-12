@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using CafeTerminal.DataAccesLayer;
 using CafeTerminal.DataAccess;
 using DomainObjecsSalg.Sales;
 
@@ -51,6 +52,7 @@ namespace CafeTerminal.Controller
         internal void UpdateMainButtons()
         {
             mainWindow.GetButtons();
+            mainWindow.resetTime();
         }
 
         internal Vare GetVare(int t)
@@ -89,6 +91,48 @@ namespace CafeTerminal.Controller
 
 
             return sum;
+        }
+
+        internal void EnableMainWindow()
+        {
+            mainWindow.ReenableWindow();
+        }
+        internal void LockMainWindow()
+        {
+            mainWindow.LockWindow();
+        }
+
+        internal bool HavePassSetting()
+        {
+            return SettingsProvider.HavePassSettings();
+        }
+
+        internal string GetPassord()
+        {
+            return SettingsProvider.GetPassord();
+        }
+
+
+        internal void LagrePassord(DomainObjecsSalg.Settings.Settings s)
+        {
+            SettingsProvider.LagrePass(s);
+        }
+
+        internal void EnableMainWindow(bool p)
+        {
+            mainWindow.ReenableWindow(p);
+        }
+
+        internal void LagreBruker(string navn, string yrke)
+        {
+            Users u = new Users() { Navn = navn, Rolle = yrke };
+            int id = UserProvider.SaveUser(u);
+            UserLogg ul = new UserLogg()
+            {
+                UserId = id,
+                Brukstid = DateTime.Now
+            };
+            UserProvider.SaveUsage(ul);
         }
     }
 }

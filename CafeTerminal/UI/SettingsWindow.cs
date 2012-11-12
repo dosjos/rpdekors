@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DomainObjecsSalg.Sales;
+using DomainObjecsSalg.Settings;
 
 namespace CafeTerminal.UI
 {
@@ -147,6 +148,28 @@ namespace CafeTerminal.UI
             }
             mc.UpdateMainButtons();
             BringToFront();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            bool bytt = true;
+            if (mc.HavePassSetting())
+            {
+                if (!mc.GetPassord().Equals(textBox1.Text))
+                {
+                    bytt = false;
+                }
+            }
+            if (bytt)
+            {
+                if (textBox2.Text.Equals(textBox3.Text))
+                {
+                    Settings s = new Settings() { Type="Passord", Value = textBox3.Text};
+                    mc.LagrePassord(s);
+                    mc.EnableMainWindow();
+                    Dispose();
+                }
+            }
         }
     }
 }

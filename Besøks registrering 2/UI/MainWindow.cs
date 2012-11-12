@@ -75,6 +75,8 @@ namespace CafeTerminal
             SizeChanged += WindowOnSizeChanged;
 
             InitializeImages();
+
+
         }
 
 

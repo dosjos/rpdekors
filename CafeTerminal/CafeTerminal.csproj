@@ -73,9 +73,8 @@
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="DataAccess\LoggProvider.cs" />
     <Compile Include="DataAccess\SalgsProvider.cs" />
+    <Compile Include="DataAccess\UserProvider.cs" />
     <Compile Include="DataAccess\VareProvider.cs" />
-    <Compile Include="MetInst.cs" />
-    <Compile Include="Stasjon.cs" />
     <Compile Include="UI\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +88,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\ErrorMessage.cs" />
+    <Compile Include="UI\LoggInn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LoggInn.Designer.cs">
+      <DependentUpon>LoggInn.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,8 +121,17 @@
     <Compile Include="UI\SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\OrderPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\OrderPanel.Designer.cs">
+      <DependentUpon>OrderPanel.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\LoggInn.resx">
+      <DependentUpon>LoggInn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -134,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="UI\NewVare.resx">
       <DependentUpon>NewVare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\OrderPanel.resx">
+      <DependentUpon>OrderPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Salgsoppsett.resx">
       <DependentUpon>Salgsoppsett.cs</DependentUpon>
@@ -159,6 +176,10 @@
       <Project>{5319f5f4-02b8-4a02-b3cd-e280e90a58d0}</Project>
       <Name>DomainObjectsSalg</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\login.gif" />
+    <Content Include="Images\LoginRed.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

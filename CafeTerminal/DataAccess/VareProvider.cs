@@ -131,13 +131,10 @@ namespace CafeTerminal.DataAccess
                         temp= v.Rank;
                         v.Rank--;
 
-                        Console.WriteLine("Old rank {0}, new rank {1}", temp, v.Rank);
-
                         var res = session.CreateQuery("from Vare Where Rank = :rank").SetParameter("rank", v.Rank);
                         Vare vv = (Vare)res.UniqueResult();
                         vv.Rank = temp;
 
-                        Console.WriteLine("vv new rank {0}", vv.Rank);
 
                         session.Update(v);
                         session.Update(v);
@@ -162,13 +159,9 @@ namespace CafeTerminal.DataAccess
                         temp = v.Rank;
                         v.Rank++;
 
-                        Console.WriteLine("Old rank {0}, new rank {1}", temp, v.Rank);
-
                         var res = session.CreateQuery("from Vare Where Rank = :rank").SetParameter("rank", v.Rank);
                         Vare vv = (Vare)res.UniqueResult();
                         vv.Rank = temp;
-
-                        Console.WriteLine("vv new rank {0}", vv.Rank);
 
                         session.Update(v);
                         session.Update(v);

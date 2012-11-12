@@ -71,6 +71,10 @@
     <Compile Include="Sales\Salg.cs" />
     <Compile Include="Sales\SalgMap.cs" />
     <Compile Include="Sales\StringValue.cs" />
+    <Compile Include="Sales\UserLogg.cs" />
+    <Compile Include="Sales\UserLoggMap.cs" />
+    <Compile Include="Sales\Users.cs" />
+    <Compile Include="Sales\UsersMap.cs" />
     <Compile Include="Sales\Vare.cs" />
     <Compile Include="Sales\VareMap.cs" />
     <Compile Include="Settings\Settings.cs" />

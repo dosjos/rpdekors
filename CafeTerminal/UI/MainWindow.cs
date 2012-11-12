@@ -19,9 +19,11 @@ namespace CafeTerminal
     {
         public MainController mc { get; set; }
         private BindingList<StringValue> sales = new BindingList<StringValue>();
-
+        int logTime = 0;
         int totalsum = 0;
         int salgsum = 0;
+        Timer t;
+        List<OrderPanel> orderlist = new List<OrderPanel>();
 
         public MainWindow()
         {
@@ -39,8 +41,22 @@ namespace CafeTerminal
             initialiserDatabaseToolStripMenuItem.Enabled = false;
 #endif
 
+            if(mc.HavePassSetting()){
+            t = new Timer();
+            t.Tick += Tick;
+            t.Interval = 500;
+            t.Enabled = true ;
+            }
+        }
+
+        private void Tick(object sender, EventArgs e)
+        {
+            t.Enabled = false;
+            t.Tick -= Tick;
+            new LoggInn(mc);
 
         }
+
 
         private void GetDagensSalg()
         {
@@ -73,6 +89,7 @@ namespace CafeTerminal
         private void ResizeButtons(object sender, EventArgs e)
         {
             GetButtons();
+           // resetTime();
         }
 
         public void GetButtons()
@@ -134,11 +151,9 @@ namespace CafeTerminal
 
         private void menuItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(sender.ToString());
             string temp = sender.ToString().Remove(sender.ToString().Length - 2);
             temp = temp.Substring(temp.IndexOf(':') + 2);
             string[] salg = temp.Split('\n');
-            Console.WriteLine("Navn {0} og sum {1}", salg[0], salg[1]);
             int s = int.Parse(salg[1]);
             mc.LagreSalg(salg[0], s);
 
@@ -150,6 +165,7 @@ namespace CafeTerminal
 
             salglabel.Text = salgsum + " nok";
             totalsumlabel.Text = totalsum + " nok";
+            resetTime();
         }
 
 
@@ -162,16 +178,21 @@ namespace CafeTerminal
         private void omToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog(this);
+            resetTime();
         }
 
         private void instillingerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new SettingsWindow(mc, this);
+            resetTime();
         }
 
-        private void LockWindow()
+        public void LockWindow()
         {
             Enabled = false;
+            Visible = false;
+            Hide();
+            
         }
 
         private void initialiserDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,15 +202,45 @@ namespace CafeTerminal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            OrderPanel o = new OrderPanel(this);
+
+            PopulateOrder(o);
+
+
+            UpdatePanels();
             salgsum = 0;
             salglabel.Text = salgsum + " nok";
             sales.Clear();
+            resetTime();
+        }
+
+        private void PopulateOrder(OrderPanel o)
+        {
+            foreach (DataGridViewRow item in dataGridView1.Rows)
+            {
+                o.SetText(item.Cells[0].Value.ToString());
+            }
+           // o.SetText("En", "To", "Tre");
+            orderlist.Add(o);
+        }
+
+        public void UpdatePanels()
+        {
+            int lastX = 0;
+            splitContainer5.Panel1.Controls.Clear();
+            foreach (var item in orderlist)
+            {
+                item.Location = new System.Drawing.Point(lastX, 0);
+                splitContainer5.Panel1.Controls.Add(item);
+                lastX += item.Width + 5; 
+            }
         }
 
         private void salgsoppsettToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //new Salgsoppsett(mc);
             // Enabled = false;
+            resetTime();
         }
 
         private void nyDagToolStripMenuItem_Click(object sender, EventArgs e)
@@ -197,6 +248,8 @@ namespace CafeTerminal
             totalsum = 0;
             totalsumlabel.Text = "0 nok";
             button1_Click(null, null);
+            resetTime();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -214,12 +267,84 @@ namespace CafeTerminal
             LogText.Text = "";
             LogText.SelectedText = "";
             LogText.SelectedText = a;
-            Console.WriteLine(a);
+            resetTime();
         }
 
         private void loggTextSkrevet(object sender, KeyPressEventArgs e)
         {
             LogText.SelectionColor = Color.Red;
+        }
+
+        internal void ReenableWindow()
+        {
+            Enabled = true;
+            Visible = true;
+            Show();
+            BringToFront();
+            resetTime();
+        }
+
+        internal void ReenableWindow(bool p)
+        {
+            Enabled = true;
+            Visible = true;
+            Show();
+            BringToFront();
+            if (p)
+            {
+                t.Interval = 120000;
+                logTime = 120000;
+            }
+            else
+            {
+                t.Interval = 30000;
+                logTime = 30000;
+            }
+            t.Enabled = true;
+            t.Tick += LogOut;
+        }
+
+        internal void resetTime()
+        {
+            try
+            {
+                t.Stop();
+                t.Interval = logTime;
+                t.Start();
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
+
+        private void LogOut(object sender, EventArgs e)
+        
+        {
+            t.Tick -= LogOut;
+            t.Enabled = false; 
+            new LoggInn(mc);
+        }
+
+        private void loggUtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            t.Tick -= LogOut;
+            t.Enabled = false;
+            new LoggInn(mc);
+        }
+
+        internal void RemoveFromList(OrderPanel orderPanel)
+        {
+            int i = 0;
+            foreach (var item in orderlist)
+            {
+                if (item == orderPanel)
+                {
+                    orderlist.RemoveAt(i);
+                    return;
+                }
+                i++;
+            }
         }
     }
 }

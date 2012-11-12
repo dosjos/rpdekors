@@ -52,6 +52,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.LogText = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.loggUtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -69,6 +71,9 @@
             this.splitContainer4.Panel2.SuspendLayout();
             this.splitContainer4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).BeginInit();
+            this.splitContainer5.Panel2.SuspendLayout();
+            this.splitContainer5.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -87,6 +92,7 @@
             // 
             this.filToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nyDagToolStripMenuItem,
+            this.loggUtToolStripMenuItem,
             this.avsluttToolStripMenuItem});
             this.filToolStripMenuItem.Name = "filToolStripMenuItem";
             this.filToolStripMenuItem.Size = new System.Drawing.Size(31, 20);
@@ -141,14 +147,14 @@
             // omToolStripMenuItem1
             // 
             this.omToolStripMenuItem1.Name = "omToolStripMenuItem1";
-            this.omToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.omToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
             this.omToolStripMenuItem1.Text = "Om";
             this.omToolStripMenuItem1.Click += new System.EventHandler(this.omToolStripMenuItem1_Click);
             // 
             // hjelpToolStripMenuItem
             // 
             this.hjelpToolStripMenuItem.Name = "hjelpToolStripMenuItem";
-            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.hjelpToolStripMenuItem.Text = "Hjelp";
             // 
             // splitContainer1
@@ -164,7 +170,9 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Cornsilk;
+            this.splitContainer1.Panel2.Controls.Add(this.totalsumlabel);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.LogText);
             this.splitContainer1.Size = new System.Drawing.Size(1221, 548);
             this.splitContainer1.SplitterDistance = 947;
@@ -186,9 +194,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.Color.Thistle;
-            this.splitContainer2.Panel2.Controls.Add(this.totalsumlabel);
-            this.splitContainer2.Panel2.Controls.Add(this.label1);
-            this.splitContainer2.Panel2.Controls.Add(this.button1);
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
             this.splitContainer2.Size = new System.Drawing.Size(947, 548);
             this.splitContainer2.SplitterDistance = 399;
             this.splitContainer2.TabIndex = 0;
@@ -236,10 +242,14 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(164, 255);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -264,18 +274,20 @@
             // 
             // totalsumlabel
             // 
+            this.totalsumlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.totalsumlabel.AutoSize = true;
             this.totalsumlabel.Font = new System.Drawing.Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalsumlabel.Location = new System.Drawing.Point(175, 50);
+            this.totalsumlabel.Location = new System.Drawing.Point(179, 211);
             this.totalsumlabel.Name = "totalsumlabel";
             this.totalsumlabel.Size = new System.Drawing.Size(0, 44);
             this.totalsumlabel.TabIndex = 2;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 50);
+            this.label1.Location = new System.Drawing.Point(10, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 44);
             this.label1.TabIndex = 1;
@@ -288,7 +300,7 @@
             this.button1.BackColor = System.Drawing.Color.YellowGreen;
             this.button1.Font = new System.Drawing.Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(778, 3);
+            this.button1.Location = new System.Drawing.Point(2, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(166, 139);
             this.button1.TabIndex = 0;
@@ -328,6 +340,28 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // loggUtToolStripMenuItem
+            // 
+            this.loggUtToolStripMenuItem.Name = "loggUtToolStripMenuItem";
+            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loggUtToolStripMenuItem.Text = "Logg ut";
+            this.loggUtToolStripMenuItem.Click += new System.EventHandler(this.loggUtToolStripMenuItem_Click);
+            // 
+            // splitContainer5
+            // 
+            this.splitContainer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer5.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainer5.IsSplitterFixed = true;
+            this.splitContainer5.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer5.Name = "splitContainer5";
+            // 
+            // splitContainer5.Panel2
+            // 
+            this.splitContainer5.Panel2.Controls.Add(this.button1);
+            this.splitContainer5.Size = new System.Drawing.Size(947, 145);
+            this.splitContainer5.SplitterDistance = 777;
+            this.splitContainer5.TabIndex = 0;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -343,11 +377,11 @@
             this.menuStrip1.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
-            this.splitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
@@ -359,6 +393,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
             this.splitContainer4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.splitContainer5.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer5)).EndInit();
+            this.splitContainer5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,6 +426,8 @@
         private System.Windows.Forms.ToolStripMenuItem initialiserDatabaseToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolStripMenuItem nyDagToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem loggUtToolStripMenuItem;
+        private System.Windows.Forms.SplitContainer splitContainer5;
     }
 }
 
