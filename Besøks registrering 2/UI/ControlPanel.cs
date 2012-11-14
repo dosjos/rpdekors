@@ -34,6 +34,7 @@ namespace CafeTerminal.UI
             Visible = true;
             openFileDialog1.Filter = "Image files|*.jpg; *.jpeg; *.png; *.gif";
             GetImages();
+            WodoPanel.Visible = false;
         }
 
         private void GetImages()
@@ -71,7 +72,6 @@ namespace CafeTerminal.UI
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("Kom her");
             SettingsProvider.SaveLowestYear(numericUpDown1.Value);
             SettingsProvider.SaveHighestYear(numericUpDown2.Value);
 
@@ -87,7 +87,6 @@ namespace CafeTerminal.UI
         private void button1_Click(object sender, EventArgs e)
         {
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
-
             if (result == DialogResult.OK) // Test result.
             {
                 vbilde.Text = openFileDialog1.FileName;
@@ -101,6 +100,11 @@ namespace CafeTerminal.UI
             {
                 hbilde.Text = openFileDialog1.FileName;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            WodoPanel.Visible = true;
         }
     }
 }
