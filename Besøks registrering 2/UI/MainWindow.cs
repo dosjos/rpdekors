@@ -48,7 +48,7 @@ namespace CafeTerminal
             mc = new MainController(this);
             // TODO: Complete member initialization
 
-            //NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
+           // NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
 
             initializeStuff();
         }

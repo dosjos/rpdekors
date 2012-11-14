@@ -54,6 +54,8 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.loggUtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
+            this.RegistrerArbeider = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -170,6 +172,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Cornsilk;
+            this.splitContainer1.Panel2.Controls.Add(this.button3);
+            this.splitContainer1.Panel2.Controls.Add(this.RegistrerArbeider);
             this.splitContainer1.Panel2.Controls.Add(this.totalsumlabel);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
@@ -362,6 +366,30 @@
             this.splitContainer5.SplitterDistance = 777;
             this.splitContainer5.TabIndex = 0;
             // 
+            // RegistrerArbeider
+            // 
+            this.RegistrerArbeider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegistrerArbeider.BackColor = System.Drawing.Color.MistyRose;
+            this.RegistrerArbeider.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RegistrerArbeider.Location = new System.Drawing.Point(4, 4);
+            this.RegistrerArbeider.Name = "RegistrerArbeider";
+            this.RegistrerArbeider.Size = new System.Drawing.Size(217, 56);
+            this.RegistrerArbeider.TabIndex = 3;
+            this.RegistrerArbeider.Text = "Registrer dagens hjelpere";
+            this.RegistrerArbeider.UseVisualStyleBackColor = false;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(228, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(39, 56);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "?";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,6 +456,8 @@
         private System.Windows.Forms.ToolStripMenuItem nyDagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loggUtToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer5;
+        private System.Windows.Forms.Button RegistrerArbeider;
+        private System.Windows.Forms.Button button3;
     }
 }
 

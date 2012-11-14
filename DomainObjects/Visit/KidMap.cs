@@ -19,6 +19,7 @@ namespace CafeTerminal.DataAccesLayer
             Map(x => x.Gender);
             Map(x => x.Postcode).UniqueKey("UniquePerson");
             Map(x => x.TLF);
+            Map(x => x.Deleted);
         }
     }
 }

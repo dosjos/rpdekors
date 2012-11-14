@@ -54,6 +54,7 @@
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -99,6 +100,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(206, 479);
             this.dataGridView1.TabIndex = 0;
             // 
@@ -147,7 +149,7 @@
             this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.Location = new System.Drawing.Point(190, 37);
+            this.comboBox1.Location = new System.Drawing.Point(357, 37);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(365, 37);
             this.comboBox1.Sorted = true;
@@ -156,7 +158,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(561, 30);
+            this.button1.Location = new System.Drawing.Point(728, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(188, 44);
             this.button1.TabIndex = 5;
@@ -309,11 +311,22 @@
             this.omToolStripMenuItem.Text = "Om";
             this.omToolStripMenuItem.Click += new System.EventHandler(this.EnableAboutBox);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(190, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 25);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Registrer deg:";
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 582);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.splitContainer1);
@@ -368,6 +381,7 @@
         private System.Windows.Forms.ToolStripMenuItem mockBesøksDataToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem resetDatabaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nyDagToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
 
     }
 }

@@ -18,7 +18,7 @@ namespace CafeTerminal.DataAccesLayer
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name")
+                    var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name and Deleted = 0")
                      .SetParameter("name", kidName)
                         .List<Kid>();
                     if (res.Count > 0)
@@ -73,7 +73,7 @@ namespace CafeTerminal.DataAccesLayer
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name")
+                    var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name and Deleted = 0")
                      .SetParameter("name", kidName)
                         .List<Kid>();
                     if (res.Count > 0)
@@ -103,7 +103,7 @@ namespace CafeTerminal.DataAccesLayer
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name")
+                    var res = session.CreateQuery("from Kid k where k.FirstName + ' ' + k.LastName = :name and Deleted = 0")
                      .SetParameter("name", kidName)
                         .List<Kid>();
                     if (res.Count > 0)
@@ -128,7 +128,10 @@ namespace CafeTerminal.DataAccesLayer
                         var res = session.CreateCriteria(typeof(Kid)).List<Kid>();
                         foreach (var item in res)
                         {
-                            list.Add(item.FirstName + " " + item.LastName);
+                            if (item.Deleted == false)
+                            {
+                                list.Add(item.FirstName + " " + item.LastName);
+                            }
                         }
                     }
                 }
@@ -149,7 +152,7 @@ namespace CafeTerminal.DataAccesLayer
                             var res = session.CreateQuery("from Kid k where k.Id  = :id")
                                     .SetParameter("id", item.KidId.Id)
                                     .List<Kid>();
-                            if (res != null)
+                            if (res != null && res[0].Deleted == false)
                             {
                                 result.Add(res[0]);
                             }

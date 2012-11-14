@@ -88,6 +88,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\ErrorMessage.cs" />
+    <Compile Include="UI\HelperWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\HelperWindow.Designer.cs">
+      <DependentUpon>HelperWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\LoggInn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,9 @@
     </Compile>
     <EmbeddedResource Include="UI\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\HelperWindow.resx">
+      <DependentUpon>HelperWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\LoggInn.resx">
       <DependentUpon>LoggInn.cs</DependentUpon>

@@ -21,5 +21,7 @@ namespace CafeTerminal.DomainObjects
         public virtual int Age { get; set; }
         public virtual string Ethnisity { get; set; }
 
+        virtual public Boolean Deleted { get; set; }
+
     }
 }

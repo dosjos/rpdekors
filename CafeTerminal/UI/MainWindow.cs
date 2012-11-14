@@ -202,6 +202,11 @@ namespace CafeTerminal
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.RowCount == 0)
+            {
+                return;
+            }
+
             OrderPanel o = new OrderPanel(this);
 
             PopulateOrder(o);
@@ -345,6 +350,12 @@ namespace CafeTerminal
                 }
                 i++;
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+           HelperWindow hw =  new HelperWindow();
+           hw.Show();
         }
     }
 }
