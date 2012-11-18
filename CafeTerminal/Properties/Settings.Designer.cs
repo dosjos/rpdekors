@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Visitor_Registration.Properties {
+namespace CafeTerminal.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

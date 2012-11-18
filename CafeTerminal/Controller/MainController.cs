@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.DataAccess;
+using CafeTerminal.DataAccesLayer;
+using CafeTerminal.DataAccess;
 using DomainObjecsSalg.Sales;
 
-namespace Visitor_Registration.Controller
+namespace CafeTerminal.Controller
 {
     public class MainController
     {
@@ -134,5 +134,13 @@ namespace Visitor_Registration.Controller
             };
             UserProvider.SaveUsage(ul);
         }
+
+        internal void Restart()
+        {
+            mainWindow.Visible = false;
+            mainWindow = new MainWindow(this);
+            mainWindow.Visible = true;
+        }
+            
     }
 }

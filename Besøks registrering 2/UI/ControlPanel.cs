@@ -9,8 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DomainObjects.Settings;
+using DomainObjects.Visit;
 using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.DomainObjects;
+
+
+
 
 namespace Visitor_Registration.UI
 {

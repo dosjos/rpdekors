@@ -4,7 +4,7 @@ using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using Visitor_Registration.DataAccesLayer;
 using DomainObjects.Visit;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 using DomainObjects.Settings;
 using System;
 

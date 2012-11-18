@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 
-namespace Visitor_Registration.DataAccesLayer
+namespace DomainObjects.Visit
 {
     public class KidMap : ClassMap<Kid>
     {

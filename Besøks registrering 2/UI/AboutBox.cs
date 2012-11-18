@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Visitor_Registration.UI
+namespace CafeTerminal.UI
 {
     partial class AboutBox : Form
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Visitor_Registration.DataAccesLayer
+namespace DomainObjects.Visit
 {
     public class StringValue
     {

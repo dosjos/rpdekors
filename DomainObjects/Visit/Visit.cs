@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 
 namespace DomainObjects.Visit
 {

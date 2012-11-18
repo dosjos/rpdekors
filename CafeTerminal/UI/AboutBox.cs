@@ -6,7 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace Visitor_Registration.UI
+namespace CafeTerminal.UI
 {
     partial class AboutBox : Form
     {

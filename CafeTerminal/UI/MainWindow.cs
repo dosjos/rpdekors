@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Visitor_Registration.Controller;
-using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.UI;
+using CafeTerminal.Controller;
+using CafeTerminal.DataAccesLayer;
+using CafeTerminal.UI;
 using DomainObjecsSalg.Sales;
 using DomainObjectsSalg.Sales;
 
-namespace Visitor_Registration
+namespace CafeTerminal
 {
     public partial class MainWindow : Form
     {
@@ -24,29 +24,42 @@ namespace Visitor_Registration
         int salgsum = 0;
         Timer t;
         List<OrderPanel> orderlist = new List<OrderPanel>();
+        
 
         public MainWindow()
         {
-            InitializeComponent();
-            //NHibernateHelper.ResetDatabase();
             mc = new MainController(this);
+            StartWindow();
+            
+        }
+
+        private void StartWindow()
+        {
+            //NHibernateHelper.ResetDatabase();
+            InitializeComponent();
             GetButtons();
             CreateDataGrid();
 
 
             GetLogg();
             GetDagensSalg();
-
 #if !DEBUG
             initialiserDatabaseToolStripMenuItem.Enabled = false;
 #endif
-
-            if(mc.HavePassSetting()){
-            t = new Timer();
-            t.Tick += Tick;
-            t.Interval = 50;
-            t.Enabled = true ;
+            if (mc.HavePassSetting())
+            {
+                t = new Timer();
+                t.Tick += Tick;
+                t.Interval = 50;
+                t.Enabled = true;
             }
+        }
+
+        public MainWindow(MainController mainController)
+        {
+            // TODO: Complete member initialization
+            this.mc = mainController;
+            StartWindow();
         }
 
         private void Tick(object sender, EventArgs e)
@@ -243,18 +256,12 @@ namespace Visitor_Registration
 
         private void salgsoppsettToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //new Salgsoppsett(mc);
-            // Enabled = false;
             resetTime();
         }
 
         private void nyDagToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            totalsum = 0;
-            totalsumlabel.Text = "0 nok";
-            button1_Click(null, null);
-            resetTime();
-
+            mc.Restart();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -361,6 +368,11 @@ namespace Visitor_Registration
         private void registrerNyBrukerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new NyBruker(mc);
+        }
+
+        private void RegistrerArbeider_Click(object sender, EventArgs e)
+        {
+            new VelgBruker(mc);
         }
     }
 }

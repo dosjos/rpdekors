@@ -8,8 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Visitor_Registration.Controllers;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 using Visitor_Registration.DataAccesLayer;
+using DomainObjects.Visit;
 
 
 namespace Visitor_Registration

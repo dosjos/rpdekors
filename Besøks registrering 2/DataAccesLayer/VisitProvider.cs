@@ -6,7 +6,7 @@ using System.Collections;
 using System.ComponentModel;
 using NHibernate;
 using DomainObjects.Visit;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 using NHibernate.Criterion;
 
 namespace Visitor_Registration.DataAccesLayer

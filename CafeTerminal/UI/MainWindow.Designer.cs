@@ -1,4 +1,4 @@
-﻿namespace Visitor_Registration
+﻿namespace CafeTerminal
 {
     partial class MainWindow
     {
@@ -36,6 +36,7 @@
             this.avsluttToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrerNyBrukerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.initialiserDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LogText = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.registrerNyBrukerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -87,7 +87,7 @@
             this.omToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1221, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1236, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -104,21 +104,21 @@
             // nyDagToolStripMenuItem
             // 
             this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
-            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nyDagToolStripMenuItem.Text = "Ny dag";
             this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
             // 
             // loggUtToolStripMenuItem
             // 
             this.loggUtToolStripMenuItem.Name = "loggUtToolStripMenuItem";
-            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loggUtToolStripMenuItem.Text = "Logg ut";
             this.loggUtToolStripMenuItem.Click += new System.EventHandler(this.loggUtToolStripMenuItem_Click);
             // 
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.avsluttToolStripMenuItem_Click);
             // 
@@ -138,6 +138,13 @@
             this.instillingerToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.instillingerToolStripMenuItem.Text = "Instillinger";
             this.instillingerToolStripMenuItem.Click += new System.EventHandler(this.instillingerToolStripMenuItem_Click);
+            // 
+            // registrerNyBrukerToolStripMenuItem
+            // 
+            this.registrerNyBrukerToolStripMenuItem.Name = "registrerNyBrukerToolStripMenuItem";
+            this.registrerNyBrukerToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.registrerNyBrukerToolStripMenuItem.Text = "Registrer ny bruker ";
+            this.registrerNyBrukerToolStripMenuItem.Click += new System.EventHandler(this.registrerNyBrukerToolStripMenuItem_Click);
             // 
             // initialiserDatabaseToolStripMenuItem
             // 
@@ -187,8 +194,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.LogText);
-            this.splitContainer1.Size = new System.Drawing.Size(1221, 548);
-            this.splitContainer1.SplitterDistance = 947;
+            this.splitContainer1.Size = new System.Drawing.Size(1236, 548);
+            this.splitContainer1.SplitterDistance = 958;
             this.splitContainer1.TabIndex = 1;
             // 
             // splitContainer2
@@ -208,7 +215,7 @@
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.Color.Thistle;
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer5);
-            this.splitContainer2.Size = new System.Drawing.Size(947, 548);
+            this.splitContainer2.Size = new System.Drawing.Size(958, 548);
             this.splitContainer2.SplitterDistance = 399;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -227,8 +234,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.splitContainer4);
-            this.splitContainer3.Size = new System.Drawing.Size(947, 399);
-            this.splitContainer3.SplitterDistance = 779;
+            this.splitContainer3.Size = new System.Drawing.Size(958, 399);
+            this.splitContainer3.SplitterDistance = 790;
             this.splitContainer3.TabIndex = 0;
             // 
             // splitContainer4
@@ -296,8 +303,8 @@
             // splitContainer5.Panel2
             // 
             this.splitContainer5.Panel2.Controls.Add(this.button1);
-            this.splitContainer5.Size = new System.Drawing.Size(947, 145);
-            this.splitContainer5.SplitterDistance = 777;
+            this.splitContainer5.Size = new System.Drawing.Size(958, 145);
+            this.splitContainer5.SplitterDistance = 788;
             this.splitContainer5.TabIndex = 0;
             // 
             // button1
@@ -319,7 +326,7 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(228, 4);
+            this.button3.Location = new System.Drawing.Point(232, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(39, 56);
             this.button3.TabIndex = 4;
@@ -332,12 +339,13 @@
             this.RegistrerArbeider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.RegistrerArbeider.BackColor = System.Drawing.Color.MistyRose;
             this.RegistrerArbeider.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RegistrerArbeider.Location = new System.Drawing.Point(4, 4);
+            this.RegistrerArbeider.Location = new System.Drawing.Point(8, 4);
             this.RegistrerArbeider.Name = "RegistrerArbeider";
             this.RegistrerArbeider.Size = new System.Drawing.Size(217, 56);
             this.RegistrerArbeider.TabIndex = 3;
             this.RegistrerArbeider.Text = "Registrer dagens hjelpere";
             this.RegistrerArbeider.UseVisualStyleBackColor = false;
+            this.RegistrerArbeider.Click += new System.EventHandler(this.RegistrerArbeider_Click);
             // 
             // totalsumlabel
             // 
@@ -358,7 +366,7 @@
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button2.Location = new System.Drawing.Point(74, 453);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(133, 63);
+            this.button2.Size = new System.Drawing.Size(137, 63);
             this.button2.TabIndex = 1;
             this.button2.Text = "Lagre";
             this.button2.UseVisualStyleBackColor = false;
@@ -381,7 +389,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LogText.Location = new System.Drawing.Point(4, 263);
             this.LogText.Name = "LogText";
-            this.LogText.Size = new System.Drawing.Size(263, 169);
+            this.LogText.Size = new System.Drawing.Size(267, 169);
             this.LogText.TabIndex = 0;
             this.LogText.Text = "";
             this.LogText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loggTextSkrevet);
@@ -392,18 +400,11 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // registrerNyBrukerToolStripMenuItem
-            // 
-            this.registrerNyBrukerToolStripMenuItem.Name = "registrerNyBrukerToolStripMenuItem";
-            this.registrerNyBrukerToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.registrerNyBrukerToolStripMenuItem.Text = "Registrer ny bruker ";
-            this.registrerNyBrukerToolStripMenuItem.Click += new System.EventHandler(this.registrerNyBrukerToolStripMenuItem_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1221, 572);
+            this.ClientSize = new System.Drawing.Size(1236, 572);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

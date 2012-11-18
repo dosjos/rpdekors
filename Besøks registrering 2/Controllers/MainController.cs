@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using DomainObjects.Settings;
 using DomainObjects.Visit;
 using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 using Visitor_Registration.UI;
 
 namespace Visitor_Registration.Controllers

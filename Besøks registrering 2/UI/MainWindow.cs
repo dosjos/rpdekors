@@ -9,7 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 using Visitor_Registration.Controllers;
 
 using FluentNHibernate;
@@ -24,6 +24,9 @@ using Visitor_Registration.DataAccesLayer;
 using Visitor_Registration.UI;
 using System.Drawing.Drawing2D;
 using Visitor_Registration.Mocking;
+
+using DomainObjects.Visit;
+using CafeTerminal.UI;
 
 namespace Visitor_Registration
 {

@@ -10,5 +10,6 @@ namespace DomainObjecsSalg.Sales
         virtual public int Id { get; set; }
         virtual public string Navn { get; set; }
         virtual public string Rolle { get; set; }
+        virtual public Boolean Slettet { get; set; }
     }
 }

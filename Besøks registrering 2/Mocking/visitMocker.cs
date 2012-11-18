@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DomainObjects.Visit;
 using Visitor_Registration.DataAccesLayer;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 
 namespace Visitor_Registration.Mocking
 {

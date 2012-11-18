@@ -9,7 +9,7 @@ using System.Windows.Forms;
 using DomainObjecsSalg.Sales;
 using DomainObjecsSalg.Settings;
 
-namespace Visitor_Registration.UI
+namespace CafeTerminal.UI
 {
     public partial class SettingsWindow : Form
     {

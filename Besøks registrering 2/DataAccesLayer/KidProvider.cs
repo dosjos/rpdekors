@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NHibernate;
-using Visitor_Registration.DomainObjects;
+using DomainObjects;
 using DomainObjects.Visit;
 using System.Data.SqlClient;
 using NHibernate.Exceptions;

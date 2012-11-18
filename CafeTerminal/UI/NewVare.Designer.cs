@@ -1,4 +1,4 @@
-﻿namespace Visitor_Registration.UI
+﻿namespace CafeTerminal.UI
 {
     partial class NewVare
     {

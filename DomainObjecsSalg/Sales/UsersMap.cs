@@ -13,6 +13,7 @@ namespace DomainObjecsSalg.Sales
             Id(x => x.Id);
             Map(x => x.Navn);
             Map(x => x.Rolle);
+            Map(x => x.Slettet);
        }
     }
 }

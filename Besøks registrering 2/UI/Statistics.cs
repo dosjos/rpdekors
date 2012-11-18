@@ -10,8 +10,7 @@ using System.Windows.Forms;
 using System.Collections;
 using DomainObjects.Visit;
 using System.Windows.Forms.DataVisualization.Charting;
-using Visitor_Registration.DomainObjects;
-using Visitor_Registration.DataAccesLayer;
+
 
 namespace Visitor_Registration.UI
 {
