@@ -260,5 +260,15 @@ namespace Visitor_Registration.Controllers
         {
             SettingsProvider.LagrePass(s);
         }
+
+        internal List<Kid> GetVisitByYearAndMonth(string p, int CurrentYear)
+        {
+            return VisitProvider.GetVisitByYearAndMonth( p,  CurrentYear);
+        }
+
+        internal List<GenericVisitor> GetGenericVisitByYearAndMonth(string p, int CurrentYear)
+        {
+            return GenericVisitorProvider.GetGenericVisitByYearAndMonth( p,  CurrentYear);
+        }
     }
 }

@@ -54,5 +54,22 @@ namespace Visitor_Registration.DataAccesLayer
             }
             return kids;
         }
+
+        internal static List<GenericVisitor> GetGenericVisitByYearAndMonth(string p, int CurrentYear)
+        {
+            List<GenericVisitor> kids;
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery(" FROM GenericVisitor WHERE DATEPART(YEAR, VisitTime) like :year and Datepart(MONTH, VisitTime) = :month")
+                        .SetParameter("year", CurrentYear)
+                        .SetParameter("month", p)
+                        .List<GenericVisitor>();
+                    kids = (List<GenericVisitor>)res;
+                }
+            }
+            return kids;
+        }
     }
 }

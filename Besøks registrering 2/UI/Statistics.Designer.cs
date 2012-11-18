@@ -28,14 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend26 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend27 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend28 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend29 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend23 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend24 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend25 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend30 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend31 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend32 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend33 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
@@ -101,7 +110,6 @@
             this.monthYear = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.idagRegUkjentChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.idagUkjenteChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
@@ -132,6 +140,12 @@
             this.ukestrendChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer4 = new System.Windows.Forms.SplitContainer();
+            this.monthChart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.monthChart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.monthChart3 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -162,6 +176,18 @@
             this.tabPage5.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).BeginInit();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).BeginInit();
+            this.splitContainer4.Panel1.SuspendLayout();
+            this.splitContainer4.Panel2.SuspendLayout();
+            this.splitContainer4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.monthChart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monthChart2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monthChart3)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -280,8 +306,8 @@
             this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
+            legend26.Name = "Legend1";
+            this.chart1.Legends.Add(legend26);
             this.chart1.Location = new System.Drawing.Point(6, 74);
             this.chart1.Name = "chart1";
             this.chart1.Size = new System.Drawing.Size(971, 390);
@@ -425,8 +451,8 @@
             // yearChart1
             // 
             this.yearChart1.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend2.Name = "Legend1";
-            this.yearChart1.Legends.Add(legend2);
+            legend27.Name = "Legend1";
+            this.yearChart1.Legends.Add(legend27);
             this.yearChart1.Location = new System.Drawing.Point(0, 0);
             this.yearChart1.Name = "yearChart1";
             this.yearChart1.Size = new System.Drawing.Size(297, 219);
@@ -436,8 +462,8 @@
             // yearChart2
             // 
             this.yearChart2.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend3.Name = "Legend1";
-            this.yearChart2.Legends.Add(legend3);
+            legend28.Name = "Legend1";
+            this.yearChart2.Legends.Add(legend28);
             this.yearChart2.Location = new System.Drawing.Point(0, 0);
             this.yearChart2.Name = "yearChart2";
             this.yearChart2.Size = new System.Drawing.Size(279, 219);
@@ -447,8 +473,8 @@
             // yearChart3
             // 
             this.yearChart3.Dock = System.Windows.Forms.DockStyle.Fill;
-            legend4.Name = "Legend1";
-            this.yearChart3.Legends.Add(legend4);
+            legend29.Name = "Legend1";
+            this.yearChart3.Legends.Add(legend29);
             this.yearChart3.Location = new System.Drawing.Point(0, 0);
             this.yearChart3.Name = "yearChart3";
             this.yearChart3.Size = new System.Drawing.Size(580, 189);
@@ -632,6 +658,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.groupBox6);
             this.tabPage3.Controls.Add(this.groupBox5);
             this.tabPage3.Controls.Add(this.monthMonth);
             this.tabPage3.Controls.Add(this.monthYear);
@@ -641,11 +668,13 @@
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(980, 467);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Månedlig - UFERDIG";
+            this.tabPage3.Text = "Månedlig";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox5.Controls.Add(this.textBox1);
             this.groupBox5.Controls.Add(this.textBox2);
             this.groupBox5.Controls.Add(this.textBox3);
@@ -662,7 +691,7 @@
             this.groupBox5.Controls.Add(this.label29);
             this.groupBox5.Controls.Add(this.label30);
             this.groupBox5.Controls.Add(this.label31);
-            this.groupBox5.Location = new System.Drawing.Point(239, 27);
+            this.groupBox5.Location = new System.Drawing.Point(163, 27);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(214, 434);
             this.groupBox5.TabIndex = 4;
@@ -798,24 +827,30 @@
             // 
             // monthMonth
             // 
+            this.monthMonth.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.monthMonth.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.monthMonth.Location = new System.Drawing.Point(133, 33);
+            this.monthMonth.Location = new System.Drawing.Point(97, 33);
             this.monthMonth.Name = "monthMonth";
+            this.monthMonth.ReadOnly = true;
             this.monthMonth.RowHeadersVisible = false;
-            this.monthMonth.Size = new System.Drawing.Size(99, 428);
+            this.monthMonth.Size = new System.Drawing.Size(60, 428);
             this.monthMonth.TabIndex = 3;
+            this.monthMonth.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GiveMontInfo);
             // 
             // monthYear
             // 
+            this.monthYear.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.monthYear.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.monthYear.Location = new System.Drawing.Point(7, 33);
             this.monthYear.MultiSelect = false;
             this.monthYear.Name = "monthYear";
             this.monthYear.ReadOnly = true;
             this.monthYear.RowHeadersVisible = false;
-            this.monthYear.Size = new System.Drawing.Size(119, 428);
+            this.monthYear.Size = new System.Drawing.Size(84, 428);
             this.monthYear.TabIndex = 2;
-            this.monthYear.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.monthYearChoosen);
+            this.monthYear.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.monthYearChoosen);
             // 
             // label4
             // 
@@ -829,7 +864,6 @@
             // 
             // tabPage4
             // 
-            this.tabPage4.Controls.Add(this.button7);
             this.tabPage4.Controls.Add(this.button6);
             this.tabPage4.Controls.Add(this.idagRegUkjentChart);
             this.tabPage4.Controls.Add(this.idagUkjenteChart);
@@ -859,16 +893,6 @@
             this.tabPage4.Text = "I dag";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(7, 366);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(142, 94);
-            this.button7.TabIndex = 38;
-            this.button7.Text = "Lag rapport";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // button6
             // 
             this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -885,8 +909,8 @@
             this.idagRegUkjentChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend5.Name = "Legend1";
-            this.idagRegUkjentChart.Legends.Add(legend5);
+            legend23.Name = "Legend1";
+            this.idagRegUkjentChart.Legends.Add(legend23);
             this.idagRegUkjentChart.Location = new System.Drawing.Point(323, 252);
             this.idagRegUkjentChart.Name = "idagRegUkjentChart";
             this.idagRegUkjentChart.Size = new System.Drawing.Size(543, 209);
@@ -897,8 +921,8 @@
             // 
             this.idagUkjenteChart.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend6.Name = "Legend1";
-            this.idagUkjenteChart.Legends.Add(legend6);
+            legend24.Name = "Legend1";
+            this.idagUkjenteChart.Legends.Add(legend24);
             this.idagUkjenteChart.Location = new System.Drawing.Point(638, 19);
             this.idagUkjenteChart.Name = "idagUkjenteChart";
             this.idagUkjenteChart.Size = new System.Drawing.Size(336, 219);
@@ -907,8 +931,8 @@
             // 
             // idagRegistrerteChart
             // 
-            legend7.Name = "Legend1";
-            this.idagRegistrerteChart.Legends.Add(legend7);
+            legend25.Name = "Legend1";
+            this.idagRegistrerteChart.Legends.Add(legend25);
             this.idagRegistrerteChart.Location = new System.Drawing.Point(248, 12);
             this.idagRegistrerteChart.Name = "idagRegistrerteChart";
             this.idagRegistrerteChart.Size = new System.Drawing.Size(345, 226);
@@ -1126,8 +1150,8 @@
             this.ukestrendChart.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            legend8.Name = "Legend1";
-            this.ukestrendChart.Legends.Add(legend8);
+            legend30.Name = "Legend1";
+            this.ukestrendChart.Legends.Add(legend30);
             this.ukestrendChart.Location = new System.Drawing.Point(4, 43);
             this.ukestrendChart.Name = "ukestrendChart";
             this.ukestrendChart.Size = new System.Drawing.Size(970, 409);
@@ -1151,6 +1175,104 @@
             this.statusStrip1.Size = new System.Drawing.Size(1013, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox6.Controls.Add(this.splitContainer3);
+            this.groupBox6.Location = new System.Drawing.Point(383, 27);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(591, 434);
+            this.groupBox6.TabIndex = 5;
+            this.groupBox6.TabStop = false;
+            // 
+            // splitContainer3
+            // 
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(3, 16);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.splitContainer4);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.monthChart3);
+            this.splitContainer3.Size = new System.Drawing.Size(585, 415);
+            this.splitContainer3.SplitterDistance = 209;
+            this.splitContainer3.TabIndex = 0;
+            // 
+            // splitContainer4
+            // 
+            this.splitContainer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer4.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer4.Name = "splitContainer4";
+            // 
+            // splitContainer4.Panel1
+            // 
+            this.splitContainer4.Panel1.Controls.Add(this.monthChart1);
+            // 
+            // splitContainer4.Panel2
+            // 
+            this.splitContainer4.Panel2.Controls.Add(this.monthChart2);
+            this.splitContainer4.Size = new System.Drawing.Size(585, 209);
+            this.splitContainer4.SplitterDistance = 298;
+            this.splitContainer4.TabIndex = 0;
+            // 
+            // monthChart1
+            // 
+            chartArea7.Name = "ChartArea1";
+            this.monthChart1.ChartAreas.Add(chartArea7);
+            this.monthChart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend31.Name = "Legend1";
+            this.monthChart1.Legends.Add(legend31);
+            this.monthChart1.Location = new System.Drawing.Point(0, 0);
+            this.monthChart1.Name = "monthChart1";
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.monthChart1.Series.Add(series7);
+            this.monthChart1.Size = new System.Drawing.Size(298, 209);
+            this.monthChart1.TabIndex = 0;
+            this.monthChart1.Text = "chart2";
+            // 
+            // monthChart2
+            // 
+            chartArea8.Name = "ChartArea1";
+            this.monthChart2.ChartAreas.Add(chartArea8);
+            this.monthChart2.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend32.Name = "Legend1";
+            this.monthChart2.Legends.Add(legend32);
+            this.monthChart2.Location = new System.Drawing.Point(0, 0);
+            this.monthChart2.Name = "monthChart2";
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.monthChart2.Series.Add(series8);
+            this.monthChart2.Size = new System.Drawing.Size(283, 209);
+            this.monthChart2.TabIndex = 0;
+            this.monthChart2.Text = "chart3";
+            // 
+            // monthChart3
+            // 
+            chartArea9.Name = "ChartArea1";
+            this.monthChart3.ChartAreas.Add(chartArea9);
+            this.monthChart3.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend33.Name = "Legend1";
+            this.monthChart3.Legends.Add(legend33);
+            this.monthChart3.Location = new System.Drawing.Point(0, 0);
+            this.monthChart3.Name = "monthChart3";
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.monthChart3.Series.Add(series9);
+            this.monthChart3.Size = new System.Drawing.Size(585, 202);
+            this.monthChart3.TabIndex = 0;
+            this.monthChart3.Text = "chart4";
             // 
             // Statistics
             // 
@@ -1200,6 +1322,18 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ukestrendChart)).EndInit();
+            this.groupBox6.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
+            this.splitContainer4.Panel1.ResumeLayout(false);
+            this.splitContainer4.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer4)).EndInit();
+            this.splitContainer4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.monthChart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monthChart2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.monthChart3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1259,7 +1393,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.DataGridView yearList;
         private System.Windows.Forms.TextBox yearAnonym;
@@ -1303,6 +1436,12 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.SplitContainer splitContainer4;
+        private System.Windows.Forms.DataVisualization.Charting.Chart monthChart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart monthChart2;
+        private System.Windows.Forms.DataVisualization.Charting.Chart monthChart3;
 
     }
 }

@@ -91,5 +91,23 @@ namespace Visitor_Registration.UI
                 Dispose();
             }
         }
+
+        private void Close(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void CheckEnter(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (textBox1.Text.Equals(mc.GetPassord()))
+                {
+                    mc.EnableMainWindow(true);
+                    Dispose();
+                }
+            }
+        }
+        
     }
 }

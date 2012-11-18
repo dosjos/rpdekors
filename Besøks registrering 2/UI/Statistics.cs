@@ -21,6 +21,7 @@ namespace Visitor_Registration.UI
         private BindingList<StringValue> monthYears = new BindingList<StringValue>();
         private BindingList<StringValue> months = new BindingList<StringValue>();
         private Controllers.MainController mc;
+        private int CurrentYear = 0;
 
         #region dictionary
         Dictionary<int, string> WeekDays = new Dictionary<int, string>()
@@ -73,7 +74,7 @@ namespace Visitor_Registration.UI
             monthMonth.AutoGenerateColumns = false;
             DataGridViewTextBoxColumn modelColumn2 = new DataGridViewTextBoxColumn();
             monthMonth.DataSource = months;
-            modelColumn2.HeaderText = "År";
+            modelColumn2.HeaderText = "Måned";
             modelColumn2.DataPropertyName = "Value";
             modelColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             monthMonth.Columns.Add(modelColumn2);
@@ -157,7 +158,7 @@ namespace Visitor_Registration.UI
             {
 
             }
-            else if (tabControl1.SelectedIndex == 3) //i dag
+            else if (tabControl1.SelectedIndex == 3)
             {
                 UpdateTodayTab();
             }
@@ -165,26 +166,61 @@ namespace Visitor_Registration.UI
             {
                 UpdateWeekStats();
             }
-            Console.WriteLine(tabControl1.SelectedIndex);
         }
         #endregion
 
         #region UpdateMonth
         private void monthYearChoosen(object sender, DataGridViewCellEventArgs e)
         {
-            Console.WriteLine("Klikk");
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
-                Console.WriteLine(  "i datagriden");
-                DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)yearList.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)monthYear.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (cell.Value != null)
                 {
+                    CurrentYear = Convert.ToInt32(cell.Value);
                     var monthsfromYear = mc.GetMonthsWithVisits("" + cell.Value);
                     months.Clear();
                     foreach (var item in monthsfromYear)
                     {
                         months.Add(new StringValue("" + item));
                     }
+                }
+            }
+        }
+        private void GiveMontInfo(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
+            {
+                DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)monthMonth.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                if (cell.Value != null)
+                {
+                    Console.WriteLine(CurrentYear + " " + cell.Value);
+                    List<Kid> kids = mc.GetVisitByYearAndMonth("" + cell.Value, CurrentYear);
+                    List<GenericVisitor> generic = mc.GetGenericVisitByYearAndMonth("" + cell.Value, CurrentYear); 
+                    
+
+                    textBox8.Text = ""+(kids.Count + generic.Count);
+                    textBox7.Text = "" + kids.Count;
+
+                    int jenterReg = GetGirlsFromVisit(kids);
+                    int gutterReg = GetBoysFromVisits(kids);
+
+                    int anonyme = GetAnonymFromGeneric(generic);
+                    int ukjent = GetUnknownFromGeneric(generic);
+                    int jente = GetGirlsFromGeneric(generic);
+                    int gutt = GetBoysFromGenericList(generic);
+
+                    textBox6.Text = "" + gutterReg;
+                    textBox5.Text = "" + jenterReg;
+
+                    textBox4.Text = "" + gutt;
+                    textBox3.Text = "" + jente;
+                    textBox2.Text = "" + ukjent;
+                    textBox1.Text = "" + anonyme;
+
+                    CreateBoyGirlChart(jenterReg, gutterReg, monthChart1);
+                    CreateGenericChart(anonyme, ukjent, jente, gutt, monthChart2);
+                    CreateRegistredVSGenericChart(kids.Count , anonyme, ukjent, jente, gutt, monthChart3);
                 }
             }
         }
@@ -221,7 +257,7 @@ namespace Visitor_Registration.UI
                     //cell.Value;
 
                     List<Kid> kids = mc.GetVisitByYear("" + cell.Value);
-                    List<GenericVisitor> generic = mc.GetGenericVisitByYear("" + cell.Value); //TODO Finnish implementation
+                    List<GenericVisitor> generic = mc.GetGenericVisitByYear("" + cell.Value); 
 
                     int total = kids.Count;
                     int jenterReg = GetGirlsFromVisit(kids);
@@ -467,10 +503,8 @@ namespace Visitor_Registration.UI
         }
         #endregion
 
-        private void button7_Click(object sender, EventArgs e)
-        {
+      
 
-        }
 
 
 

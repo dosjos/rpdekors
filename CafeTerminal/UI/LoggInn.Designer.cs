@@ -32,7 +32,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-
             this.SuspendLayout();
             // 
             // button2
@@ -72,14 +71,12 @@
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Andre";
-
             // 
             // LoggInn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(665, 411);
-
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button2);
@@ -87,6 +84,7 @@
             this.Name = "LoggInn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LoggInn";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Close);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,6 +147,7 @@
             this.textBox1.PasswordChar = '*';
             this.textBox1.Size = new System.Drawing.Size(199, 20);
             this.textBox1.TabIndex = 0;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CheckEnter);
             // 
             // button4
             // 

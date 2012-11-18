@@ -105,7 +105,10 @@ namespace Visitor_Registration.DataAccesLayer
             }
             return kids;
         }
-
+        /// <summary>
+        /// Gives a list of ints that contains the number of visits this year, and orders it by the weekdays
+        /// </summary>
+        /// <returns>The number of visits on distinct weekdays this year</returns>
         internal static List<int> GetAllVisitsThisYear()
         {
             List<int> list = new List<int>();
@@ -133,9 +136,13 @@ namespace Visitor_Registration.DataAccesLayer
                     return list;
                 }
             }
-            return null;
         }
 
+        /// <summary>
+        /// A method that gives the amount of boys who visited the given datre
+        /// </summary>
+        /// <param name="dateTime">the Datetime to search for visits on</param>
+        /// <returns>The number of boys who visited on the given date</returns>
         internal static int GetGutterThisDay(DateTime dateTime)
         {
             using (ISession session = NHibernateHelper.OpenSession())
@@ -144,7 +151,10 @@ namespace Visitor_Registration.DataAccesLayer
                 {
                     var res = session.CreateQuery(" FROM Visit WHERE DATEPART(DAY, VisitTime) like DATEPART(DAY, :date) " +
                     " AND DATEPART(MONTH, VisitTime) like DATEPART(MONTH, :date2) AND DATEPART(YEAR, VisitTime) like DATEPART(YEAR, :date3) "
-                        ).SetParameter("date", dateTime.Date).SetParameter("date2", dateTime.Date).SetParameter("date3", dateTime.Date)
+                        )
+                        .SetParameter("date", dateTime.Date)
+                        .SetParameter("date2", dateTime.Date)
+                        .SetParameter("date3", dateTime.Date)
                         .List<Visit>();
 
                     int i = (from item in res
@@ -154,7 +164,10 @@ namespace Visitor_Registration.DataAccesLayer
                 }
             }
         }
-
+        /// <summary>
+        /// Gives a list of all years that have visits
+        /// </summary>
+        /// <returns>A list containing all years with visits</returns>
         internal static List<int> GetAllYearsWithVisits()
         {
             List<int> list = new List<int>();
@@ -173,21 +186,25 @@ namespace Visitor_Registration.DataAccesLayer
             return list;
         }
 
+        /// <summary>
+        /// Gets all the visits in the year provided
+        /// </summary>
+        /// <param name="p">The year to get the visits in</param>
+        /// <returns>A list of all the kids that visited this year</returns>
         internal static List<Kid> GetVisitByYear(string p)
         {
             List<Visit> list = null;
             List<Kid> kids;
-            BindingList<StringValue> result = new BindingList<StringValue>();
             using (ISession session = NHibernateHelper.OpenSession())
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    var res = session.CreateQuery(" FROM Visit WHERE DATEPART(YEAR, VisitTime) like :year").SetParameter("year", p)
+                    var res = session.CreateQuery(" FROM Visit WHERE DATEPART(YEAR, VisitTime) like :year")
+                        .SetParameter("year", p)
                         .List<Visit>();
                     list = (List<Visit>)res;
                 }
                 kids = KidProvider.GetKidsBasedOnIdInVisit(list);
-
             }
             return kids;
         }
@@ -202,9 +219,9 @@ namespace Visitor_Registration.DataAccesLayer
             {
                 using (ITransaction transaction = session.BeginTransaction())
                 {
-                    Console.WriteLine("I metoden");
-                    
-                    var res = session.CreateQuery("From Visit where Datepart(YEAR, VisitTime) = :year").SetParameter("year", p).List<Visit>();
+                    var res = session.CreateQuery("From Visit where Datepart(YEAR, VisitTime) = :year")
+                        .SetParameter("year", p)
+                        .List<Visit>();
 
                     var res2 = (from v in res
                                 orderby v.VisitTime.Month
@@ -214,6 +231,25 @@ namespace Visitor_Registration.DataAccesLayer
                     return res2.ToList<int>();
                 }
             }
+        }
+
+        internal static List<Kid> GetVisitByYearAndMonth(string p, int CurrentYear)
+        {
+            List<Visit> list = null;
+            List<Kid> kids;
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery(" FROM Visit WHERE DATEPART(YEAR, VisitTime) like :year and Datepart(MONTH, VisitTime) = :month")
+                        .SetParameter("year", CurrentYear)
+                        .SetParameter("month", p)
+                        .List<Visit>();
+                    list = (List<Visit>)res;
+                }
+                kids = KidProvider.GetKidsBasedOnIdInVisit(list);
+            }
+            return kids;
         }
     }
 }

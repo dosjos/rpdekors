@@ -44,7 +44,7 @@ namespace Visitor_Registration
             if(mc.HavePassSetting()){
             t = new Timer();
             t.Tick += Tick;
-            t.Interval = 500;
+            t.Interval = 50;
             t.Enabled = true ;
             }
         }
@@ -356,6 +356,11 @@ namespace Visitor_Registration
         {
            HelperWindow hw =  new HelperWindow();
            hw.Show();
+        }
+
+        private void registrerNyBrukerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new NyBruker(mc);
         }
     }
 }
