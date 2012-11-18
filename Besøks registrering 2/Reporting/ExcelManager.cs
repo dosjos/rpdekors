@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CafeTerminal.Reporting
+namespace Visitor_Registration.Reporting
 {
     class ExcelManager
     {

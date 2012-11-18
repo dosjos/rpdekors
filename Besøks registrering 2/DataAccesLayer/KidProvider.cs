@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NHibernate;
-using CafeTerminal.DomainObjects;
+using Visitor_Registration.DomainObjects;
 using DomainObjects.Visit;
 using System.Data.SqlClient;
 using NHibernate.Exceptions;
 
-namespace CafeTerminal.DataAccesLayer
+namespace Visitor_Registration.DataAccesLayer
 {
     public class KidProvider
     {
@@ -162,6 +162,18 @@ namespace CafeTerminal.DataAccesLayer
             }
 
             return result;
+        }
+
+        internal static void UpdateKid(Kid KK)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    session.Update(KK);
+                    transaction.Commit();
+                }
+            }
         }
     }
 }

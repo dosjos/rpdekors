@@ -4,10 +4,10 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Threading;
-using CafeTerminal.UI;
+using Visitor_Registration.UI;
 using LaMarvin.Windows.Forms;
 
-namespace CafeTerminal.UI
+namespace Visitor_Registration.UI
 {
     public class ColorPickerColumn : DataGridViewColumn
     {

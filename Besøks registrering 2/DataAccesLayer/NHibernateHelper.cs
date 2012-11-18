@@ -2,13 +2,13 @@
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
-using CafeTerminal.DataAccesLayer;
+using Visitor_Registration.DataAccesLayer;
 using DomainObjects.Visit;
-using CafeTerminal.DomainObjects;
+using Visitor_Registration.DomainObjects;
 using DomainObjects.Settings;
 using System;
 
-namespace CafeTerminal
+namespace Visitor_Registration
 {
     public class NHibernateHelper
     {

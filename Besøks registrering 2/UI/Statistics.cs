@@ -10,10 +10,10 @@ using System.Windows.Forms;
 using System.Collections;
 using DomainObjects.Visit;
 using System.Windows.Forms.DataVisualization.Charting;
-using CafeTerminal.DomainObjects;
-using CafeTerminal.DataAccesLayer;
+using Visitor_Registration.DomainObjects;
+using Visitor_Registration.DataAccesLayer;
 
-namespace CafeTerminal.UI
+namespace Visitor_Registration.UI
 {
     public partial class Statistics : Form
     {
@@ -69,6 +69,14 @@ namespace CafeTerminal.UI
             {
                 monthYears.Add(new StringValue("" + item));
             }
+
+            monthMonth.AutoGenerateColumns = false;
+            DataGridViewTextBoxColumn modelColumn2 = new DataGridViewTextBoxColumn();
+            monthMonth.DataSource = months;
+            modelColumn2.HeaderText = "År";
+            modelColumn2.DataPropertyName = "Value";
+            modelColumn2.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            monthMonth.Columns.Add(modelColumn2);
         }
         #endregion
 
@@ -164,12 +172,19 @@ namespace CafeTerminal.UI
         #region UpdateMonth
         private void monthYearChoosen(object sender, DataGridViewCellEventArgs e)
         {
+            Console.WriteLine("Klikk");
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
+                Console.WriteLine(  "i datagriden");
                 DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)yearList.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 if (cell.Value != null)
                 {
                     var monthsfromYear = mc.GetMonthsWithVisits("" + cell.Value);
+                    months.Clear();
+                    foreach (var item in monthsfromYear)
+                    {
+                        months.Add(new StringValue("" + item));
+                    }
                 }
             }
         }
@@ -181,7 +196,6 @@ namespace CafeTerminal.UI
         #region updateyear
         private void UpdateYearPage()
         {
-            //yearList.DataSource = mc.GetAllYearsWithVisits();
 
             yearList.AutoGenerateColumns = false;
             DataGridViewTextBoxColumn modelColumn = new DataGridViewTextBoxColumn();
@@ -198,8 +212,7 @@ namespace CafeTerminal.UI
         }
         private void YearChoosen(object sender, DataGridViewCellEventArgs e)
         {
-            toolStripStatusLabel1.Text = "Laster statistikk";
-            toolStripProgressBar1.Value = 100;
+           
             if (e.ColumnIndex >= 0 && e.RowIndex >= 0)
             {
                 DataGridViewTextBoxCell cell = (DataGridViewTextBoxCell)yearList.Rows[e.RowIndex].Cells[e.ColumnIndex];

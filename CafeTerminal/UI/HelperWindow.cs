@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-namespace CafeTerminal.UI
+namespace Visitor_Registration.UI
 {
     public partial class HelperWindow : Form
     {

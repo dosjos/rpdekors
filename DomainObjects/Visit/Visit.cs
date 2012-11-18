@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CafeTerminal.DomainObjects;
+using Visitor_Registration.DomainObjects;
 
 namespace DomainObjects.Visit
 {

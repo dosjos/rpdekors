@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 
 
-namespace CafeTerminal.DataAccesLayer
+namespace Visitor_Registration.DataAccesLayer
 {
     public class CustomizationManager
     {

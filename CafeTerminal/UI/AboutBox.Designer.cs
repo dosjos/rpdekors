@@ -1,4 +1,4 @@
-﻿namespace CafeTerminal.UI
+﻿namespace Visitor_Registration.UI
 {
     partial class AboutBox
     {

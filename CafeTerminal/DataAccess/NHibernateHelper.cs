@@ -7,7 +7,7 @@ using DomainObjecsSalg.Sales;
 using DomainObjecsSalg.Settings;
 
 
-namespace CafeTerminal.DataAccesLayer
+namespace Visitor_Registration.DataAccesLayer
 {
     public class NHibernateHelper
     {

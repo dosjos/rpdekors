@@ -1,4 +1,4 @@
-﻿namespace CafeTerminal.UI
+﻿namespace Visitor_Registration.UI
 {
     partial class LoggInn
     {
@@ -37,7 +37,7 @@
             // 
             // button2
             // 
-            this.button2.Image = global::CafeTerminal.Properties.Resources.login;
+            this.button2.Image = global::Visitor_Registration.Properties.Resources.login;
             this.button2.Location = new System.Drawing.Point(319, 34);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(327, 309);
@@ -47,7 +47,7 @@
             // 
             // button1
             // 
-            this.button1.Image = global::CafeTerminal.Properties.Resources.LoginRed;
+            this.button1.Image = global::Visitor_Registration.Properties.Resources.LoginRed;
             this.button1.Location = new System.Drawing.Point(31, 34);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(282, 309);
@@ -125,7 +125,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::CafeTerminal.Properties.Resources.LoginRed;
+            this.pictureBox1.Image = global::Visitor_Registration.Properties.Resources.LoginRed;
             this.pictureBox1.Location = new System.Drawing.Point(182, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(323, 320);

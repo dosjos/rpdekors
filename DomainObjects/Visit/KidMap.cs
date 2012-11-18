@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using FluentNHibernate.Mapping;
-using CafeTerminal.DomainObjects;
+using Visitor_Registration.DomainObjects;
 
-namespace CafeTerminal.DataAccesLayer
+namespace Visitor_Registration.DataAccesLayer
 {
     public class KidMap : ClassMap<Kid>
     {

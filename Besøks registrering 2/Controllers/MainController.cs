@@ -4,12 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainObjects.Settings;
 using DomainObjects.Visit;
-using CafeTerminal.DataAccesLayer;
-using CafeTerminal.DomainObjects;
-using CafeTerminal.UI;
+using Visitor_Registration.DataAccesLayer;
+using Visitor_Registration.DomainObjects;
+using Visitor_Registration.UI;
 
-namespace CafeTerminal.Controllers
+namespace Visitor_Registration.Controllers
 {
     public class MainController
     {
@@ -26,6 +27,10 @@ namespace CafeTerminal.Controllers
             return KidProvider.getAllKids();
         }
 
+        internal Kid GetKid(string kidName)
+        {
+            return KidProvider.GetKid(kidName);
+        }
 
         #region registerkids
         internal void RegisterKid(string kidName)
@@ -230,9 +235,30 @@ namespace CafeTerminal.Controllers
             return GenericVisitorProvider.GetVisitByYear(p);
         }
 
-        internal object GetMonthsWithVisits(string p)
+        internal List<int> GetMonthsWithVisits(string p)
         {
             return VisitProvider.GetMonthsWithVisits(p);
+        }
+
+        internal void UpdateKid(Kid KK)
+        {
+            KidProvider.UpdateKid(KK);
+        }
+
+        internal bool HavePassSetting()
+        {
+            return SettingsProvider.HavePassSettings();
+        }
+
+        internal string GetPassord()
+        {
+            return SettingsProvider.GetPassord();
+        }
+
+
+        internal void LagrePassord(Settings s)
+        {
+            SettingsProvider.LagrePass(s);
         }
     }
 }

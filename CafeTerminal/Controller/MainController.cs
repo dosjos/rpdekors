@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CafeTerminal.DataAccesLayer;
-using CafeTerminal.DataAccess;
+using Visitor_Registration.DataAccesLayer;
+using Visitor_Registration.DataAccess;
 using DomainObjecsSalg.Sales;
 
-namespace CafeTerminal.Controller
+namespace Visitor_Registration.Controller
 {
     public class MainController
     {

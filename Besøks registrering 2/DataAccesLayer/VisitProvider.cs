@@ -6,10 +6,10 @@ using System.Collections;
 using System.ComponentModel;
 using NHibernate;
 using DomainObjects.Visit;
-using CafeTerminal.DomainObjects;
+using Visitor_Registration.DomainObjects;
 using NHibernate.Criterion;
 
-namespace CafeTerminal.DataAccesLayer
+namespace Visitor_Registration.DataAccesLayer
 {
     public class VisitProvider
     {
@@ -191,11 +191,29 @@ namespace CafeTerminal.DataAccesLayer
             }
             return kids;
         }
-
-        internal static object GetMonthsWithVisits(string p)
+        /// <summary>
+        /// Gets a distinct list containing alle the monts with visits a choosen year
+        /// </summary>
+        /// <param name="p">The year to get the month list for</param>
+        /// <returns>A sorted list containing a distinc set of months with visits</returns>
+        internal static List<int> GetMonthsWithVisits(string p)
         {
-            //TODO work here
-            return null;
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    Console.WriteLine("I metoden");
+                    
+                    var res = session.CreateQuery("From Visit where Datepart(YEAR, VisitTime) = :year").SetParameter("year", p).List<Visit>();
+
+                    var res2 = (from v in res
+                                orderby v.VisitTime.Month
+                               select v.VisitTime.Month)
+                               .Distinct();
+
+                    return res2.ToList<int>();
+                }
+            }
         }
     }
 }

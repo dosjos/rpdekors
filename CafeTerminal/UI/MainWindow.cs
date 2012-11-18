@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CafeTerminal.Controller;
-using CafeTerminal.DataAccesLayer;
-using CafeTerminal.UI;
+using Visitor_Registration.Controller;
+using Visitor_Registration.DataAccesLayer;
+using Visitor_Registration.UI;
 using DomainObjecsSalg.Sales;
 using DomainObjectsSalg.Sales;
 
-namespace CafeTerminal
+namespace Visitor_Registration
 {
     public partial class MainWindow : Form
     {

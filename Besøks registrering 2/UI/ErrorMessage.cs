@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using CafeTerminal.Controllers;
+using Visitor_Registration.Controllers;
 
-namespace CafeTerminal.UI
+namespace Visitor_Registration.UI
 {
     public class ErrorMessage
     {

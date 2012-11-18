@@ -9,8 +9,8 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-using CafeTerminal.DomainObjects;
-using CafeTerminal.Controllers;
+using Visitor_Registration.DomainObjects;
+using Visitor_Registration.Controllers;
 
 using FluentNHibernate;
 using NHibernate;
@@ -20,12 +20,12 @@ using FluentNHibernate.Automapping;
 using NHibernate.Cfg;
 using NHibernate.Tool.hbm2ddl;
 using NHibernate.Criterion;
-using CafeTerminal.DataAccesLayer;
-using CafeTerminal.UI;
+using Visitor_Registration.DataAccesLayer;
+using Visitor_Registration.UI;
 using System.Drawing.Drawing2D;
-using CafeTerminal.Mocking;
+using Visitor_Registration.Mocking;
 
-namespace CafeTerminal
+namespace Visitor_Registration
 {
     public partial class MainWindow : Form
     {

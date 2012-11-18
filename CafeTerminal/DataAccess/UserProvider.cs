@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using CafeTerminal.DataAccesLayer;
+using Visitor_Registration.DataAccesLayer;
 using NHibernate;
 
-namespace CafeTerminal.DataAccess
+namespace Visitor_Registration.DataAccess
 {
     public class UserProvider
     {

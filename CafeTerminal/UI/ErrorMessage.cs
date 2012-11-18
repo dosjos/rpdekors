@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CafeTerminal.UI
+namespace Visitor_Registration.UI
 {
     public class ErrorMessage
     {

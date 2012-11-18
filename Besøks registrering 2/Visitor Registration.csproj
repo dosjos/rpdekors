@@ -8,7 +8,7 @@
     <ProjectGuid>{47F682DE-FB88-430C-A2E2-1BDE5CC0FA3C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CafeTerminal</RootNamespace>
+    <RootNamespace>Visitor_Registration</RootNamespace>
     <AssemblyName>Visitor Registration</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>

@@ -6,11 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using CafeTerminal.DataAccess;
+using Visitor_Registration.DataAccess;
 using DomainObjecsSalg.Sales;
 
 
-namespace CafeTerminal.UI
+namespace Visitor_Registration.UI
 {
     public partial class NewVare : Form
     {

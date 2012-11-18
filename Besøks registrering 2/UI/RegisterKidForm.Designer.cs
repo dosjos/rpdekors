@@ -1,4 +1,4 @@
-﻿namespace CafeTerminal
+﻿namespace Visitor_Registration
 {
     partial class RegisterKidForm
     {
