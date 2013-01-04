@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>DomainObjectSalg.key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
       <HintPath>..\dlls\Castle.Core.dll</HintPath>
@@ -79,6 +85,9 @@
     <Compile Include="Sales\VareMap.cs" />
     <Compile Include="Settings\Settings.cs" />
     <Compile Include="Settings\SettingsMap.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DomainObjectSalg.key.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -11,9 +11,17 @@ namespace CafeTerminal.UI
 {
     public partial class VelgBruker : Form
     {
+        private Controller.MainController mc;
+
         public VelgBruker()
         {
             InitializeComponent();
+        }
+
+        public VelgBruker(Controller.MainController mc)
+        {
+            // TODO: Complete member initialization
+            this.mc = mc;
         }
     }
 }

@@ -12,6 +12,26 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <PublishUrl>ftp://ftp.pacelg.com/deploy/cafe/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <InstallUrl>http://pacelg.com/deploy/cafe/</InstallUrl>
+    <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
+    <WebPage>publish.htm</WebPage>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,6 +52,24 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>CafeTerminal.key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9E6D285462C325F918EDFCC3C791F52C14F09F3C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CafeTerminal_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Castle.Core">
       <HintPath>..\dlls\Castle.Core.dll</HintPath>
@@ -45,8 +83,8 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\dlls\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="LaMarvin.Windows.Forms.ColorPicker">
-      <HintPath>..\dlls\LaMarvin.Windows.Forms.ColorPicker.dll</HintPath>
+    <Reference Include="LaMarvin.Window.Forms.ColorPicker">
+      <HintPath>..\dlls\LaMarvin.Window.Forms.ColorPicker.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\dlls\log4net.dll</HintPath>
@@ -139,6 +177,12 @@
     <Compile Include="UI\OrderPanel.Designer.cs">
       <DependentUpon>OrderPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\VelgBruker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\VelgBruker.Designer.cs">
+      <DependentUpon>VelgBruker.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="UI\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +220,11 @@
     <EmbeddedResource Include="UI\SettingsWindow.resx">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\VelgBruker.resx">
+      <DependentUpon>VelgBruker.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="CafeTerminal.key.snk" />
+    <None Include="CafeTerminal_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -198,6 +247,28 @@
   <ItemGroup>
     <Content Include="Images\login.gif" />
     <Content Include="Images\LoginRed.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.Express.10.5">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2008 R2 Express</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

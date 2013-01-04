@@ -82,8 +82,6 @@ namespace CafeTerminal.UI
             dataGridView1.MultiSelect = false;
             dataGridView1.Columns[6].Name = "ID";
             dataGridView1.Columns[6].Width = 0;
-
-
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -106,7 +104,6 @@ namespace CafeTerminal.UI
                 mc.PushVareUp(v);
                 InitializeList();
                 mc.UpdateMainButtons();
-                //opp
             }
             if (e.ColumnIndex == 4)
             {
@@ -115,8 +112,6 @@ namespace CafeTerminal.UI
                 mc.PushVareDown(v);
                 InitializeList();
                 mc.UpdateMainButtons();
-                //ned
-
             }
             BringToFront();
         }
