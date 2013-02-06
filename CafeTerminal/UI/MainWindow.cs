@@ -35,24 +35,45 @@ namespace CafeTerminal
 
         private void StartWindow()
         {
-            //NHibernateHelper.ResetDatabase();
-            InitializeComponent();
-            GetButtons();
-            CreateDataGrid();
+           // using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Bruker\fil.txt"))
+            //{
+                
+            //    file.WriteLine("1");
+                InitializeComponent();
+            //    file.WriteLine("2");
+                try
+                {
+                    GetButtons();
+                }
+                catch (Exception e)
+                {
+                    NHibernateHelper.ResetDatabase();
+                    GetButtons();
+                }
+             //   file.WriteLine("3");
+
+                CreateDataGrid();
+              //  file.WriteLine("4");
 
 
-            GetLogg();
-            GetDagensSalg();
+                GetLogg();
+
+               // file.WriteLine("5");
+                GetDagensSalg();
 #if !DEBUG
             initialiserDatabaseToolStripMenuItem.Enabled = false;
 #endif
-            if (mc.HavePassSetting())
-            {
-                t = new Timer();
-                t.Tick += Tick;
-                t.Interval = 50;
-                t.Enabled = true;
-            }
+                //file.WriteLine("6");
+                if (mc.HavePassSetting())
+                {
+                    t = new Timer();
+                    t.Tick += Tick;
+                    t.Interval = 50;
+                    t.Enabled = true;
+                }
+                //f//ile.WriteLine("7");
+
+            //}
         }
 
         public MainWindow(MainController mainController)
@@ -373,6 +394,12 @@ namespace CafeTerminal
         private void RegistrerArbeider_Click(object sender, EventArgs e)
         {
             new VelgBruker(mc);
+        }
+
+        internal void DagensBruker(UserLogg ul)
+        {
+            Users u = mc.GetBruker(ul.UserId);
+            richTextBox1.AppendText(u.Navn + "\n");
         }
     }
 }

@@ -57,6 +57,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.LogText = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -104,21 +105,21 @@
             // nyDagToolStripMenuItem
             // 
             this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
-            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.nyDagToolStripMenuItem.Text = "Ny dag";
             this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
             // 
             // loggUtToolStripMenuItem
             // 
             this.loggUtToolStripMenuItem.Name = "loggUtToolStripMenuItem";
-            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.loggUtToolStripMenuItem.Text = "Logg ut";
             this.loggUtToolStripMenuItem.Click += new System.EventHandler(this.loggUtToolStripMenuItem_Click);
             // 
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.avsluttToolStripMenuItem_Click);
             // 
@@ -188,11 +189,12 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Cornsilk;
+            this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.totalsumlabel);
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.RegistrerArbeider);
-            this.splitContainer1.Panel2.Controls.Add(this.totalsumlabel);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
-            this.splitContainer1.Panel2.Controls.Add(this.label1);
             this.splitContainer1.Panel2.Controls.Add(this.LogText);
             this.splitContainer1.Size = new System.Drawing.Size(1236, 548);
             this.splitContainer1.SplitterDistance = 958;
@@ -336,14 +338,16 @@
             // 
             // RegistrerArbeider
             // 
-            this.RegistrerArbeider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RegistrerArbeider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RegistrerArbeider.BackColor = System.Drawing.Color.MistyRose;
             this.RegistrerArbeider.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RegistrerArbeider.Location = new System.Drawing.Point(8, 4);
             this.RegistrerArbeider.Name = "RegistrerArbeider";
+            this.RegistrerArbeider.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RegistrerArbeider.Size = new System.Drawing.Size(217, 56);
             this.RegistrerArbeider.TabIndex = 3;
-            this.RegistrerArbeider.Text = "Registrer dagens hjelpere";
+            this.RegistrerArbeider.Text = "Registrer dagens café crew";
             this.RegistrerArbeider.UseVisualStyleBackColor = false;
             this.RegistrerArbeider.Click += new System.EventHandler(this.RegistrerArbeider_Click);
             // 
@@ -352,7 +356,7 @@
             this.totalsumlabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.totalsumlabel.AutoSize = true;
             this.totalsumlabel.Font = new System.Drawing.Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalsumlabel.Location = new System.Drawing.Point(179, 211);
+            this.totalsumlabel.Location = new System.Drawing.Point(211, 211);
             this.totalsumlabel.Name = "totalsumlabel";
             this.totalsumlabel.Size = new System.Drawing.Size(0, 44);
             this.totalsumlabel.TabIndex = 2;
@@ -377,7 +381,7 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(10, 211);
+            this.label1.Location = new System.Drawing.Point(3, 211);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 44);
             this.label1.TabIndex = 1;
@@ -391,7 +395,7 @@
             this.LogText.Name = "LogText";
             this.LogText.Size = new System.Drawing.Size(267, 169);
             this.LogText.TabIndex = 0;
-            this.LogText.Text = "";
+            this.LogText.Text = "Tilbakemeldinger/Beskjeder";
             this.LogText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loggTextSkrevet);
             // 
             // imageList1
@@ -399,6 +403,17 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.richTextBox1.Enabled = false;
+            this.richTextBox1.Location = new System.Drawing.Point(11, 66);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(260, 81);
+            this.richTextBox1.TabIndex = 5;
+            this.richTextBox1.Text = "";
             // 
             // MainWindow
             // 
@@ -469,6 +484,7 @@
         private System.Windows.Forms.Button RegistrerArbeider;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem registrerNyBrukerToolStripMenuItem;
+        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }
 

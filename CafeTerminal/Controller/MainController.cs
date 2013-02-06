@@ -127,12 +127,7 @@ namespace CafeTerminal.Controller
         {
             Users u = new Users() { Navn = navn, Rolle = yrke };
             int id = UserProvider.SaveUser(u);
-            UserLogg ul = new UserLogg()
-            {
-                UserId = id,
-                Brukstid = DateTime.Now
-            };
-            UserProvider.SaveUsage(ul);
+           
         }
 
         internal void Restart()
@@ -141,6 +136,27 @@ namespace CafeTerminal.Controller
             mainWindow = new MainWindow(this);
             mainWindow.Visible = true;
         }
-            
+
+
+        internal List<Users> GetAlleBrukere()
+        {
+            return UserProvider.GetAllUsers();
+        }
+
+        internal Users GetBruker(int t)
+        {
+            return UserProvider.GetUser(t);
+        }
+
+        internal void SaveUserLog(UserLogg ul)
+        {
+            UserProvider.SaveLog(ul);
+            mainWindow.DagensBruker(ul);
+        }
+
+        internal List<UserLogg> GetTodaysUsers()
+        {
+            return UserProvider.GetTodayUsers();
+        }
     }
 }

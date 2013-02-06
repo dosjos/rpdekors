@@ -26,8 +26,7 @@
     <InstallUrl>http://pacelg.com/deploy/cafe/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>8</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -53,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>CafeTerminal.key.snk</AssemblyOriginatorKeyFile>
@@ -83,8 +82,8 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\dlls\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="LaMarvin.Window.Forms.ColorPicker">
-      <HintPath>..\dlls\LaMarvin.Window.Forms.ColorPicker.dll</HintPath>
+    <Reference Include="LaMarvin.Windows.Forms.ColorPicker">
+      <HintPath>..\dlls\LaMarvin.Windows.Forms.ColorPicker.dll</HintPath>
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\dlls\log4net.dll</HintPath>
