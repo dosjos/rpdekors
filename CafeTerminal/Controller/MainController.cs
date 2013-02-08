@@ -17,6 +17,8 @@ namespace CafeTerminal.Controller
             this.mainWindow = mainWindow;
         }
 
+       
+
         internal void SaveVare(DomainObjecsSalg.Sales.Vare vare)
         {
             VareProvider.Save(vare);

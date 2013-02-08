@@ -6,12 +6,14 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using CafeTerminal.Controller;
 using CafeTerminal.DataAccesLayer;
 using CafeTerminal.UI;
 using DomainObjecsSalg.Sales;
 using DomainObjectsSalg.Sales;
+using Timer = System.Windows.Forms.Timer;
 
 namespace CafeTerminal
 {
@@ -33,37 +35,35 @@ namespace CafeTerminal
             
         }
 
+        public MainWindow(string s)
+        {
+        }
+
+        public void Boot()
+        {
+            StartWindow();
+        }
+
         private void StartWindow()
         {
-           // using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Bruker\fil.txt"))
-            //{
-                
-            //    file.WriteLine("1");
                 InitializeComponent();
-            //    file.WriteLine("2");
                 try
                 {
                     GetButtons();
                 }
                 catch (Exception e)
                 {
-                    NHibernateHelper.ResetDatabase();
+                    //NHibernateHelper.ResetDatabase();//TODO finn hvilken spesifikk exception som må kastes for at denne kommandoen skal kjøres
                     GetButtons();
                 }
-             //   file.WriteLine("3");
-
                 CreateDataGrid();
-              //  file.WriteLine("4");
-
 
                 GetLogg();
 
-               // file.WriteLine("5");
                 GetDagensSalg();
 #if !DEBUG
             initialiserDatabaseToolStripMenuItem.Enabled = false;
 #endif
-                //file.WriteLine("6");
                 if (mc.HavePassSetting())
                 {
                     t = new Timer();
@@ -71,14 +71,49 @@ namespace CafeTerminal
                     t.Interval = 50;
                     t.Enabled = true;
                 }
-                //f//ile.WriteLine("7");
+            try
+            {
+                int Hour = 23;
+                int Minute = 59;
+                int Second = 59;
+                int Year = DateTime.Now.Year;
+                int Month = DateTime.Now.Month;
+                int Day = DateTime.Now.Day;
+                DateTime target = new DateTime(Year, Month, Day, Hour, Minute, Second);
+                int interval = (int) (target - DateTime.Now).TotalMilliseconds;
+                var timer = new System.Timers.Timer(interval);
+                timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
+                timer.Enabled = true;
+            }
+            catch (Exception e)
+            {
+                
+            }
+        }
 
-            //}
+        private void timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            RestartWindow();
+        }
+
+
+        delegate void RestartCalback();
+
+        private void RestartWindow()
+        {
+            if (this.InvokeRequired)
+            {
+                RestartCalback d = new RestartCalback(RestartWindow);
+               this.Invoke(d);
+            }
+            else
+            {
+                mc.Restart();
+            }
         }
 
         public MainWindow(MainController mainController)
         {
-            // TODO: Complete member initialization
             this.mc = mainController;
             StartWindow();
         }
@@ -112,6 +147,7 @@ namespace CafeTerminal
             this.Resize += new EventHandler(ResizeButtons);
 
             dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DataGridViewTextBoxColumn modelColumn = new DataGridViewTextBoxColumn();
             dataGridView1.DataSource = sales;
             modelColumn.HeaderText = "Salg";
@@ -189,13 +225,15 @@ namespace CafeTerminal
             temp = temp.Substring(temp.IndexOf(':') + 2);
             string[] salg = temp.Split('\n');
             int s = int.Parse(salg[1]);
-            mc.LagreSalg(salg[0], s);
+           
+            
+            //
 
-            sales.Add(new StringValue(salg[0] + " " + s));
+            sales.Add(new StringValue(salg[0] + ", " + s));
             dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows.Count - 1;
 
             salgsum += s;
-            totalsum += s;
+            //totalsum += s;
 
             salglabel.Text = salgsum + " nok";
             totalsumlabel.Text = totalsum + " nok";
@@ -247,7 +285,9 @@ namespace CafeTerminal
 
 
             UpdatePanels();
+            totalsum += salgsum;
             salgsum = 0;
+            totalsumlabel.Text = totalsum + " nok";
             salglabel.Text = salgsum + " nok";
             sales.Clear();
             resetTime();
@@ -258,8 +298,14 @@ namespace CafeTerminal
             foreach (DataGridViewRow item in dataGridView1.Rows)
             {
                 o.SetText(item.Cells[0].Value.ToString());
+
+                string s = item.Cells[0].Value.ToString();
+                string[] salg = s.Split(',');
+                int sum = int.Parse(salg[1]);
+
+
+                mc.LagreSalg(salg[0], sum);
             }
-           // o.SetText("En", "To", "Tre");
             orderlist.Add(o);
         }
 
@@ -400,6 +446,21 @@ namespace CafeTerminal
         {
             Users u = mc.GetBruker(ul.UserId);
             richTextBox1.AppendText(u.Navn + "\n");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (sales.Count > 0)
+            {
+                //TODO finn tallet
+                string s = sales.ElementAt(dataGridView1.SelectedRows[0].Index).Value;
+                string[] salg = s.Split(',');
+                int sum = int.Parse(salg[1]);
+
+                salgsum -= sum;
+                salglabel.Text = salgsum + " nok";
+                sales.RemoveAt(dataGridView1.SelectedRows[0].Index);
+            }
         }
     }
 }
