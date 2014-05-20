@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using FluentNHibernate.Mapping;
 
-namespace DomainObjecsSalg.Settings
+namespace DomainObjectsSalg.Settings
 {
     public class SettingsMap : ClassMap<Settings>
     {

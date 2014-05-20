@@ -2,13 +2,12 @@
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
-using Visitor_Registration.DataAccesLayer;
 using DomainObjects.Visit;
 using DomainObjects;
 using DomainObjects.Settings;
 using System;
 
-namespace Visitor_Registration
+namespace Visitor_Registration.DataAccesLayer
 {
     public class NHibernateHelper
     {
@@ -27,24 +26,33 @@ namespace Visitor_Registration
 
         public static void ResetDatabase()
         {
-            _sessionFactory = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2008
-                              .ConnectionString(
-                              (c => c
-                                .Server(CustomizationManager.GetServer())
-                                .TrustedConnection()
-                                .Database(CustomizationManager.GetDatabase())
-                                .Username("rodekors")
-                                .Password("rodekors")))
-                              //.ShowSql()
-                )
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
-                .Mappings(m =>m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
-                .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
-                .ExposeConfiguration(cfg => new SchemaExport(cfg)
-                                               .Create(true,true))
-                .BuildSessionFactory();
+            try
+            {
+                _sessionFactory = Fluently.Configure()
+                       .Database(MsSqlConfiguration.MsSql2012
+                            .ConnectionString(
+                                 (c => c
+                                   .Server(CustomizationManager.GetServer())
+                                   .TrustedConnection()
+                                   .Database(CustomizationManager.GetDatabase())
+                                   .Username("rodekors")
+                                    .Password("rodekors")))
+                   // .ShowSql()
+                    )
+                                          .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
+                                          .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())
+                                          .Mappings(m => m.FluentMappings.AddFromAssemblyOf<GenericVisitor>())
+                                          .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Settings>())
+                                          .ExposeConfiguration(cfg => new SchemaExport(cfg)
+                                                                          .Create(true, true))
+                                          .BuildSessionFactory();
+            }
+            catch (Exception e)
+            
+            {
+                Console.WriteLine("NOOOOOO");
+                Console.WriteLine(e.StackTrace);
+            }
         }
 
 
@@ -53,7 +61,7 @@ namespace Visitor_Registration
             try
             {
                 _sessionFactory = Fluently.Configure()
-                    .Database(MsSqlConfiguration.MsSql2008
+                    .Database(MsSqlConfiguration.MsSql2012
                                   .ConnectionString(
                                   (c => c
                                     .Server(CustomizationManager.GetServer())
@@ -61,7 +69,7 @@ namespace Visitor_Registration
                                     .Database(CustomizationManager.GetDatabase())
                                     .Username("rodekors")
                                     .Password("rodekors")))
-                                //  .ShowSql()//Uncomment denne for å få output
+                     // .ShowSql()//Uncomment denne for å få output
                     )
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Visit>())
                     .Mappings(m => m.FluentMappings.AddFromAssemblyOf<Kid>())

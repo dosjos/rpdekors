@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CafeTerminal.DataAccess;
-using DomainObjecsSalg.Sales;
+using DomainObjectsSalg.Sales;
 
 namespace CafeTerminal.UI
 {

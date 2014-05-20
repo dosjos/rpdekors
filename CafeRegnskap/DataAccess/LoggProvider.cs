@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DomainObjecsSalg.Sales;
+//using DomainObjecsSalg.Sales;
+using CafeTerminal.DataAccess;
+using DomainObjecsSalg2.Sales;
 using NHibernate;
 
-namespace CafeTerminal.DataAccess
+namespace CafeRegnskap.DataAccess
 {
     public class LoggProvider
     {

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainObjectsSalg", "Domain
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CafeRegnskap", "CafeRegnskap\CafeRegnskap.csproj", "{2643A4B1-90CC-49EB-A572-654248D081BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainObjectsSalg2", "DomainObjectSalg2\DomainObjectsSalg2.csproj", "{79EB192F-988A-486F-B648-73737B07F66B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{2643A4B1-90CC-49EB-A572-654248D081BF}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{2643A4B1-90CC-49EB-A572-654248D081BF}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{2643A4B1-90CC-49EB-A572-654248D081BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{79EB192F-988A-486F-B648-73737B07F66B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

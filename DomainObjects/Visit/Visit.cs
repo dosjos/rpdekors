@@ -26,7 +26,6 @@ namespace DomainObjects.Visit
             {
                 SetRestrictionDate();
             }
-
         }
 
         public virtual void SetRestrictionDate()

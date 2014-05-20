@@ -1,14 +1,13 @@
-﻿using CafeRegnskap.DataAccess;
-using FluentNHibernate.Cfg;
+﻿using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using System;
-using DomainObjecsSalg.Sales;
-using DomainObjecsSalg.Settings;
+using DomainObjecsSalg2.Sales;
+using DomainObjecsSalg2.Settings;
 
 
-namespace CafeTerminal.DataAccess
+namespace CafeRegnskap.DataAccess
 {
     public class NHibernateHelper
     {

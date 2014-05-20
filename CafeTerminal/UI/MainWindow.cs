@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,12 +10,10 @@ using System.Timers;
 using System.Windows.Forms;
 using CafeTerminal.Controller;
 using CafeTerminal.DataAccesLayer;
-using CafeTerminal.UI;
-using DomainObjecsSalg.Sales;
 using DomainObjectsSalg.Sales;
 using Timer = System.Windows.Forms.Timer;
 
-namespace CafeTerminal
+namespace CafeTerminal.UI
 {
     public partial class MainWindow : Form
     {
@@ -53,7 +51,7 @@ namespace CafeTerminal
             }
             catch (Exception e)
             {
-                //NHibernateHelper.ResetDatabase();//TODO finn hvilken spesifikk exception som må kastes for at denne kommandoen skal kjøres
+                NHibernateHelper.ResetDatabase();//TODO finn hvilken spesifikk exception som må kastes for at denne kommandoen skal kjøres
                 GetButtons();
             }
             CreateDataGrid();
@@ -73,8 +71,8 @@ namespace CafeTerminal
             }
             try
             {
-                int Hour = 23;
-                int Minute = 59;
+                int Hour = 00;
+                int Minute = 05;
                 int Second = 59;
                 int Year = DateTime.Now.Year;
                 int Month = DateTime.Now.Month;
@@ -123,7 +121,6 @@ namespace CafeTerminal
             t.Enabled = false;
             t.Tick -= Tick;
             new LoggInn(mc);
-
         }
 
 
@@ -207,7 +204,7 @@ namespace CafeTerminal
             }
         }
 
-        private Color GetButtonColor(DomainObjecsSalg.Sales.Vare vare)
+        private Color GetButtonColor(DomainObjectsSalg.Sales.Vare vare)
         {
             if (vare.Farge != null)
             {
@@ -225,8 +222,6 @@ namespace CafeTerminal
             temp = temp.Substring(temp.IndexOf(':') + 2);
             string[] salg = temp.Split('\n');
             int s = int.Parse(salg[1]);
-
-
             //
 
             sales.Add(new StringValue(salg[0] + ", " + s));
@@ -387,9 +382,12 @@ namespace CafeTerminal
         {
             try
             {
-                t.Stop();
-                t.Interval = logTime;
-                t.Start();
+                if (t != null && t.Enabled)
+                {
+                    t.Stop();
+                    t.Interval = logTime;
+                    t.Start();
+                }
             }
             catch (Exception e)
             {
@@ -451,22 +449,27 @@ namespace CafeTerminal
         {
             if (sales.Count > 0)
             {
-                try
-                {
-                    //TODO finn tallet
-                    string s = sales.ElementAt(dataGridView1.SelectedRows[0].Index).Value;
-                    string[] salg = s.Split(',');
-                    int sum = int.Parse(salg[1]);
+                //TODO finn tallet
+                string s = sales.ElementAt(dataGridView1.SelectedRows[0].Index).Value;
+                string[] salg = s.Split(',');
+                int sum = int.Parse(salg[1]);
 
-                    salgsum -= sum;
-                    salglabel.Text = salgsum + " nok";
-                    sales.RemoveAt(dataGridView1.SelectedRows[0].Index);
-                }
-                catch (Exception)
-                {
-                    
-                }
+                salgsum -= sum;
+                salglabel.Text = salgsum + " nok";
+                sales.RemoveAt(dataGridView1.SelectedRows[0].Index);
             }
+        }
+
+        private void eksporterDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ExportVindu();
+        }
+
+      
+
+        private void sendRapportklageforslagToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RapportVindu();
         }
     }
 }

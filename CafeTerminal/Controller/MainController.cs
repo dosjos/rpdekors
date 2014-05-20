@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using CafeTerminal.DataAccesLayer;
 using CafeTerminal.DataAccess;
-using DomainObjecsSalg.Sales;
-
+using DomainObjectsSalg.Sales;
+using CafeTerminal.UI;
 namespace CafeTerminal.Controller
 {
     public class MainController
@@ -19,7 +19,7 @@ namespace CafeTerminal.Controller
 
        
 
-        internal void SaveVare(DomainObjecsSalg.Sales.Vare vare)
+        internal void SaveVare(DomainObjectsSalg.Sales.Vare vare)
         {
             VareProvider.Save(vare);
         }
@@ -115,7 +115,7 @@ namespace CafeTerminal.Controller
         }
 
 
-        internal void LagrePassord(DomainObjecsSalg.Settings.Settings s)
+        internal void LagrePassord(DomainObjectsSalg.Settings.Settings s)
         {
             SettingsProvider.LagrePass(s);
         }

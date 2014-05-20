@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CafeTerminal.DataAccesLayer;
-using DomainObjecsSalg.Sales;
+using DomainObjectsSalg.Sales;
 using NHibernate;
 
 namespace CafeTerminal.DataAccess

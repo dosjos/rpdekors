@@ -26,7 +26,7 @@
     <InstallUrl>http://pacelg.com/deploy/cafe/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>11</ApplicationRevision>
+    <ApplicationRevision>14</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -98,6 +98,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -126,6 +127,12 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\ErrorMessage.cs" />
+    <Compile Include="UI\ExportVindu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ExportVindu.Designer.cs">
+      <DependentUpon>ExportVindu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\HelperWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +166,12 @@
     <Compile Include="UI\NyBruker.Designer.cs">
       <DependentUpon>NyBruker.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RapportVindu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RapportVindu.Designer.cs">
+      <DependentUpon>RapportVindu.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Salgsoppsett.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +198,9 @@
     </Compile>
     <EmbeddedResource Include="UI\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ExportVindu.resx">
+      <DependentUpon>ExportVindu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\HelperWindow.resx">
       <DependentUpon>HelperWindow.cs</DependentUpon>
@@ -214,6 +230,9 @@
     <EmbeddedResource Include="UI\OrderPanel.resx">
       <DependentUpon>OrderPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\RapportVindu.resx">
+      <DependentUpon>RapportVindu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Salgsoppsett.resx">
       <DependentUpon>Salgsoppsett.cs</DependentUpon>
     </EmbeddedResource>
@@ -234,13 +253,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DomainObjecsSalg\DomainObjectsSalg.csproj">
-      <Project>{5319f5f4-02b8-4a02-b3cd-e280e90a58d0}</Project>
-      <Name>DomainObjectsSalg</Name>
-    </ProjectReference>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\login.gif" />
@@ -267,6 +282,12 @@
       <ProductName>SQL Server 2008 R2 Express</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DomainObjecsSalg\DomainObjectsSalg.csproj">
+      <Project>{5319f5f4-02b8-4a02-b3cd-e280e90a58d0}</Project>
+      <Name>DomainObjectsSalg</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

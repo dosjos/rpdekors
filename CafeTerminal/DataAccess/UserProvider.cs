@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CafeTerminal.DataAccesLayer;
-using DomainObjecsSalg.Sales;
+using DomainObjectsSalg.Sales;
 using NHibernate;
 
 namespace CafeTerminal.DataAccess
 {
     public class UserProvider
     {
-        internal static int SaveUser(DomainObjecsSalg.Sales.Users u)
+        internal static int SaveUser(DomainObjectsSalg.Sales.Users u)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -23,7 +23,7 @@ namespace CafeTerminal.DataAccess
             }
         }
 
-        internal static void SaveUsage(DomainObjecsSalg.Sales.UserLogg ul)
+        internal static void SaveUsage(DomainObjectsSalg.Sales.UserLogg ul)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -35,7 +35,7 @@ namespace CafeTerminal.DataAccess
             }
         }
 
-        internal static List<DomainObjecsSalg.Sales.Users> GetAllUsers()
+        internal static List<DomainObjectsSalg.Sales.Users> GetAllUsers()
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {
@@ -43,9 +43,9 @@ namespace CafeTerminal.DataAccess
                 {
                     var list = session.CreateQuery("from Users where slettet != 1").List();
 
-                    List<DomainObjecsSalg.Sales.Users> l = new List<DomainObjecsSalg.Sales.Users>();
+                    List<DomainObjectsSalg.Sales.Users> l = new List<DomainObjectsSalg.Sales.Users>();
 
-                    foreach (DomainObjecsSalg.Sales.Users item in list)
+                    foreach (DomainObjectsSalg.Sales.Users item in list)
                     {
                         l.Add(item);
                     }

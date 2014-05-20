@@ -1,4 +1,4 @@
-﻿namespace Visitor_Registration
+﻿namespace Visitor_Registration.UI
 {
     partial class MainWindow
     {

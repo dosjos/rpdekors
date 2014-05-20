@@ -1,10 +1,10 @@
-﻿using FluentNHibernate.Cfg;
+﻿using CafeTerminal.Properties;
+using DomainObjectsSalg.Sales;
+using FluentNHibernate.Cfg;
 using FluentNHibernate.Cfg.Db;
 using NHibernate;
 using NHibernate.Tool.hbm2ddl;
 using System;
-using DomainObjecsSalg.Sales;
-using DomainObjecsSalg.Settings;
 
 
 namespace CafeTerminal.DataAccesLayer
@@ -27,7 +27,7 @@ namespace CafeTerminal.DataAccesLayer
         public static void ResetDatabase()
         {
             _sessionFactory = Fluently.Configure()
-                .Database(MsSqlConfiguration.MsSql2008
+                .Database(MsSqlConfiguration.MsSql2012
                               .ConnectionString(
                               (c => c
                                 .Server(CustomizationManager.GetServer())
@@ -54,7 +54,7 @@ namespace CafeTerminal.DataAccesLayer
             try
             {
                 _sessionFactory = Fluently.Configure()
-                    .Database(MsSqlConfiguration.MsSql2008
+                    .Database(MsSqlConfiguration.MsSql2012
                                   .ConnectionString(
                                   (c => c
                                     .Server(CustomizationManager.GetServer())

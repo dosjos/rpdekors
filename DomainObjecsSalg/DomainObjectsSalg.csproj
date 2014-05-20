@@ -7,11 +7,12 @@
     <ProjectGuid>{5319F5F4-02B8-4A02-B3CD-E280E90A58D0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DomainObjecsSalg</RootNamespace>
-    <AssemblyName>DomainObjecsSalg</AssemblyName>
+    <RootNamespace>DomainObjectsSalg</RootNamespace>
+    <AssemblyName>DomainObjectsSalg</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>

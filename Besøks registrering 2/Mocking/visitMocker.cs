@@ -60,7 +60,7 @@ namespace Visitor_Registration.Mocking
                 Kid k = (Kid)users[rand.Next(users.Count - 1)];
                 Visit v = new Visit();
                 v.KidId = k;
-                DateTime d = new DateTime(rand.Next(2011, 2013), rand.Next(1, 13), rand.Next(1, 31));
+                DateTime d = new DateTime(rand.Next(2011, 2013), rand.Next(1, 13), rand.Next(1, 28));
                 v.VisitTime = d;
                 v.SetRestrictionDate();
                 try

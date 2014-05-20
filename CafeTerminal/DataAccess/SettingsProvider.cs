@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DomainObjecsSalg.Settings;
+using DomainObjectsSalg.Settings;
 using NHibernate;
 
 namespace CafeTerminal.DataAccesLayer
@@ -44,7 +44,7 @@ namespace CafeTerminal.DataAccesLayer
             }
         }
 
-        internal static void LagrePass(DomainObjecsSalg.Settings.Settings s)
+        internal static void LagrePass(DomainObjectsSalg.Settings.Settings s)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {

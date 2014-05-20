@@ -1,4 +1,4 @@
-﻿namespace CafeTerminal
+﻿namespace CafeTerminal.UI
 {
     partial class MainWindow
     {
@@ -41,6 +41,8 @@
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.regnskapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eksporterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -50,6 +52,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.splitContainer5 = new System.Windows.Forms.SplitContainer();
             this.button1 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.totalsumlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -58,7 +61,8 @@
             this.button2 = new System.Windows.Forms.Button();
             this.LogText = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.button4 = new System.Windows.Forms.Button();
+            this.rapporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendRapportklageforslagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -86,7 +90,9 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.filToolStripMenuItem,
             this.optionsToolStripMenuItem,
-            this.omToolStripMenuItem});
+            this.omToolStripMenuItem,
+            this.regnskapToolStripMenuItem,
+            this.rapporterToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1236, 24);
@@ -176,6 +182,21 @@
             this.hjelpToolStripMenuItem.Name = "hjelpToolStripMenuItem";
             this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.hjelpToolStripMenuItem.Text = "Hjelp";
+            // 
+            // regnskapToolStripMenuItem
+            // 
+            this.regnskapToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eksporterDataToolStripMenuItem});
+            this.regnskapToolStripMenuItem.Name = "regnskapToolStripMenuItem";
+            this.regnskapToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.regnskapToolStripMenuItem.Text = "Regnskap";
+            // 
+            // eksporterDataToolStripMenuItem
+            // 
+            this.eksporterDataToolStripMenuItem.Name = "eksporterDataToolStripMenuItem";
+            this.eksporterDataToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.eksporterDataToolStripMenuItem.Text = "Eksporter data";
+            this.eksporterDataToolStripMenuItem.Click += new System.EventHandler(this.eksporterDataToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -327,6 +348,16 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(11, 185);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(155, 23);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "<-- Slett valgt linje";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // richTextBox1
             // 
             this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -418,15 +449,20 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // button4
+            // rapporterToolStripMenuItem
             // 
-            this.button4.Location = new System.Drawing.Point(11, 185);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 23);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "<-- Slett valgt linje";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.rapporterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sendRapportklageforslagToolStripMenuItem});
+            this.rapporterToolStripMenuItem.Name = "rapporterToolStripMenuItem";
+            this.rapporterToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.rapporterToolStripMenuItem.Text = "Rapporter";
+            // 
+            // sendRapportklageforslagToolStripMenuItem
+            // 
+            this.sendRapportklageforslagToolStripMenuItem.Name = "sendRapportklageforslagToolStripMenuItem";
+            this.sendRapportklageforslagToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.sendRapportklageforslagToolStripMenuItem.Text = "Send rapport/klage/forslag";
+            this.sendRapportklageforslagToolStripMenuItem.Click += new System.EventHandler(this.sendRapportklageforslagToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -499,6 +535,10 @@
         private System.Windows.Forms.ToolStripMenuItem registrerNyBrukerToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.ToolStripMenuItem regnskapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eksporterDataToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rapporterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sendRapportklageforslagToolStripMenuItem;
     }
 }
 

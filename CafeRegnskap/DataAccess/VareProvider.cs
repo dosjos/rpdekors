@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
-using DomainObjecsSalg.Sales;
+using CafeRegnskap.DataAccess;
+using DomainObjecsSalg2.Sales;
 using NHibernate;
 
 namespace CafeTerminal.DataAccess

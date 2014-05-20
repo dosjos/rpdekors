@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using DomainObjecsSalg.Sales;
+//using DomainObjecsSalg.Sales;
+using CafeTerminal.DataAccess;
+using DomainObjecsSalg2.Sales;
 using NHibernate;
 
-namespace CafeTerminal.DataAccess
+namespace CafeRegnskap.DataAccess
 {
     public class SalgsProvider
     {
@@ -34,5 +36,32 @@ namespace CafeTerminal.DataAccess
                 }
             }
         }
+
+        internal static List<Salg> GetSalesFromDate(int year, int month, int day)
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Salg where DatePart(YEAR, SlagsTid) = :year and DatePart(MONTH, SlagsTid) = :month AND DatePart(DAY, SlagsTid) = :day")
+                        .SetParameter("year", year).SetParameter("month", month).SetParameter("day", day).List<Salg>();
+                    return res.ToList<Salg>();
+                }
+            }
+        }
+
+
+        internal static List<Salg> GetAllSales()
+        {
+            using (ISession session = NHibernateHelper.OpenSession())
+            {
+                using (ITransaction transaction = session.BeginTransaction())
+                {
+                    var res = session.CreateQuery("from Salg").List<Salg>();
+                    return res.ToList<Salg>();
+                }
+            }
+        }
+
     }
 }

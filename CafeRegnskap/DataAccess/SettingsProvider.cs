@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using DomainObjecsSalg.Settings;
+//using System.Threading.Tasks;
+using CafeTerminal.DataAccess;
+using DomainObjecsSalg2.Settings;
 using NHibernate;
 
-namespace CafeTerminal.DataAccess
+namespace CafeRegnskap.DataAccess
 {
     public class SettingsProvider
     {
@@ -44,7 +45,7 @@ namespace CafeTerminal.DataAccess
             }
         }
 
-        internal static void LagrePass(DomainObjecsSalg.Settings.Settings s)
+        internal static void LagrePass(DomainObjecsSalg2.Settings.Settings s)
         {
             using (ISession session = NHibernateHelper.OpenSession())
             {

@@ -28,7 +28,7 @@ using Visitor_Registration.Mocking;
 using DomainObjects.Visit;
 using CafeTerminal.UI;
 
-namespace Visitor_Registration
+namespace Visitor_Registration.UI
 {
     public partial class MainWindow : Form
     {
@@ -51,7 +51,7 @@ namespace Visitor_Registration
             mc = new MainController(this);
             // TODO: Complete member initialization
 
-           // NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
+         //  NHibernateHelper.ResetDatabase(); //RESET HOTFIX OF DATABASE
 
             initializeStuff();
         }
