@@ -63,10 +63,11 @@ namespace CafeTerminal
 #if !DEBUG
             initialiserDatabaseToolStripMenuItem.Enabled = false;
 #endif
+            t = new Timer();
                 //file.WriteLine("6");
                 if (mc.HavePassSetting())
                 {
-                    t = new Timer();
+                    
                     t.Tick += Tick;
                     t.Interval = 50;
                     t.Enabled = true;
