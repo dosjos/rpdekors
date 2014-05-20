@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 
-namespace CafeTerminal
+namespace CafeRegnskap
 {
     static class Program
     {
@@ -17,13 +16,7 @@ namespace CafeTerminal
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            
-            Application.Run(new MainWindow());
-
+            Application.Run(new Form1());
         }
-
-
-        
     }
 }
