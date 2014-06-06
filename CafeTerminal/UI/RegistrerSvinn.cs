@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using CafeTerminal.DataAccess;
+using DomainObjectsSalg.Sales;
 
 namespace CafeTerminal.UI
 {
@@ -33,7 +35,22 @@ namespace CafeTerminal.UI
                 var tip = new ToolTip();
                 tip.SetToolTip(textBox1, "Fyll ut tittel på varen det registreres svinn på");
                 tip.Show("Varen må ha en tittel", textBox1);
+                return;
             }
+
+            var svinn = new Svinn
+            {
+                Sum = numericUpDown1.Value,
+                DatoTidspunkt = dateTimePicker1.Value,
+                Kommentar = richTextBox1.Text,
+                Navn = textBox1.Text,
+                RegistrertTidspunkt = DateTime.Now
+            };
+
+            var context = new SalgDbContext();
+
+            //TODO lagre svinn
+            //context.Save(svinn);
         }
     }
 }

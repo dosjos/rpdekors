@@ -135,7 +135,7 @@ namespace CafeTerminal.DataAccess
                         Vare vv = (Vare)res.UniqueResult();
                         vv.Rank = temp;
 
-
+                        //TODO sjekk denne buggen og rett den
                         session.Update(v);
                         session.Update(v);
                         transaction.Commit();
@@ -162,7 +162,7 @@ namespace CafeTerminal.DataAccess
                         var res = session.CreateQuery("from Vare Where Rank = :rank").SetParameter("rank", v.Rank);
                         Vare vv = (Vare)res.UniqueResult();
                         vv.Rank = temp;
-
+                        //TODO bug her også?????
                         session.Update(v);
                         session.Update(v);
                         transaction.Commit();

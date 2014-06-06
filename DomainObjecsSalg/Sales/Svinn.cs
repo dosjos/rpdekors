@@ -2,7 +2,7 @@
 
 namespace DomainObjectsSalg.Sales
 {
-    class Svinn
+    public class Svinn
     {
         public int SvinnId { get; set; }
         public string Navn { get; set; }
