@@ -43,6 +43,8 @@
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regnskapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eksporterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rapporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendRapportklageforslagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
@@ -61,8 +63,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.LogText = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.rapporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sendRapportklageforslagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrerSvinnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,21 +113,21 @@
             // nyDagToolStripMenuItem
             // 
             this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
-            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nyDagToolStripMenuItem.Text = "Ny dag";
             this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
             // 
             // loggUtToolStripMenuItem
             // 
             this.loggUtToolStripMenuItem.Name = "loggUtToolStripMenuItem";
-            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.loggUtToolStripMenuItem.Text = "Logg ut";
             this.loggUtToolStripMenuItem.Click += new System.EventHandler(this.loggUtToolStripMenuItem_Click);
             // 
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.avsluttToolStripMenuItem_Click);
             // 
@@ -173,20 +174,21 @@
             // omToolStripMenuItem1
             // 
             this.omToolStripMenuItem1.Name = "omToolStripMenuItem1";
-            this.omToolStripMenuItem1.Size = new System.Drawing.Size(102, 22);
+            this.omToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.omToolStripMenuItem1.Text = "Om";
             this.omToolStripMenuItem1.Click += new System.EventHandler(this.omToolStripMenuItem1_Click);
             // 
             // hjelpToolStripMenuItem
             // 
             this.hjelpToolStripMenuItem.Name = "hjelpToolStripMenuItem";
-            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
+            this.hjelpToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hjelpToolStripMenuItem.Text = "Hjelp";
             // 
             // regnskapToolStripMenuItem
             // 
             this.regnskapToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eksporterDataToolStripMenuItem});
+            this.eksporterDataToolStripMenuItem,
+            this.registrerSvinnToolStripMenuItem});
             this.regnskapToolStripMenuItem.Name = "regnskapToolStripMenuItem";
             this.regnskapToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.regnskapToolStripMenuItem.Text = "Regnskap";
@@ -194,9 +196,24 @@
             // eksporterDataToolStripMenuItem
             // 
             this.eksporterDataToolStripMenuItem.Name = "eksporterDataToolStripMenuItem";
-            this.eksporterDataToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.eksporterDataToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.eksporterDataToolStripMenuItem.Text = "Eksporter data";
             this.eksporterDataToolStripMenuItem.Click += new System.EventHandler(this.eksporterDataToolStripMenuItem_Click);
+            // 
+            // rapporterToolStripMenuItem
+            // 
+            this.rapporterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sendRapportklageforslagToolStripMenuItem});
+            this.rapporterToolStripMenuItem.Name = "rapporterToolStripMenuItem";
+            this.rapporterToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.rapporterToolStripMenuItem.Text = "Rapporter";
+            // 
+            // sendRapportklageforslagToolStripMenuItem
+            // 
+            this.sendRapportklageforslagToolStripMenuItem.Name = "sendRapportklageforslagToolStripMenuItem";
+            this.sendRapportklageforslagToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.sendRapportklageforslagToolStripMenuItem.Text = "Send rapport/klage/forslag";
+            this.sendRapportklageforslagToolStripMenuItem.Click += new System.EventHandler(this.sendRapportklageforslagToolStripMenuItem_Click);
             // 
             // splitContainer1
             // 
@@ -449,20 +466,12 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // rapporterToolStripMenuItem
+            // registrerSvinnToolStripMenuItem
             // 
-            this.rapporterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.sendRapportklageforslagToolStripMenuItem});
-            this.rapporterToolStripMenuItem.Name = "rapporterToolStripMenuItem";
-            this.rapporterToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.rapporterToolStripMenuItem.Text = "Rapporter";
-            // 
-            // sendRapportklageforslagToolStripMenuItem
-            // 
-            this.sendRapportklageforslagToolStripMenuItem.Name = "sendRapportklageforslagToolStripMenuItem";
-            this.sendRapportklageforslagToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
-            this.sendRapportklageforslagToolStripMenuItem.Text = "Send rapport/klage/forslag";
-            this.sendRapportklageforslagToolStripMenuItem.Click += new System.EventHandler(this.sendRapportklageforslagToolStripMenuItem_Click);
+            this.registrerSvinnToolStripMenuItem.Name = "registrerSvinnToolStripMenuItem";
+            this.registrerSvinnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrerSvinnToolStripMenuItem.Text = "Registrer svinn";
+            this.registrerSvinnToolStripMenuItem.Click += new System.EventHandler(this.registrerSvinnToolStripMenuItem_Click);
             // 
             // MainWindow
             // 
@@ -539,6 +548,7 @@
         private System.Windows.Forms.ToolStripMenuItem eksporterDataToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rapporterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendRapportklageforslagToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrerSvinnToolStripMenuItem;
     }
 }
 

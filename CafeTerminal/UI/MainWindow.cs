@@ -471,6 +471,11 @@ namespace CafeTerminal.UI
         {
             new RapportVindu();
         }
+
+        private void registrerSvinnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RegistrerSvinn();
+        }
     }
 }
 

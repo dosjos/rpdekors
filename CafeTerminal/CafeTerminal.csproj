@@ -111,6 +111,7 @@
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
     <Compile Include="DataAccess\LoggProvider.cs" />
+    <Compile Include="DataAccess\SalgDbContext.cs" />
     <Compile Include="DataAccess\SalgsProvider.cs" />
     <Compile Include="DataAccess\UserProvider.cs" />
     <Compile Include="DataAccess\VareProvider.cs" />
@@ -172,6 +173,12 @@
     <Compile Include="UI\RapportVindu.Designer.cs">
       <DependentUpon>RapportVindu.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\RegistrerSvinn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RegistrerSvinn.Designer.cs">
+      <DependentUpon>RegistrerSvinn.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Salgsoppsett.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\RapportVindu.resx">
       <DependentUpon>RapportVindu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\RegistrerSvinn.resx">
+      <DependentUpon>RegistrerSvinn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Salgsoppsett.resx">
       <DependentUpon>Salgsoppsett.cs</DependentUpon>
