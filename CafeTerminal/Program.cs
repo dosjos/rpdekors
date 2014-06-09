@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 using CafeTerminal.DataAccess;
 using CafeTerminal.UI;

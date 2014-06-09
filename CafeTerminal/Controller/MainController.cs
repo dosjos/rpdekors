@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
-using System.Text;
-using CafeTerminal.DataAccesLayer;
 using CafeTerminal.DataAccess;
 using DomainObjectsSalg.Sales;
 using CafeTerminal.UI;
@@ -11,88 +9,83 @@ namespace CafeTerminal.Controller
     public class MainController
     {
         private MainWindow mainWindow;
+        private DataProvider dataProvider; 
 
-        public MainController(MainWindow mainWindow)
+        public MainController(MainWindow mainWindow, DataProvider _data)
         {
             this.mainWindow = mainWindow;
+            dataProvider = _data;
         }
 
        
 
         internal void SaveVare(DomainObjectsSalg.Sales.Vare vare)
         {
-            VareProvider.Save(vare);
+            dataProvider.Save(vare);
         }
 
 
         internal List<Vare> GetVarerCurrentlyForSale()
         {
-            return VareProvider.GetVarerCurrentlyInUse();
+            return dataProvider.GetVarerCurrentlyInUse();
         }
 
         internal void LagreSalg(string p, int s)
         {
-            var vare = VareProvider.GetVarer(p, s);
-            SalgsProvider.LagreSalg(vare);
+            var vare = dataProvider.GetVarer(p, s);
+            dataProvider.LagreSalg(vare);
         }
 
         internal List<Vare> GetAlleVarer()
         {
-            return VareProvider.GetAlleVarer();
+            return dataProvider.GetAlleVarer();
         }
 
         internal Vare GetVare(string p1, int p2)
         {
-            return VareProvider.GetVarer(p1, p2);
+            return dataProvider.GetVarer(p1, p2);
         }
 
         internal void UpdateVare(Vare v)
         {
-            VareProvider.UpdateVare(v);
+            dataProvider.UpdateVare(v);
         }
 
         internal void UpdateMainButtons()
         {
             mainWindow.GetButtons();
-            mainWindow.resetTime();
+            mainWindow.ResetTime();
         }
 
         internal Vare GetVare(int t)
         {
-            return VareProvider.GetVare(t);
+            return dataProvider.GetVare(t);
         }
 
         internal void PushVareUp(Vare v)
         {
-            VareProvider.PushVareUp(v);
+            dataProvider.PushVareUp(v);
         }
 
         internal void PushVareDown(Vare v)
         {
-            VareProvider.PushVareDown(v);
+            dataProvider.PushVareDown(v);
         }
 
         internal void LagreLogg(Logg l)
         {
-            LoggProvider.LagreLogg(l);
+            dataProvider.LagreLogg(l);
         }
 
         internal Logg GetLastLog()
         {
-            return LoggProvider.GetLastLogg();
+            return dataProvider.GetLastLogg();
         }
 
         internal int GetDagensSalg()
         {
-            var list = SalgsProvider.GetTodaysSales();
-            int sum = 0;
-            foreach (var item in list)
-            {
-                sum += item.Pris;
-            }
-
-
-            return sum;
+            var list = dataProvider.GetTodaysSales();
+            return list.Sum(item => item.Pris);
         }
 
         internal void EnableMainWindow()
@@ -106,18 +99,18 @@ namespace CafeTerminal.Controller
 
         internal bool HavePassSetting()
         {
-            return SettingsProvider.HavePassSettings();
+            return dataProvider.HavePassSettings();
         }
 
         internal string GetPassord()
         {
-            return SettingsProvider.GetPassord();
+            return dataProvider.GetPassord();
         }
 
 
         internal void LagrePassord(DomainObjectsSalg.Settings.Settings s)
         {
-            SettingsProvider.LagrePass(s);
+            dataProvider.LagrePass(s);
         }
 
         internal void EnableMainWindow(bool p)
@@ -128,7 +121,7 @@ namespace CafeTerminal.Controller
         internal void LagreBruker(string navn, string yrke)
         {
             Users u = new Users() { Navn = navn, Rolle = yrke };
-            int id = UserProvider.SaveUser(u);
+            int id = dataProvider.SaveUser(u);
            
         }
 
@@ -142,23 +135,23 @@ namespace CafeTerminal.Controller
 
         internal List<Users> GetAlleBrukere()
         {
-            return UserProvider.GetAllUsers();
+            return dataProvider.GetAllUsers();
         }
 
         internal Users GetBruker(int t)
         {
-            return UserProvider.GetUser(t);
+            return dataProvider.GetUser(t);
         }
 
         internal void SaveUserLog(UserLogg ul)
         {
-            UserProvider.SaveLog(ul);
+            dataProvider.SaveLog(ul);
             mainWindow.DagensBruker(ul);
         }
 
         internal List<UserLogg> GetTodaysUsers()
         {
-            return UserProvider.GetTodayUsers();
+            return dataProvider.GetTodayUsers();
         }
     }
 }

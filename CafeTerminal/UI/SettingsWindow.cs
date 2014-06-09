@@ -135,10 +135,18 @@ namespace CafeTerminal.UI
             for (int j = 0; j < dataGridView1.RowCount; j++)
             {
                 ColorPickerCell ColorCell = (ColorPickerCell)dataGridView1.Rows[j].Cells[5];
-                Color TemoColor = (Color)dataGridView1.Rows[j].Cells[5].Value;
+                Color TemoColor;
+                if (dataGridView1.Rows[j].Cells[5].Value is int)
+                {
+                    TemoColor = Color.FromArgb((int)dataGridView1.Rows[j].Cells[5].Value);
+                }
+                else
+                {
+                    TemoColor = (Color) dataGridView1.Rows[j].Cells[5].Value;
+                }
                 Console.WriteLine(TemoColor);
                 Vare v = mc.GetVare(Convert.ToInt32(dataGridView1.Rows[j].Cells[6].Value));
-                v.Farge = TemoColor;
+                v.Farge = TemoColor.ToArgb();
                 mc.UpdateVare(v);
             }
             mc.UpdateMainButtons();

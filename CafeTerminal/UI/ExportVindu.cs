@@ -15,8 +15,11 @@ namespace CafeTerminal.UI
 {
     public partial class ExportVindu : Form
     {
-        public ExportVindu()
+        private readonly DataProvider dataProvider;
+
+        public ExportVindu(DataProvider dataProvider)
         {
+            dataProvider = dataProvider;
             InitializeComponent();
             Show();
         }
@@ -24,15 +27,15 @@ namespace CafeTerminal.UI
         private void button1_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "Velg plassering for eksportering av data";
+            fbd.Description = "Velg plassering for eksportering av dataProvider";
              fbd.RootFolder = System.Environment.SpecialFolder.MyComputer;
 
              DialogResult result = fbd.ShowDialog();
              if (result == DialogResult.OK)
              {
-                 var salg = SalgsProvider.GetSalesIn(dateTimePicker1.Value, dateTimePicker2.Value);
-                 var varer = VareProvider.GetAlleVarer();
-                 var kommentarer = LoggProvider.GetAlleLogger(dateTimePicker1.Value, dateTimePicker2.Value);
+                 var salg = dataProvider.GetSalesIn(dateTimePicker1.Value, dateTimePicker2.Value);
+                 var varer =  dataProvider.GetAlleVarer();
+                 var kommentarer = dataProvider.GetAlleLogger(dateTimePicker1.Value, dateTimePicker2.Value);
                  foreach (var salg1 in salg)
                  {
                      Console.WriteLine(salg1.Pris);

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using CafeTerminal.Controller;
 using CafeTerminal.DataAccesLayer;
+using CafeTerminal.DataAccess;
 using DomainObjectsSalg.Sales;
 using Timer = System.Windows.Forms.Timer;
 
@@ -17,20 +15,20 @@ namespace CafeTerminal.UI
 {
     public partial class MainWindow : Form
     {
-        public MainController mc { get; set; }
-        private BindingList<StringValue> sales = new BindingList<StringValue>();
-        int logTime = 0;
-        int totalsum = 0;
-        int salgsum = 0;
-        Timer t;
-        List<OrderPanel> orderlist = new List<OrderPanel>();
+        public MainController Mc { get; set; }
+        private readonly BindingList<StringValue> _sales = new BindingList<StringValue>();
+        int _logTime;
+        int _totalsum;
+        int _salgsum;
+        Timer _t;
+        readonly List<OrderPanel> _orderlist = new List<OrderPanel>();
+        DataProvider dataProvider = new DataProvider();
 
 
         public MainWindow()
         {
-            mc = new MainController(this);
+            Mc = new MainController(this, dataProvider);
             StartWindow();
-
         }
 
         public MainWindow(string s)
@@ -51,7 +49,7 @@ namespace CafeTerminal.UI
             }
             catch (Exception e)
             {
-                NHibernateHelper.ResetDatabase();//TODO finn hvilken spesifikk exception som må kastes for at denne kommandoen skal kjøres
+               // NHibernateHelper.ResetDatabase();//TODO finn hvilken spesifikk exception som må kastes for at denne kommandoen skal kjøres
                 GetButtons();
             }
             CreateDataGrid();
@@ -62,25 +60,25 @@ namespace CafeTerminal.UI
 #if !DEBUG
             initialiserDatabaseToolStripMenuItem.Enabled = false;
 #endif
-            if (mc.HavePassSetting())
+            if (Mc.HavePassSetting())
             {
-                t = new Timer();
-                t.Tick += Tick;
-                t.Interval = 50;
-                t.Enabled = true;
+                _t = new Timer();
+                _t.Tick += Tick;
+                _t.Interval = 50;
+                _t.Enabled = true;
             }
             try
             {
-                int Hour = 00;
-                int Minute = 05;
-                int Second = 59;
-                int Year = DateTime.Now.Year;
-                int Month = DateTime.Now.Month;
-                int Day = DateTime.Now.Day;
-                DateTime target = new DateTime(Year, Month, Day, Hour, Minute, Second);
+                const int hour = 00;
+                const int minute = 05;
+                const int second = 59;
+                var year = DateTime.Now.Year;
+                var month = DateTime.Now.Month;
+                var day = DateTime.Now.Day;
+                var target = new DateTime(year, month, day, hour, minute, second);
                 int interval = (int)(target - DateTime.Now).TotalMilliseconds;
                 var timer = new System.Timers.Timer(interval);
-                timer.Elapsed += new ElapsedEventHandler(timer_Elapsed);
+                timer.Elapsed += timer_Elapsed;
                 timer.Enabled = true;
             }
             catch (Exception e)
@@ -99,40 +97,40 @@ namespace CafeTerminal.UI
 
         private void RestartWindow()
         {
-            if (this.InvokeRequired)
+            if (InvokeRequired)
             {
-                RestartCalback d = new RestartCalback(RestartWindow);
-                this.Invoke(d);
+                var d = new RestartCalback(RestartWindow);
+                Invoke(d);
             }
             else
             {
-                mc.Restart();
+                Mc.Restart();
             }
         }
 
         public MainWindow(MainController mainController)
         {
-            this.mc = mainController;
+            Mc = mainController;
             StartWindow();
         }
 
         private void Tick(object sender, EventArgs e)
         {
-            t.Enabled = false;
-            t.Tick -= Tick;
-            new LoggInn(mc);
+            _t.Enabled = false;
+            _t.Tick -= Tick;
+            new LoggInn(Mc);
         }
 
 
         private void GetDagensSalg()
         {
-            totalsum = mc.GetDagensSalg();
-            totalsumlabel.Text = "" + totalsum;
+            _totalsum = Mc.GetDagensSalg();
+            totalsumlabel.Text = "" + _totalsum;
         }
 
         private void GetLogg()
         {
-            Logg l = mc.GetLastLog();
+            var l = Mc.GetLastLog();
             if (l != null)
             {
                 LogText.Text = l.Text;
@@ -141,12 +139,12 @@ namespace CafeTerminal.UI
 
         private void CreateDataGrid()
         {
-            this.Resize += new EventHandler(ResizeButtons);
+            this.Resize += ResizeButtons;
 
             dataGridView1.AutoGenerateColumns = false;
-            this.dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DataGridViewTextBoxColumn modelColumn = new DataGridViewTextBoxColumn();
-            dataGridView1.DataSource = sales;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            var modelColumn = new DataGridViewTextBoxColumn();
+            dataGridView1.DataSource = _sales;
             modelColumn.HeaderText = "Salg";
             modelColumn.DataPropertyName = "Value";
             modelColumn.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -162,7 +160,7 @@ namespace CafeTerminal.UI
         public void GetButtons()
         {
             splitContainer3.Panel1.Controls.Clear();
-            var buttons = mc.GetVarerCurrentlyForSale();
+            var buttons = Mc.GetVarerCurrentlyForSale();
             if (buttons.Count == 0)
             {
 
@@ -170,27 +168,31 @@ namespace CafeTerminal.UI
             }
 
             //create buttons code
-            int lastX = 0;
-            int lastY = 0;
-            int total = 0;
-            int divider = (int)Math.Ceiling(Math.Sqrt(buttons.Count));
-            int w = splitContainer3.Panel1.Width;
+            var lastX = 0;
+            var lastY = 0;
+            var total = 0;
+            var divider = (int)Math.Ceiling(Math.Sqrt(buttons.Count));
+            var w = splitContainer3.Panel1.Width;
             w = (w / divider);
-            int h = splitContainer3.Panel1.Height;
+            var h = splitContainer3.Panel1.Height;
             h = (h / (int)Math.Ceiling((buttons.Count / (double)divider)));
 
-            for (int i = 0; i < Math.Sqrt(buttons.Count); i++)
+            for (var i = 0; i < Math.Sqrt(buttons.Count); i++)
             {
-                for (int j = 0; j < Math.Sqrt(buttons.Count); j++)
+                for (var j = 0; j < Math.Sqrt(buttons.Count); j++)
                 {
-                    Button b = new Button();
-                    b.Width = w;
-                    b.Height = h;
-                    b.BackColor = GetButtonColor(buttons[total]);
-                    b.Font = new System.Drawing.Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-                    b.Location = new Point(lastX, lastY);
-                    b.Text = buttons[total].Navn + "\n" + buttons[total].Pris + " kr";
-                    b.Click += new System.EventHandler(menuItem_Click);
+                    var b = new Button
+                    {
+                        Width = w,
+                        Height = h,
+                        BackColor = GetButtonColor(buttons[total]),
+                        Font =
+                            new Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold,
+                                GraphicsUnit.Point, ((byte) (0))),
+                        Location = new Point(lastX, lastY),
+                        Text = buttons[total].Navn + "\n" + buttons[total].Pris + " kr"
+                    };
+                    b.Click += menuItem_Click;
                     splitContainer3.Panel1.Controls.Add(b);
                     lastX += b.Width;
                     total++;
@@ -204,11 +206,11 @@ namespace CafeTerminal.UI
             }
         }
 
-        private Color GetButtonColor(DomainObjectsSalg.Sales.Vare vare)
+        private Color GetButtonColor(Vare vare)
         {
             if (vare.Farge != null)
             {
-                return vare.Farge;
+                return Color.FromArgb(Convert.ToInt32(vare.Farge));
             }
             else
             {
@@ -224,15 +226,15 @@ namespace CafeTerminal.UI
             int s = int.Parse(salg[1]);
             //
 
-            sales.Add(new StringValue(salg[0] + ", " + s));
+            _sales.Add(new StringValue(salg[0] + ", " + s));
             dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows.Count - 1;
 
-            salgsum += s;
+            _salgsum += s;
             //totalsum += s;
 
-            salglabel.Text = salgsum + " nok";
-            totalsumlabel.Text = totalsum + " nok";
-            resetTime();
+            salglabel.Text = _salgsum + " nok";
+            totalsumlabel.Text = _totalsum + " nok";
+            ResetTime();
         }
 
 
@@ -245,13 +247,13 @@ namespace CafeTerminal.UI
         private void omToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog(this);
-            resetTime();
+            ResetTime();
         }
 
         private void instillingerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new SettingsWindow(mc, this);
-            resetTime();
+            new SettingsWindow(Mc, this);
+            ResetTime();
         }
 
         public void LockWindow()
@@ -264,7 +266,7 @@ namespace CafeTerminal.UI
 
         private void initialiserDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            NHibernateHelper.ResetDatabase();
+           // NHibernateHelper.ResetDatabase();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -280,12 +282,12 @@ namespace CafeTerminal.UI
 
 
             UpdatePanels();
-            totalsum += salgsum;
-            salgsum = 0;
-            totalsumlabel.Text = totalsum + " nok";
-            salglabel.Text = salgsum + " nok";
-            sales.Clear();
-            resetTime();
+            _totalsum += _salgsum;
+            _salgsum = 0;
+            totalsumlabel.Text = _totalsum + " nok";
+            salglabel.Text = _salgsum + " nok";
+            _sales.Clear();
+            ResetTime();
         }
 
         private void PopulateOrder(OrderPanel o)
@@ -299,16 +301,16 @@ namespace CafeTerminal.UI
                 int sum = int.Parse(salg[1]);
 
 
-                mc.LagreSalg(salg[0], sum);
+                Mc.LagreSalg(salg[0], sum);
             }
-            orderlist.Add(o);
+            _orderlist.Add(o);
         }
 
         public void UpdatePanels()
         {
             int lastX = 0;
             splitContainer5.Panel1.Controls.Clear();
-            foreach (var item in orderlist)
+            foreach (var item in _orderlist)
             {
                 item.Location = new System.Drawing.Point(lastX, 0);
                 splitContainer5.Panel1.Controls.Add(item);
@@ -318,33 +320,33 @@ namespace CafeTerminal.UI
 
         private void salgsoppsettToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            resetTime();
+            ResetTime();
         }
 
         private void nyDagToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mc.Restart();
+            Mc.Restart();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Logg l = new Logg
+            var l = new Logg
             {
                 Text = LogText.Text,
                 LoggTid = DateTime.Now
             };
 
-            mc.LagreLogg(l);
-            string a = LogText.Text;
+            Mc.LagreLogg(l);
+            var a = LogText.Text;
             LogText.SelectionColor = Color.Black;
             LogText.ForeColor = Color.Black;
             LogText.Text = "";
             LogText.SelectedText = "";
             LogText.SelectedText = a;
-            resetTime();
+            ResetTime();
         }
 
-        private void loggTextSkrevet(object sender, KeyPressEventArgs e)
+        private void LoggTextSkrevet(object sender, KeyPressEventArgs e)
         {
             LogText.SelectionColor = Color.Red;
         }
@@ -355,7 +357,7 @@ namespace CafeTerminal.UI
             Visible = true;
             Show();
             BringToFront();
-            resetTime();
+            ResetTime();
         }
 
         internal void ReenableWindow(bool p)
@@ -366,27 +368,27 @@ namespace CafeTerminal.UI
             BringToFront();
             if (p)
             {
-                t.Interval = 120000;
-                logTime = 120000;
+                _t.Interval = 120000;
+                _logTime = 120000;
             }
             else
             {
-                t.Interval = 30000;
-                logTime = 30000;
+                _t.Interval = 30000;
+                _logTime = 30000;
             }
-            t.Enabled = true;
-            t.Tick += LogOut;
+            _t.Enabled = true;
+            _t.Tick += LogOut;
         }
 
-        internal void resetTime()
+        internal void ResetTime()
         {
             try
             {
-                if (t != null && t.Enabled)
+                if (_t != null && _t.Enabled)
                 {
-                    t.Stop();
-                    t.Interval = logTime;
-                    t.Start();
+                    _t.Stop();
+                    _t.Interval = _logTime;
+                    _t.Start();
                 }
             }
             catch (Exception e)
@@ -397,72 +399,73 @@ namespace CafeTerminal.UI
 
         private void LogOut(object sender, EventArgs e)
         {
-            t.Tick -= LogOut;
-            t.Enabled = false;
-            new LoggInn(mc);
+            _t.Tick -= LogOut;
+            _t.Enabled = false;
+            new LoggInn(Mc);
         }
 
         private void loggUtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            t.Tick -= LogOut;
-            t.Enabled = false;
-            new LoggInn(mc);
+            _t.Tick -= LogOut;
+            _t.Enabled = false;
+            new LoggInn(Mc);
         }
 
         internal void RemoveFromList(OrderPanel orderPanel)
         {
             int i = 0;
-            foreach (var item in orderlist)
+            foreach (var item in _orderlist)
             {
                 if (item == orderPanel)
                 {
-                    orderlist.RemoveAt(i);
+                    _orderlist.RemoveAt(i);
                     return;
                 }
                 i++;
             }
         }
-
+        /*
         private void button3_Click(object sender, EventArgs e)
         {
-            HelperWindow hw = new HelperWindow();
+            var hw = new HelperWindow();
             hw.Show();
         }
+        */
 
         private void registrerNyBrukerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new NyBruker(mc);
+            new NyBruker(Mc);
         }
 
         private void RegistrerArbeider_Click(object sender, EventArgs e)
         {
-            new VelgBruker(mc);
+            new VelgBruker(Mc);
         }
 
         internal void DagensBruker(UserLogg ul)
         {
-            Users u = mc.GetBruker(ul.UserId);
+            var u = Mc.GetBruker(ul.UserId);
             richTextBox1.AppendText(u.Navn + "\n");
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            if (sales.Count > 0)
+            if (_sales.Count > 0)
             {
                 //TODO finn tallet
-                string s = sales.ElementAt(dataGridView1.SelectedRows[0].Index).Value;
+                string s = _sales.ElementAt(dataGridView1.SelectedRows[0].Index).Value;
                 string[] salg = s.Split(',');
                 int sum = int.Parse(salg[1]);
 
-                salgsum -= sum;
-                salglabel.Text = salgsum + " nok";
-                sales.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                _salgsum -= sum;
+                salglabel.Text = _salgsum + " nok";
+                _sales.RemoveAt(dataGridView1.SelectedRows[0].Index);
             }
         }
 
         private void eksporterDataToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new ExportVindu();
+            new ExportVindu(dataProvider);
         }
 
       

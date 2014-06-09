@@ -444,7 +444,7 @@
             this.LogText.Size = new System.Drawing.Size(267, 169);
             this.LogText.TabIndex = 0;
             this.LogText.Text = "Tilbakemeldinger/Beskjeder";
-            this.LogText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.loggTextSkrevet);
+            this.LogText.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LoggTextSkrevet);
             // 
             // imageList1
             // 

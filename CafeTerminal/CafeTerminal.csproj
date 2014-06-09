@@ -78,8 +78,13 @@
     <Reference Include="Castle.DynamicProxy2">
       <HintPath>..\dlls\Castle.DynamicProxy2.dll</HintPath>
     </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="FluentNHibernate">
       <HintPath>..\dlls\FluentNHibernate.dll</HintPath>
@@ -103,7 +108,6 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -116,11 +120,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\MainController.cs" />
-    <Compile Include="DataAccess\LoggProvider.cs" />
+    <Compile Include="DataAccess\DataProvider.cs" />
     <Compile Include="DataAccess\SalgDbContext.cs" />
-    <Compile Include="DataAccess\SalgsProvider.cs" />
-    <Compile Include="DataAccess\UserProvider.cs" />
-    <Compile Include="DataAccess\VareProvider.cs" />
+    <Compile Include="Migrations\201406092009556_EF.cs" />
+    <Compile Include="Migrations\201406092009556_EF.Designer.cs">
+      <DependentUpon>201406092009556_EF.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406092035493_EF2.cs" />
+    <Compile Include="Migrations\201406092035493_EF2.Designer.cs">
+      <DependentUpon>201406092035493_EF2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201406092052324_EF3.cs" />
+    <Compile Include="Migrations\201406092052324_EF3.Designer.cs">
+      <DependentUpon>201406092052324_EF3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UI\AboutBox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,7 +143,6 @@
     </Compile>
     <Compile Include="DataAccess\CustomizationManager.cs" />
     <Compile Include="DataAccess\NHibernateHelper.cs" />
-    <Compile Include="DataAccess\SettingsProvider.cs" />
     <Compile Include="UI\ColorPickerColumn.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -209,6 +222,15 @@
     <Compile Include="UI\VelgBruker.Designer.cs">
       <DependentUpon>VelgBruker.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Migrations\201406092009556_EF.resx">
+      <DependentUpon>201406092009556_EF.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406092035493_EF2.resx">
+      <DependentUpon>201406092035493_EF2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406092052324_EF3.resx">
+      <DependentUpon>201406092052324_EF3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,6 +328,7 @@
       <Name>DomainObjectsSalg</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

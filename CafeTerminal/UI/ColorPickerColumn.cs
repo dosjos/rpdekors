@@ -111,7 +111,7 @@ namespace CafeTerminal.UI
                 DataGridViewPaintParts.Background)
             {
                 SolidBrush cellBackground;
-                if (value != null && value.GetType() == typeof(Color))
+                if (value is Color)
                 {
                     cellBackground = new SolidBrush((Color)value);
                 }
@@ -121,9 +121,20 @@ namespace CafeTerminal.UI
                 }
                 graphics.FillRectangle(cellBackground, ColorBoxRect);
                 graphics.DrawRectangle(Pens.Black, ColorBoxRect);
-                Color lclcolor = (Color)value;
-                graphics.DrawString(lclcolor.Name.ToString(), cellStyle.Font, System.Drawing.Brushes.Black, TextBoxRect);
-
+                if (value != null)
+                {
+                    Color lclcolor; 
+                    if (value is int)
+                    {
+                        lclcolor = Color.FromArgb((int)value);
+                    }
+                    else
+                    {
+                       lclcolor = (Color) value;
+                    }
+                    graphics.DrawString(lclcolor.Name.ToString(), cellStyle.Font, System.Drawing.Brushes.Black,
+                        TextBoxRect);
+                }
                 cellBackground.Dispose();
             }
 
