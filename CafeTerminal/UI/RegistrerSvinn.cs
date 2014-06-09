@@ -50,7 +50,9 @@ namespace CafeTerminal.UI
             var context = new SalgDbContext();
 
             //TODO lagre svinn
-            //context.Save(svinn);
+            context.Svinn.Add(svinn);
+            context.SaveChanges();
+            Dispose();
         }
     }
 }

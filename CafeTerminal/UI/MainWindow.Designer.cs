@@ -58,7 +58,6 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.totalsumlabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.RegistrerArbeider = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.LogText = new System.Windows.Forms.RichTextBox();
@@ -232,7 +231,6 @@
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
             this.splitContainer1.Panel2.Controls.Add(this.totalsumlabel);
             this.splitContainer1.Panel2.Controls.Add(this.label1);
-            this.splitContainer1.Panel2.Controls.Add(this.button3);
             this.splitContainer1.Panel2.Controls.Add(this.RegistrerArbeider);
             this.splitContainer1.Panel2.Controls.Add(this.button2);
             this.splitContainer1.Panel2.Controls.Add(this.LogText);
@@ -407,18 +405,6 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Salg i dag:";
             // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(232, 4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(39, 56);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "?";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // RegistrerArbeider
             // 
             this.RegistrerArbeider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -428,7 +414,7 @@
             this.RegistrerArbeider.Location = new System.Drawing.Point(8, 4);
             this.RegistrerArbeider.Name = "RegistrerArbeider";
             this.RegistrerArbeider.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.RegistrerArbeider.Size = new System.Drawing.Size(217, 56);
+            this.RegistrerArbeider.Size = new System.Drawing.Size(263, 56);
             this.RegistrerArbeider.TabIndex = 3;
             this.RegistrerArbeider.Text = "Registrer dagens café crew";
             this.RegistrerArbeider.UseVisualStyleBackColor = false;
@@ -540,7 +526,6 @@
         private System.Windows.Forms.ToolStripMenuItem loggUtToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer5;
         private System.Windows.Forms.Button RegistrerArbeider;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripMenuItem registrerNyBrukerToolStripMenuItem;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Button button4;
