@@ -17,9 +17,9 @@ namespace CafeTerminal.UI
     {
         private readonly DataProvider dataProvider;
 
-        public ExportVindu(DataProvider dataProvider)
+        public ExportVindu(DataProvider _dataProvider)
         {
-            dataProvider = dataProvider;
+            dataProvider = _dataProvider;
             InitializeComponent();
             Show();
         }

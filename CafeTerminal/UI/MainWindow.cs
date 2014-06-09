@@ -57,6 +57,8 @@ namespace CafeTerminal.UI
             GetLogg();
 
             GetDagensSalg();
+
+            GetDagensArbeidere();
 #if !DEBUG
             initialiserDatabaseToolStripMenuItem.Enabled = false;
 #endif
@@ -126,6 +128,17 @@ namespace CafeTerminal.UI
         {
             _totalsum = Mc.GetDagensSalg();
             totalsumlabel.Text = "" + _totalsum;
+        }
+
+        private void GetDagensArbeidere()
+        {
+            var l = Mc.GetTodaysUsers();
+
+            foreach (var userLogg in l)
+            {
+                richTextBox1.Text += userLogg.Users.Navn + "\n";
+            }
+            //  richTextBox1.Text = Mc.GetDageUsers();
         }
 
         private void GetLogg()
@@ -444,7 +457,7 @@ namespace CafeTerminal.UI
 
         internal void DagensBruker(UserLogg ul)
         {
-            var u = Mc.GetBruker(ul.UserId);
+            var u = Mc.GetBruker(ul.UsersId);
             richTextBox1.AppendText(u.Navn + "\n");
         }
 

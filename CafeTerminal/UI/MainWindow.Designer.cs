@@ -37,12 +37,12 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.instillingerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrerNyBrukerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.initialiserDatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.regnskapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eksporterDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrerSvinnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rapporterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendRapportklageforslagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -62,7 +62,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.LogText = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.registrerSvinnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -112,21 +111,21 @@
             // nyDagToolStripMenuItem
             // 
             this.nyDagToolStripMenuItem.Name = "nyDagToolStripMenuItem";
-            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nyDagToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.nyDagToolStripMenuItem.Text = "Ny dag";
             this.nyDagToolStripMenuItem.Click += new System.EventHandler(this.nyDagToolStripMenuItem_Click);
             // 
             // loggUtToolStripMenuItem
             // 
             this.loggUtToolStripMenuItem.Name = "loggUtToolStripMenuItem";
-            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.loggUtToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.loggUtToolStripMenuItem.Text = "Logg ut";
             this.loggUtToolStripMenuItem.Click += new System.EventHandler(this.loggUtToolStripMenuItem_Click);
             // 
             // avsluttToolStripMenuItem
             // 
             this.avsluttToolStripMenuItem.Name = "avsluttToolStripMenuItem";
-            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.avsluttToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.avsluttToolStripMenuItem.Text = "Avslutt";
             this.avsluttToolStripMenuItem.Click += new System.EventHandler(this.avsluttToolStripMenuItem_Click);
             // 
@@ -134,8 +133,7 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.instillingerToolStripMenuItem,
-            this.registrerNyBrukerToolStripMenuItem,
-            this.initialiserDatabaseToolStripMenuItem});
+            this.registrerNyBrukerToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -153,13 +151,6 @@
             this.registrerNyBrukerToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.registrerNyBrukerToolStripMenuItem.Text = "Registrer ny bruker ";
             this.registrerNyBrukerToolStripMenuItem.Click += new System.EventHandler(this.registrerNyBrukerToolStripMenuItem_Click);
-            // 
-            // initialiserDatabaseToolStripMenuItem
-            // 
-            this.initialiserDatabaseToolStripMenuItem.Name = "initialiserDatabaseToolStripMenuItem";
-            this.initialiserDatabaseToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.initialiserDatabaseToolStripMenuItem.Text = "Initialiser database";
-            this.initialiserDatabaseToolStripMenuItem.Click += new System.EventHandler(this.initialiserDatabaseToolStripMenuItem_Click);
             // 
             // omToolStripMenuItem
             // 
@@ -199,13 +190,20 @@
             this.eksporterDataToolStripMenuItem.Text = "Eksporter data";
             this.eksporterDataToolStripMenuItem.Click += new System.EventHandler(this.eksporterDataToolStripMenuItem_Click);
             // 
+            // registrerSvinnToolStripMenuItem
+            // 
+            this.registrerSvinnToolStripMenuItem.Name = "registrerSvinnToolStripMenuItem";
+            this.registrerSvinnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrerSvinnToolStripMenuItem.Text = "Registrer svinn";
+            this.registrerSvinnToolStripMenuItem.Click += new System.EventHandler(this.registrerSvinnToolStripMenuItem_Click);
+            // 
             // rapporterToolStripMenuItem
             // 
             this.rapporterToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.sendRapportklageforslagToolStripMenuItem});
             this.rapporterToolStripMenuItem.Name = "rapporterToolStripMenuItem";
-            this.rapporterToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
-            this.rapporterToolStripMenuItem.Text = "Rapporter";
+            this.rapporterToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.rapporterToolStripMenuItem.Text = "Tilbakemelding";
             // 
             // sendRapportklageforslagToolStripMenuItem
             // 
@@ -452,13 +450,6 @@
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // registrerSvinnToolStripMenuItem
-            // 
-            this.registrerSvinnToolStripMenuItem.Name = "registrerSvinnToolStripMenuItem";
-            this.registrerSvinnToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.registrerSvinnToolStripMenuItem.Text = "Registrer svinn";
-            this.registrerSvinnToolStripMenuItem.Click += new System.EventHandler(this.registrerSvinnToolStripMenuItem_Click);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -520,7 +511,6 @@
         private System.Windows.Forms.Label salglabel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.ToolStripMenuItem initialiserDatabaseToolStripMenuItem;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.ToolStripMenuItem nyDagToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem loggUtToolStripMenuItem;

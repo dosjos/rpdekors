@@ -47,7 +47,7 @@ namespace CafeTerminal.UI
             foreach (var item in br)
             {
                 var r = from l in ulogs
-                        where l.UserId == item.Id select l;
+                        where l.UsersId == item.Id select l;
                 ;
                 if (r.Count() == 0)
                 {
@@ -80,7 +80,7 @@ namespace CafeTerminal.UI
                     Users u = mc.GetBruker(t);
                     UserLogg ul = new UserLogg()
                     {
-                        UserId = u.Id,
+                        UsersId = u.Id,
                         Brukstid = DateTime.Now
                     };
                     mc.SaveUserLog(ul);

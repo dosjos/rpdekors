@@ -10,23 +10,19 @@ namespace CafeTerminal.DataAccess
     public class DataProvider
     {
         SalgDbContext db = new SalgDbContext();
+        
+        //FERDIG
         public void LagreLogg(Logg v)
         {
             db.Logg.Add(v);
             db.SaveChanges();
         }
-
+        //FERDIG
         public Logg GetLastLogg()
         {
-
-            return db.Logg.FirstOrDefault(x => x.LoggTid == DateTime.Today);
-            //var res =
-            //    session.CreateQuery(
-            //        "from Logg where datepart(YEAR, LoggTid) = Datepart(YEAR, GETDATE()) and Datepart(MONTH, LoggTid) = Datepart(MONTH, GETDATE()) and Datepart(DAY, LoggTid) = Datepart(DAY, GETDATE())")
-            //           .List<Logg>();
+            var l = db.Logg.ToList();
+            return l.Where(x => x.LoggTid.Date == DateTime.Today).OrderByDescending(x => x.LoggTid).FirstOrDefault();
         }
-
-
 
         public List<Logg> GetAlleLogger(DateTime dateTime1, DateTime dateTime2)
         {
@@ -36,7 +32,7 @@ namespace CafeTerminal.DataAccess
             //    .SetParameter("start", dateTime1).SetParameter("stop", dateTime2).List<Logg>();
             //return res.ToList<Logg>();
         }
-
+        //FERIDG
         public void LagreSalg(Vare v)
         {
             var s = new Salg() { Pris = v.Pris, SlagsTid = DateTime.Now, VareId = v.Id };
@@ -44,25 +40,19 @@ namespace CafeTerminal.DataAccess
             db.SaveChanges();
         }
 
+        //FERDIG
         public List<Salg> GetTodaysSales()
         {
             var l = db.Salg.ToList();
-
             var s = l.Where(x => x.SlagsTid.Date == DateTime.Today).ToList();
-                //(from salg in l
-                //    where salg.SlagsTid == DateTime.Today.Date
-                //    select salg).ToList();
             return s;
-
-            //.Where(x => EntityFunctions.TruncateTime(x.SlagsTid.Date) == EntityFunctions.TruncateTime(DateTime.Today.Date)).ToList();
-            //var res = session.CreateQuery("from Salg where DatePart(YEAR, SlagsTid) = :year and DatePart(MONTH, SlagsTid) = :month AND DatePart(DAY, SlagsTid) = :day")
-            //            .SetParameter("year", DateTime.Now.Year).SetParameter("month", DateTime.Now.Month).SetParameter("day", DateTime.Now.Day).List<Salg>();
-            //        return res.ToList<Salg>();
         }
 
         public List<Salg> GetSalesIn(DateTime dateTime1, DateTime dateTime2)
         {
-            return db.Salg.Where(x => x.SlagsTid.Date >= dateTime1 && x.SlagsTid.Date <= dateTime2).ToList();
+            var l = db.Salg.ToList();
+
+            return l.Where(x => x.SlagsTid.Date >= dateTime1 && x.SlagsTid.Date <= dateTime2).ToList();
             //var res = session.CreateQuery("from Salg where Slagstid >= :start and Slagstid <= :stop")
             //            .SetParameter("start", dateTime1).SetParameter("stop", dateTime2).List<Salg>();
             //        return res.ToList<Salg>();
@@ -136,7 +126,8 @@ namespace CafeTerminal.DataAccess
 
         public List<UserLogg> GetTodayUsers()
         {
-            return db.UserLoggs.Where(x => x.Brukstid == DateTime.Today).ToList();
+            var l = db.UserLoggs.ToList(); 
+            return l.Where(x => x.Brukstid.Date == DateTime.Today).ToList();
             //var res = session.CreateQuery("from UserLogg where DatePart(YEAR, Brukstid) = :year  and DatePart(MONTH, Brukstid) = :month AND DatePart(DAY, Brukstid) = :day")
             //            .SetParameter("year", DateTime.Now.Year)
             //            .SetParameter("month", DateTime.Now.Month)

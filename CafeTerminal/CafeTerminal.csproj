@@ -134,6 +134,10 @@
     <Compile Include="Migrations\201406092052324_EF3.Designer.cs">
       <DependentUpon>201406092052324_EF3.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201406092222143_EF4.cs" />
+    <Compile Include="Migrations\201406092222143_EF4.Designer.cs">
+      <DependentUpon>201406092222143_EF4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="UI\AboutBox.cs">
       <SubType>Form</SubType>
@@ -230,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201406092052324_EF3.resx">
       <DependentUpon>201406092052324_EF3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201406092222143_EF4.resx">
+      <DependentUpon>201406092222143_EF4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
