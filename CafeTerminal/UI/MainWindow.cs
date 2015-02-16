@@ -6,7 +6,6 @@ using System.Linq;
 using System.Timers;
 using System.Windows.Forms;
 using CafeTerminal.Controller;
-using CafeTerminal.DataAccesLayer;
 using CafeTerminal.DataAccess;
 using DomainObjectsSalg.Sales;
 using Timer = System.Windows.Forms.Timer;
@@ -43,15 +42,8 @@ namespace CafeTerminal.UI
         private void StartWindow()
         {
             InitializeComponent();
-            try
-            {
-                GetButtons();
-            }
-            catch (Exception e)
-            {
-               // NHibernateHelper.ResetDatabase();//TODO finn hvilken spesifikk exception som må kastes for at denne kommandoen skal kjøres
-                GetButtons();
-            }
+            GetButtons();
+
             CreateDataGrid();
 
             GetLogg();
@@ -59,9 +51,7 @@ namespace CafeTerminal.UI
             GetDagensSalg();
 
             GetDagensArbeidere();
-#if !DEBUG
-            initialiserDatabaseToolStripMenuItem.Enabled = false;
-#endif
+
             if (Mc.HavePassSetting())
             {
                 _t = new Timer();
@@ -201,7 +191,7 @@ namespace CafeTerminal.UI
                         BackColor = GetButtonColor(buttons[total]),
                         Font =
                             new Font("Viner Hand ITC", 20.25F, System.Drawing.FontStyle.Bold,
-                                GraphicsUnit.Point, ((byte) (0))),
+                                GraphicsUnit.Point, ((byte)(0))),
                         Location = new Point(lastX, lastY),
                         Text = buttons[total].Navn + "\n" + buttons[total].Pris + " kr"
                     };
@@ -279,7 +269,7 @@ namespace CafeTerminal.UI
 
         private void initialiserDatabaseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           // NHibernateHelper.ResetDatabase();
+            // NHibernateHelper.ResetDatabase();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -465,14 +455,17 @@ namespace CafeTerminal.UI
         {
             if (_sales.Count > 0)
             {
-                //TODO finn tallet
-                string s = _sales.ElementAt(dataGridView1.SelectedRows[0].Index).Value;
-                string[] salg = s.Split(',');
-                int sum = int.Parse(salg[1]);
+                try
+                {
+                    string s = _sales.ElementAt(dataGridView1.SelectedRows[0].Index).Value;
+                    string[] salg = s.Split(',');
+                    int sum = int.Parse(salg[1]);
 
-                _salgsum -= sum;
-                salglabel.Text = _salgsum + " nok";
-                _sales.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                    _salgsum -= sum;
+                    salglabel.Text = _salgsum + " nok";
+                    _sales.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                }catch
+                {}
             }
         }
 
@@ -481,7 +474,7 @@ namespace CafeTerminal.UI
             new ExportVindu(dataProvider);
         }
 
-      
+
 
         private void sendRapportklageforslagToolStripMenuItem_Click(object sender, EventArgs e)
         {

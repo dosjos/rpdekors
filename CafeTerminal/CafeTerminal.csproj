@@ -14,7 +14,7 @@
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>ftp://ftp.pacelg.com/deploy/cafe/</PublishUrl>
+    <PublishUrl>ftp://ftp.pacelg.com/deploy/gro/cafe/</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
@@ -24,10 +24,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://pacelg.com/deploy/cafe/</InstallUrl>
+    <InstallUrl>http://pacelg.com/deploy/gro/cafe/</InstallUrl>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>publish.htm</WebPage>
-    <ApplicationRevision>14</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -86,9 +86,6 @@
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="FluentNHibernate">
-      <HintPath>..\dlls\FluentNHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="Iesi.Collections">
       <HintPath>..\dlls\Iesi.Collections.dll</HintPath>
     </Reference>
@@ -97,12 +94,6 @@
     </Reference>
     <Reference Include="log4net">
       <HintPath>..\dlls\log4net.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate">
-      <HintPath>..\dlls\NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate.ByteCode.Castle">
-      <HintPath>..\dlls\NHibernate.ByteCode.Castle.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -146,10 +137,7 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="DataAccess\CustomizationManager.cs" />
-    <Compile Include="DataAccess\NHibernateHelper.cs" />
-    <Compile Include="UI\ColorPickerColumn.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="UI\ColorPickerColumn.cs" />
     <Compile Include="UI\ErrorMessage.cs" />
     <Compile Include="UI\ExportVindu.cs">
       <SubType>Form</SubType>

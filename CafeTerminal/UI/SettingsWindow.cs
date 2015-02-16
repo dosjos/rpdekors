@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using DomainObjectsSalg.Sales;
 using DomainObjectsSalg.Settings;
@@ -14,7 +9,7 @@ namespace CafeTerminal.UI
     public partial class SettingsWindow : Form
     {
         private Controller.MainController mc;
-        public MainWindow mainWindow;
+        public MainWindow MainWindow;
 
         public SettingsWindow()
         {
@@ -25,7 +20,7 @@ namespace CafeTerminal.UI
         public SettingsWindow(Controller.MainController mc, MainWindow mainWindow)
         {
             this.mc = mc;
-            this.mainWindow = mainWindow;
+            this.MainWindow = mainWindow;
             InitializeComponent();
             InitializeList();
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
@@ -38,8 +33,7 @@ namespace CafeTerminal.UI
             var varer = mc.GetAlleVarer();
             foreach (var vare in varer)
             {
-                DataGridViewRow row = new DataGridViewRow();
-                dataGridView1.Rows.Add(new object[] { vare.CurrentlyInUse, vare.Navn, vare.Pris, "opp", "ned", vare.Farge, vare.Id });
+               dataGridView1.Rows.Add(new object[] { vare.CurrentlyInUse, vare.Navn, vare.Pris, "opp", "ned", Color.FromArgb(vare.Farge), vare.Id });
             }
 
             BringToFront();
@@ -49,27 +43,18 @@ namespace CafeTerminal.UI
         {
             dataGridView1.Columns.Clear();
             dataGridView1.ColumnCount = 3;
-            DataGridViewCheckBoxColumn doWork = new DataGridViewCheckBoxColumn();
-            doWork.HeaderText = "I bruk";
-            doWork.Name = "T";
-            doWork.Width = 60;
+            var doWork = new DataGridViewCheckBoxColumn {HeaderText = "I bruk", Name = "T", Width = 60};
 
             dataGridView1.Columns.Insert(0, doWork);
 
 
-            DataGridViewButtonColumn button = new DataGridViewButtonColumn();
-            button.HeaderText = "Opp";
-            button.Width = 80;
+            var button = new DataGridViewButtonColumn {HeaderText = "Opp", Width = 80};
 
             dataGridView1.Columns.Insert(3, button);
-            DataGridViewButtonColumn button2 = new DataGridViewButtonColumn();
-            button2.HeaderText = "Ned";
-            button2.Width = 80;
+            var button2 = new DataGridViewButtonColumn {HeaderText = "Ned", Width = 80};
             dataGridView1.Columns.Insert(4, button2);
 
-            ColorPickerColumn cpc = new ColorPickerColumn();
-            cpc.HeaderText = "Farge";
-            cpc.Width = 100;
+            var cpc = new ColorPickerColumn {HeaderText = "Farge", Width = 100};
             dataGridView1.Columns.Insert(5, cpc);
 
 
@@ -88,27 +73,27 @@ namespace CafeTerminal.UI
         {
             if (e.ColumnIndex == 0)
             {
-                DataGridViewCheckBoxCell checkCell = (DataGridViewCheckBoxCell)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                var checkCell = (DataGridViewCheckBoxCell)dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
                 dataGridView1.CommitEdit(DataGridViewDataErrorContexts.Commit);
-                int t = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+                var t = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
 
-                Vare v = mc.GetVare(t);
+                var v = mc.GetVare(t);
                 v.CurrentlyInUse = (bool)checkCell.Value;
                 mc.UpdateVare(v);
                 mc.UpdateMainButtons();
             }
             if (e.ColumnIndex == 3)
             {
-                int t = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
-                Vare v = mc.GetVare(t);
+                var t = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+                var v = mc.GetVare(t);
                 mc.PushVareUp(v);
                 InitializeList();
                 mc.UpdateMainButtons();
             }
             if (e.ColumnIndex == 4)
             {
-                int t = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
-                Vare v = mc.GetVare(t);
+                var t = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value);
+                var v = mc.GetVare(t);
                 mc.PushVareDown(v);
                 InitializeList();
                 mc.UpdateMainButtons();
@@ -134,7 +119,7 @@ namespace CafeTerminal.UI
             Console.WriteLine("Antall rader " + dataGridView1.RowCount);
             for (int j = 0; j < dataGridView1.RowCount; j++)
             {
-                ColorPickerCell ColorCell = (ColorPickerCell)dataGridView1.Rows[j].Cells[5];
+                var colorCell = (ColorPickerCell)dataGridView1.Rows[j].Cells[5];
                 Color TemoColor;
                 if (dataGridView1.Rows[j].Cells[5].Value is int)
                 {
@@ -144,8 +129,7 @@ namespace CafeTerminal.UI
                 {
                     TemoColor = (Color) dataGridView1.Rows[j].Cells[5].Value;
                 }
-                Console.WriteLine(TemoColor);
-                Vare v = mc.GetVare(Convert.ToInt32(dataGridView1.Rows[j].Cells[6].Value));
+                var v = mc.GetVare(Convert.ToInt32(dataGridView1.Rows[j].Cells[6].Value));
                 v.Farge = TemoColor.ToArgb();
                 mc.UpdateVare(v);
             }
@@ -155,7 +139,7 @@ namespace CafeTerminal.UI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            bool bytt = true;
+            var bytt = true;
             if (mc.HavePassSetting())
             {
                 if (!mc.GetPassord().Equals(textBox1.Text))
@@ -163,16 +147,12 @@ namespace CafeTerminal.UI
                     bytt = false;
                 }
             }
-            if (bytt)
-            {
-                if (textBox2.Text.Equals(textBox3.Text))
-                {
-                    Settings s = new Settings() { Type="Passord", Value = textBox3.Text};
-                    mc.LagrePassord(s);
-                    mc.EnableMainWindow();
-                    Dispose();
-                }
-            }
+            if (!bytt) return;
+            if (!textBox2.Text.Equals(textBox3.Text)) return;
+            var s = new Settings() { Type="Passord", Value = textBox3.Text};
+            mc.LagrePassord(s);
+            mc.EnableMainWindow();
+            Dispose();
         }
     }
 }

@@ -48,9 +48,6 @@
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.kontrollpanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statistikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.utviklingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mockBesøksDataToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.resetDatabaseToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.hjelpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.omToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.form1BindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -253,8 +250,7 @@
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.kontrollpanelToolStripMenuItem,
-            this.statistikToolStripMenuItem,
-            this.utviklingToolStripMenuItem});
+            this.statistikToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsToolStripMenuItem.Text = "Options";
@@ -262,39 +258,16 @@
             // kontrollpanelToolStripMenuItem
             // 
             this.kontrollpanelToolStripMenuItem.Name = "kontrollpanelToolStripMenuItem";
-            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.kontrollpanelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.kontrollpanelToolStripMenuItem.Text = "Kontrollpanel";
             this.kontrollpanelToolStripMenuItem.Click += new System.EventHandler(this.kontrollpanelToolStripMenuItem_Click);
             // 
             // statistikToolStripMenuItem
             // 
             this.statistikToolStripMenuItem.Name = "statistikToolStripMenuItem";
-            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.statistikToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.statistikToolStripMenuItem.Text = "Statistik";
             this.statistikToolStripMenuItem.Click += new System.EventHandler(this.OpenStatisticsWindow);
-            // 
-            // utviklingToolStripMenuItem
-            // 
-            this.utviklingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mockBesøksDataToolStripMenuItem1,
-            this.resetDatabaseToolStripMenuItem1});
-            this.utviklingToolStripMenuItem.Name = "utviklingToolStripMenuItem";
-            this.utviklingToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
-            this.utviklingToolStripMenuItem.Text = "Utvikling";
-            // 
-            // mockBesøksDataToolStripMenuItem1
-            // 
-            this.mockBesøksDataToolStripMenuItem1.Name = "mockBesøksDataToolStripMenuItem1";
-            this.mockBesøksDataToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
-            this.mockBesøksDataToolStripMenuItem1.Text = "Mock besøks data";
-            this.mockBesøksDataToolStripMenuItem1.Click += new System.EventHandler(this.MockVisitData);
-            // 
-            // resetDatabaseToolStripMenuItem1
-            // 
-            this.resetDatabaseToolStripMenuItem1.Name = "resetDatabaseToolStripMenuItem1";
-            this.resetDatabaseToolStripMenuItem1.Size = new System.Drawing.Size(169, 22);
-            this.resetDatabaseToolStripMenuItem1.Text = "Reset Database";
-            this.resetDatabaseToolStripMenuItem1.Click += new System.EventHandler(this.ResetDatabaseButton);
             // 
             // hjelpToolStripMenuItem
             // 
@@ -377,9 +350,6 @@
         private System.Windows.Forms.ToolStripMenuItem omToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.ToolStripMenuItem utviklingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem mockBesøksDataToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem resetDatabaseToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nyDagToolStripMenuItem;
         private System.Windows.Forms.Label label1;
 

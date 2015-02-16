@@ -145,6 +145,7 @@ namespace CafeRegnskap
 
         private void button1_Click(object sender, EventArgs e)
         {
+           
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Velg regnskapet som skal importeres";
 

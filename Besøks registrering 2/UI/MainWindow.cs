@@ -62,8 +62,11 @@ namespace Visitor_Registration.UI
 
             mc.Settingscheck();
 #if !DEBUG
-            utviklingToolStripMenuItem.Enabled = false;
+           // utviklingToolStripMenuItem.Enabled = false;
 #endif
+
+           // utviklingToolStripMenuItem.Enabled = false;
+
             visitors = new BindingList<StringValue>();
             try
             {
